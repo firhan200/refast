@@ -1,0 +1,49 @@
+//import
+@import './_colors.scss';
+@import './_variables.scss';
+@import './_dekstop.scss';
+@import './_tablet.scss';
+@import './_mobile.scss';
+
+// common css
+body{
+    background-color: $background-color;
+}
+
+.form-control{
+    background-color: $input-color;
+    border: 0px;
+    font-size: $default-font-size;
+}
+
+.top-navbar{
+    background-color: $navbar-color !important;
+    font-size: $default-font-size;
+
+    .navbar-nav{
+        li{
+            margin-right:10px;
+        }
+    }
+
+    .dropdown{
+        .dropdown-toggle:after{
+            content: none !important;
+        }
+    }
+
+    .notification{
+        .total-notification{
+            position: absolute;
+            background-color:$default-color;
+            border-radius: 10px;
+            text-align: center;
+            padding: 0px 5px 0px 5px;
+            font-size:8pt;
+            margin-top:-10px !important;
+            margin-left:-5px !important;
+            color:$white;
+            font-weight: bold;
+        }
+    }
+}
