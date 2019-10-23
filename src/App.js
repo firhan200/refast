@@ -1,7 +1,7 @@
 import React from 'react';
 
 /* libs */
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //font-awesome
 import 'font-awesome/css/font-awesome.min.css';
@@ -18,6 +18,10 @@ import Navbar from './components/layouts/Navbar.js';
 import Menubar from './components/layouts/Menubar';
 /* components */
 
+/* pages */
+import Box from './components/pages/components/Box.js';
+/* pages */
+
 const App = () => {
     return(
         <div>          
@@ -27,16 +31,18 @@ const App = () => {
                 <Navbar />
                 <Menubar />
                 
-                {/* A <Switch> looks through its children <Route>s and
-                renders the first one that matches the current URL. */}
-                <Switch>
-                    <Route path="/">
-                    </Route>
-                    <Route path="/about">
-                    </Route>
-                    <Route path="/users">
-                    </Route>
-                </Switch>
+                {/* set container width to all content */}
+                <div className="container content">
+                    {/* A <Switch> looks through its children <Route>s and
+                    renders the first one that matches the current URL. */}
+                    <Switch>
+                        {/* Components */}
+                        <Route path="/components/box" component={Box} />
+
+                        {/* Default index page */}
+                        <Route path="/" />
+                    </Switch>
+                </div>
             </Router>
         </div>
     );

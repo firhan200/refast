@@ -10,6 +10,20 @@ body{
     background-color: $background-color;
 }
 
+.content{
+    padding:20px 0px 20px 0px;
+
+    .title{
+        font-size:$huge-font-size;
+
+        .sub-title{
+            font-size: $default-font-size;
+            color: darken($gray, 50%);
+            margin-top:-5px; 
+        }
+    }
+}
+
 //link
 .link{
     color: $blue !important;
@@ -34,10 +48,11 @@ body{
     height: 30px;
 }
 
+/* Top navigation bar styling, notification ,messages search & profile */
 .top-navbar{
     background-color: $navbar-color !important;
     font-size: $default-font-size;
-    padding: 20px 40px 20px 40px;
+    padding: 10px 30px 10px 30px;
     border-bottom: 1px solid $gray;
 
     .navbar-nav{
@@ -105,12 +120,72 @@ body{
     }
 }
 
+
+/* Menu navigation styling */
 .menu-navbar{
-    background-color: darken($white, 1%) !important;
+    background-color: $white !important;
     border-bottom: 1px solid $gray;
-    .navbar-nav{
+    box-shadow: 1px 1px 2px $gray;
+}
+
+//styling for horizontal scrollable menu
+.horizontal-menu{
+    overflow: scroll;
+    overflow-y: hidden;
+    padding-bottom: 0px !important;
+
+    .title{
+        font-size:$default-font-size;
+        padding: 10px 32px 0px 32px;
+        color:darken($gray, 30%);
+        font-weight: 500;
+        margin-bottom: -10px;
+    }
+
+    ul{
+        flex-direction: unset;
+        list-style: none;
+
         li{
             float: left !important;
+            margin: 0px 7px 0px 7px;
+
+            a{
+                font-size: $default-font-size;
+            }
         }
     }
 }
+
+.horizontal-menu::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+//sub menu navigation styling
+.submenu{
+    background-color:darken($white, 1%) !important;
+    border: 1px solid $gray;
+
+    ul{
+        padding: 10px 0px 10px 25px;
+
+        li{
+            a{
+                color : $dark-gray;
+                font-size: $small-font-size;
+            }
+        }
+    }
+}
+
+.pull{
+    margin-top:-20px;
+}
+
+/*======================= Components ============================ */
+.box{
+    padding:20px;
+    background-color: $white;
+}
+/*======================= Components ============================ */
