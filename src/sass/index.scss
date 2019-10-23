@@ -10,29 +10,51 @@ body{
     background-color: $background-color;
 }
 
+//link
+.link{
+    color: $blue !important;
+    text-decoration: none;
+    font-size: $default-font-size;
+}
+
+.center{
+    text-align: center !important;
+}
+
+//input
 .form-control{
     background-color: $input-color;
     border: 0px;
     font-size: $default-font-size;
 }
 
+//avatar
+.avatar{
+    width: 30px;
+    height: 30px;
+}
+
 .top-navbar{
     background-color: $navbar-color !important;
     font-size: $default-font-size;
+    padding: 20px 40px 20px 40px;
+    border-bottom: 1px solid $gray;
 
     .navbar-nav{
         li{
-            margin-right:10px;
+            margin-left:15px;
         }
     }
 
-    .dropdown{
+    .notification{
         .dropdown-toggle:after{
             content: none !important;
         }
     }
 
     .notification{
+        margin-top: 5px;
+
         .total-notification{
             position: absolute;
             background-color:$default-color;
@@ -44,6 +66,51 @@ body{
             margin-left:-5px !important;
             color:$white;
             font-weight: bold;
+        }
+
+        .notification-section, .message-section{
+            padding:10px;
+
+            .container-title{
+                margin: 0px 10px 0px 10px;
+                padding-bottom: 10px;
+                font-weight: lighter;
+                border-bottom: 1px solid $gray;
+            }
+
+            .dropdown-item{
+                cursor: pointer;
+                padding:10px;
+                
+                img{
+                    max-width:35px;
+                    max-height:35px;
+                }
+
+                .media-body{
+                    padding-left:10px;
+                    margin-top:-5px;
+
+                    .title{
+                        font-size:10pt;
+                        font-weight: 400;
+                    }
+                    .time{
+                        font-size:8pt;
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.menu-navbar{
+    background-color: darken($white, 1%) !important;
+    border-bottom: 1px solid $gray;
+    .navbar-nav{
+        li{
+            float: left !important;
         }
     }
 }

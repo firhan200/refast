@@ -20,13 +20,13 @@ import Menubar from './components/layouts/Menubar';
 
 const App = () => {
     return(
-        <div>
-            {/* Top navigation bar and Menu bar */}
-            <Navbar />
-            <Menubar />
-
+        <div>          
             {/* Start routing here */}
             <Router>
+                {/* Top navigation bar and Menu bar */}
+                <Navbar />
+                <Menubar />
+                
                 {/* A <Switch> looks through its children <Route>s and
                 renders the first one that matches the current URL. */}
                 <Switch>
