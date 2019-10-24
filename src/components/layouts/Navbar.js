@@ -22,28 +22,28 @@ const Navbar = () => {
                 </form>
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item dropdown notification">
-                        <Link className="nav-link dropdown-toggle" id="notificationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a href="#!" className="nav-link dropdown-toggle" id="notificationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i className="fa fa-bell"></i>
                             <span className="total-notification">5</span>
-                        </Link>
+                        </a>
                         <NotificationContainer />
                     </li>
                     <li className="nav-item dropdown notification">
-                        <Link className="nav-link dropdown-toggle" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a href="#!" className="nav-link dropdown-toggle" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i className="fa fa-envelope"></i>
                             <span className="total-notification">13</span>
-                        </Link>
+                        </a>
                         <MessageContainer />
                     </li>
                     <li className="nav-item dropdown">
-                        <Link className="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a className="nav-link dropdown-toggle" href="#!" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="/images/avatar.png" alt="avatar" className="avatar rounded"/>
-                        </Link>
+                        </a>
                         <div className="dropdown-menu dropdown-menu-right message-section" aria-labelledby="profileDropdown">
-                            <Link className="dropdown-item">Profile</Link>
-                            <Link className="dropdown-item">Change Password</Link>
-                            <div class="dropdown-divider"></div>
-                            <Link className="dropdown-item">Logout</Link>
+                            <Link className="dropdown-item" to="/profile">Profile</Link>
+                            <Link className="dropdown-item" to="/change-password">Change Password</Link>
+                            <div className="dropdown-divider"></div>
+                            <a href="#!" className="dropdown-item">Logout</a>
                         </div>
                     </li>
                 </ul>

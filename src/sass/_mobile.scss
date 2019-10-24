@@ -18,4 +18,27 @@
             }
         }
     }
+
+    .content{
+        padding:0px !important;
+
+        .title{
+            padding:0px 15px 0px 15px;
+        }
+    }
+
+    /*======================= Components ============================ */
+    .box{
+        margin-bottom: 10px;
+    }
+
+    .custom-container{
+        .row {
+            .custom-col{
+                padding-left: 0px !important;
+                padding-right: 0px !important;
+            }
+        }
+    }
+    /*======================= Components ============================ */
 }

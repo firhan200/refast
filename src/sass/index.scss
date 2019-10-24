@@ -22,6 +22,10 @@ body{
             margin-top:-5px; 
         }
     }
+
+    .body{
+        margin:20px 0px 20px 0px;
+    }
 }
 
 //link
@@ -183,9 +187,17 @@ body{
     margin-top:-20px;
 }
 
+
+
 /*======================= Components ============================ */
 .box{
     padding:20px;
     background-color: $white;
+    box-shadow: 1px 4px 4px $gray;
+}
+
+.custom-container{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
 }
 /*======================= Components ============================ */

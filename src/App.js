@@ -19,7 +19,7 @@ import Menubar from './components/layouts/Menubar';
 /* components */
 
 /* pages */
-import Box from './components/pages/components/Box.js';
+import BoxPage from './components/pages/components/BoxPage.js';
 /* pages */
 
 const App = () => {
@@ -37,7 +37,7 @@ const App = () => {
                     renders the first one that matches the current URL. */}
                     <Switch>
                         {/* Components */}
-                        <Route path="/components/box" component={Box} />
+                        <Route path="/components/box" component={BoxPage} />
 
                         {/* Default index page */}
                         <Route path="/" />
