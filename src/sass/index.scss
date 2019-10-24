@@ -229,6 +229,7 @@ body{
 .custom-alert{
     padding:0px;
     border:0px;
+    box-shadow: 1px 3px 4px $gray;
     
     .alert-icon{
         width:40px;
@@ -238,6 +239,7 @@ body{
         height:100%;
         border-right: 2px solid $white;
         margin-right: 10px;
+        margin-top:-2px;
     }
     .alert-message{
         padding:10px;
