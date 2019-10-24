@@ -30,6 +30,9 @@ const Alert = (props) => {
             case 'info':
                 alertIcon = 'fa fa-paper-plane'
                 break;
+            default:
+                alertIcon = '';
+                break;
         }
     }
 

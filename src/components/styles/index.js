@@ -7,6 +7,7 @@ import Button from './Button.js';
 import Container from './Container.js';
 import Row from './Row.js';
 import Alert from './Alert.js';
+import Badge from './Badge.js';
 /* Styles */
 
 //multiple export
@@ -17,4 +18,5 @@ export {
     Container,
     Row,
     Alert,
+    Badge,
 };

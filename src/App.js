@@ -20,6 +20,7 @@ import Menubar from './components/layouts/Menubar';
 /* pages */
 import BoxPage from './components/pages/components/BoxPage.js';
 import AlertPage from './components/pages/components/AlertPage.js';
+import BadgePage from './components/pages/components/BadgePage.js';
 /* pages */
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
                         {/* Components */}
                         <Route path="/components/box" component={BoxPage} />
                         <Route path="/components/alert" component={AlertPage} />
+                        <Route path="/components/badges" component={BadgePage} />
 
                         {/* Default index page */}
                         <Route path="/" />

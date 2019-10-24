@@ -198,13 +198,37 @@ body{
     margin-top:-20px;
 }
 
+//spin animation
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg);}}
+
+//shake animation
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-0.5px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(1px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-2px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(2px, 0, 0);
+    }
+}
 
 
 /*======================= Components ============================ */
 .box{
     padding:20px;
     background-color: $white;
-    box-shadow: 1px 4px 4px $gray;
+    box-shadow: 2px 4px 4px $gray;
+    border:1px solid $gray;
 
     .box-title{
         font-size: $default-font-size;
@@ -244,6 +268,28 @@ body{
     .alert-message{
         padding:10px;
         font-size:$default-font-size;
+    }
+}
+
+.custom-badge{
+    cursor: pointer;
+    padding:8px 12px 8px 12px;
+    font-size: $default-font-size;
+    box-shadow: 2px 2px 3px $gray;
+    color:$white;
+    font-weight: 100;
+
+    .icon{
+        margin-left:10px;
+    }
+
+    
+}
+.custom-badge:hover{
+    .icon{
+        -webkit-animation:shake 1s linear infinite;
+        -moz-animation:shake 1s linear infinite;
+        animation:shake 1s linear infinite;
     }
 }
 /*======================= Components ============================ */
