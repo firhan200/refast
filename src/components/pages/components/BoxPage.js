@@ -1,7 +1,7 @@
 import React from 'react';
 
 /* Styles */
-import { Box, Row, Container } from './../../styles';
+import { Box, BoxTitle, Row, Container } from './../../styles';
 /* Styles */
 
 const BoxPage = () => {
@@ -30,6 +30,27 @@ const BoxPage = () => {
                             medium 6
                             <br/>
                             large 9
+                        </Box>
+                    </Row>
+                    <Row>
+                        <Box md={8} mdOffset={2} lg={6} lgOffset={3}>
+                            medium 8, offset 2
+                            <br/>
+                            large 6, offset 3
+                        </Box>
+                    </Row>
+                    <Row>
+                        <Box sm={4}>
+                            <BoxTitle label="Title and Icon" icon="fa fa-bell"/>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </Box>
+                        <Box sm={4}>
+                            <BoxTitle label="Title Only"/>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </Box>
+                        <Box sm={4}>
+                            <BoxTitle icon="fa fa-comments"/>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         </Box>
                     </Row>
                 </Container>

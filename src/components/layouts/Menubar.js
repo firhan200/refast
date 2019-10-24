@@ -122,34 +122,34 @@ const Menubar = () => {
                                 <Link to="/components/box">Box</Link>
                             </li>
                             <li>
-                                <Link>Alert</Link>
+                                <Link to="/components/alert">Alert</Link>
                             </li>
                             <li>
-                                <Link>Badges</Link>
+                                <Link to="/components/badges">Badges</Link>
                             </li>
                             <li>
-                                <Link>Buttons</Link>
+                                <Link to="/components/buttons">Buttons</Link>
                             </li>
                             <li>
-                                <Link>Cards</Link>
+                                <Link to="/components/cards">Cards</Link>
                             </li>
                             <li>
-                                <Link>Breadcrumbs</Link>
+                                <Link to="/components/breadcrumbs">Breadcrumbs</Link>
                             </li>
                             <li>
-                                <Link>Carousel</Link>
+                                <Link to="/components/carousel">Carousel</Link>
                             </li>
                             <li>
-                                <Link>Charts</Link>
+                                <Link to="/components/charts">Charts</Link>
                             </li>
                             <li>
-                                <Link>Collapse</Link>
+                                <Link to="/components/collapse">Collapse</Link>
                             </li>
                             <li>
-                                <Link>Dropdowns</Link>
+                                <Link to="/components/dropdowns">Dropdowns</Link>
                             </li>
                             <li>
-                                <Link>Tables</Link>
+                                <Link to="/components/tables">Tables</Link>
                             </li>
                         </ul>
                     </div>

@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import 'font-awesome/css/font-awesome.min.css';
 
 //bootstrap
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'jquery/dist/jquery.min.js';
 import 'popper.js/dist/popper.min.js';
 import 'bootstrap/dist/js/bootstrap.min.js';
@@ -20,6 +19,7 @@ import Menubar from './components/layouts/Menubar';
 
 /* pages */
 import BoxPage from './components/pages/components/BoxPage.js';
+import AlertPage from './components/pages/components/AlertPage.js';
 /* pages */
 
 const App = () => {
@@ -38,6 +38,7 @@ const App = () => {
                     <Switch>
                         {/* Components */}
                         <Route path="/components/box" component={BoxPage} />
+                        <Route path="/components/alert" component={AlertPage} />
 
                         {/* Default index page */}
                         <Route path="/" />

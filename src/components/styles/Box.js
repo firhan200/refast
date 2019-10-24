@@ -9,11 +9,11 @@ const Box = (props) => {
     const sm = typeof props.sm !== 'undefined' ? ' col-sm-'+props.sm : '';
     const smOffset = typeof props.smOffset !== 'undefined' ? ' offset-sm-'+props.smOffset : '';
 
-    const md = typeof props.sm !== 'undefined' ? ' col-md-'+props.md : '';
+    const md = typeof props.md !== 'undefined' ? ' col-md-'+props.md : '';
     const mdOffset = typeof props.mdOffset !== 'undefined' ? ' offset-md-'+props.mdOffset : '';
 
-    const lg = typeof props.sm !== 'undefined' ? ' col-lg-'+props.lg : '';
-    const lgOffset = typeof props.lgOffset !== 'undefined' ? ' offset-md-'+props.lgOffset : '';
+    const lg = typeof props.lg !== 'undefined' ? ' col-lg-'+props.lg : '';
+    const lgOffset = typeof props.lgOffset !== 'undefined' ? ' offset-lg-'+props.lgOffset : '';
 
     return(
         <div className={'custom-col'+ sm + smOffset + md + mdOffset + lg + lgOffset}>

@@ -33,7 +33,13 @@
     }
 
     .custom-container{
-        .row {
+        padding:25px;
+
+        .custom-row {
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+            margin-bottom: 0px !important;
+
             .custom-col{
                 padding-left: 0px !important;
                 padding-right: 0px !important;

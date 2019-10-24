@@ -5,6 +5,17 @@
 @import './_tablet.scss';
 @import './_mobile.scss';
 
+//theming bootstrap color
+$theme-colors: (
+  primary: $primary,
+  success: $success,
+  danger: $danger,
+  warning: $warning,
+  info: $info,
+);
+//import bootstrap to replace
+@import 'bootstrap/scss/bootstrap.scss';
+
 // common css
 body{
     background-color: $background-color;
@@ -194,10 +205,43 @@ body{
     padding:20px;
     background-color: $white;
     box-shadow: 1px 4px 4px $gray;
+
+    .box-title{
+        font-size: $default-font-size;
+        color: $dark-gray;
+        margin-bottom: 10px;
+
+        i{
+            font-size: 8pt;
+        }
+    }
 }
 
 .custom-container{
     padding-left: 0px !important;
     padding-right: 0px !important;
+
+    .custom-row{
+        margin-bottom:20px;
+    }
+}
+
+.custom-alert{
+    padding:0px;
+    border:0px;
+    
+    .alert-icon{
+        width:40px;
+        text-align: center;
+        padding: 10px;
+        float: left;
+        height:100%;
+        border-right: 2px solid $white;
+        margin-right: 10px;
+    }
+    .alert-message{
+        padding:10px;
+        font-size:$default-font-size;
+    }
 }
 /*======================= Components ============================ */
