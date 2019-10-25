@@ -283,7 +283,24 @@ body{
         margin-left:10px;
     }
 
-    
+    .image{
+        background-color: black;
+        float: left;
+        margin:-8px 5px -8px -13px;
+        width:$badge-image-size;
+        height:$badge-image-size;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        box-shadow: 0.3px 0.3px 1.7px $dark-gray;
+        img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width:$badge-image-size;
+        }
+    }
 }
 .custom-badge:hover{
     .icon{

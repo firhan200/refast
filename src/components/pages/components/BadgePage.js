@@ -35,6 +35,8 @@ const BadgePage = () => {
                         </Box>
                         <Box md={4}>
                             <BoxTitle label="Badge with icon and image"/>
+                            <Badge type="success" icon="fa fa-check-circle" image="/images/avatar.png" message="success"/>
+                            <Badge type="primary" image="/images/avatar.png" message="primary"/>
                         </Box>
                     </Row>
                 </Container>
