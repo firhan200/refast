@@ -309,4 +309,23 @@ body{
         animation:shake 1s linear infinite;
     }
 }
+
+.custom-button{
+    border-radius: 2px;
+    box-shadow: 1px 2px 3px $gray;
+
+    &.btn-sm{
+        font-size:6pt;   
+    }
+    &.btn-md{
+        font-size:9pt;   
+    }
+    &.btn-lg{
+        font-size:12pt;   
+    }
+
+    &.rounded{
+        border-radius: 25px !important;
+    }
+}
 /*======================= Components ============================ */

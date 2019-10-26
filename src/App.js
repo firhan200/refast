@@ -21,6 +21,7 @@ import Menubar from './components/layouts/Menubar';
 import BoxPage from './components/pages/components/BoxPage.js';
 import AlertPage from './components/pages/components/AlertPage.js';
 import BadgePage from './components/pages/components/BadgePage.js';
+import ButtonPage from './components/pages/components/ButtonPage.js';
 /* pages */
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
                         <Route path="/components/box" component={BoxPage} />
                         <Route path="/components/alert" component={AlertPage} />
                         <Route path="/components/badges" component={BadgePage} />
+                        <Route path="/components/buttons" component={ButtonPage} />
 
                         {/* Default index page */}
                         <Route path="/" />
