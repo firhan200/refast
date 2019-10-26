@@ -14,7 +14,7 @@ const ButtonPage = () => {
                 </div>
             </div>
 
-            <div className="body">
+            <div className="body add-spaces">
                 <Container>
                     <Row>
                         <Box md={4} lg={4}>
@@ -42,12 +42,24 @@ const ButtonPage = () => {
                         <Box md={4} lg={4}>
                             <BoxTitle label="Rounded button"/>
                             <Button label="Primary" type="primary" isRounded={true} size="small"/>
-                            <br/>
-                            <br/>
                             <Button label="Primary" type="primary" isRounded={true} size="medium"/>
-                            <br/>
-                            <br/>
                             <Button label="Primary" type="primary" isRounded={true} size="large"/>
+                            <hr/>
+                            <BoxTitle label="Iconed button"/>
+                            <Button label="Primary" type="primary" icon="fa fa-download" size="small"/>
+                            <Button label="Danger" type="danger" icon="fa fa-exclamation" size="medium"/>
+                            <Button label="Warning" type="warning" icon="fa fa-info-circle" size="large"/>
+                            <hr/>
+                            <BoxTitle label="Outlined button"/>
+                            <Button label="Primary" icon="fa fa-download" type="primary" isOutlined={true}/>
+                            <Button label="Success" isRounded={true} type="success" isOutlined={true}/>
+                            <Button label="Danger" icon="fa fa-exclamation" type="danger" isRounded={true} isOutlined={true}/>
+                        </Box>
+                        <Box md={4} lg={4}>
+                            <BoxTitle label="Only Icon button"/>
+                            <Button icon="fa fa-download" type="primary" isOutlined={true} size="small"/>
+                            <Button icon="fa fa-print" type="success" isRounded={true} size="medium"/>
+                            <Button icon="fa fa-github" type="info" size="large"/>
                         </Box>
                     </Row>
                 </Container>

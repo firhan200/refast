@@ -21,6 +21,14 @@ body{
     background-color: $background-color;
 }
 
+.add-spaces{
+    .custom-button,
+    .custom-badge{
+        margin-right:10px;
+        margin-bottom: 10px;
+    }
+}
+
 .content{
     padding:20px 0px 20px 0px;
 
@@ -276,7 +284,6 @@ body{
     padding:8px 12px 8px 12px;
     font-size: $default-font-size;
     box-shadow: 2px 2px 3px $gray;
-    color:$white;
     font-weight: 100;
 
     .icon{
@@ -301,18 +308,19 @@ body{
             width:$badge-image-size;
         }
     }
-}
-.custom-badge:hover{
-    .icon{
-        -webkit-animation:shake 1s linear infinite;
-        -moz-animation:shake 1s linear infinite;
-        animation:shake 1s linear infinite;
+
+    &:hover{
+        .icon{
+            -webkit-animation:shake 1s linear infinite;
+            -moz-animation:shake 1s linear infinite;
+            animation:shake 1s linear infinite;
+        }
     }
 }
 
 .custom-button{
     border-radius: 2px;
-    box-shadow: 1px 2px 3px $gray;
+    box-shadow: 2px 3px 4px darken($gray, 10%);
 
     &.btn-sm{
         font-size:6pt;   
@@ -327,5 +335,17 @@ body{
     &.rounded{
         border-radius: 25px !important;
     }
+
+    .icon{
+        &.pad{
+            margin-right:10px;
+        }
+    }
+}
+
+.custom-icon-card{
+    background-color: $white;
+    padding:20px;
+    box-shadow: 2px 3px 4px darken($gray, 5%);
 }
 /*======================= Components ============================ */

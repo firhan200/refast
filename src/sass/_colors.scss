@@ -1,5 +1,5 @@
 // colors
-$default-color : #17A589;
+$default-color : #7757F7;
 $black: #1c1c1c;
 $dark-gray: #464646;
 $blue: #3498DB;
@@ -7,8 +7,8 @@ $white : #fff;
 $gray : #f2f2f2;
 
 //bootstrap color replacement
-$primary : rgb(43, 132, 192);
-$danger: rgb(209, 97, 85);
-$warning: rgb(218, 156, 57);
-$success: rgb(74, 184, 120);
-$info: #7FB3D5;
+$primary : $default-color;
+$danger: #D15C41;
+$warning: #E1E53D;
+$success: #27CF74;
+$info: #80FEDE;

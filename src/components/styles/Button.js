@@ -4,6 +4,9 @@ import React from 'react';
 import PropTypes from 'prop-types'; // prop types
 
 const Button = (props) => {
+    //get label
+    const isLabelExist = typeof props.label !== 'undefined' ? true : false;
+
     //get button outlined
     const inputButtonOutlined = typeof props.isOutlined !== 'undefined' ? props.isOutlined : false;
 
@@ -56,10 +59,20 @@ const Button = (props) => {
     buttonSize = ' ' + buttonSize;
 
     //get is rounded button
-    const isRounded = typeof props.isRounded !== 'undefined' ? (props.isRounded ? ' rounded' : '') : '';
+    const isButtonRounded = typeof props.isRounded !== 'undefined' ? (props.isRounded ? ' rounded' : '') : '';
+
+    //get custom class
+    const customClassName = typeof props.className !== 'undefined' ? props.className : '';
+
+    //get button icon
+    const buttonIcon = typeof props.icon !== 'undefined' ? props.icon : '';
 
     return(
-        <button onClick={props.handleClick} className={"custom-button btn"+ buttonType + buttonSize + isRounded}>
+        <button onClick={props.handleClick} className={"custom-button btn"+ buttonType + buttonSize + isButtonRounded + " " + customClassName}>
+            {/* check if use icon */}
+            { buttonIcon !== '' ? (<i className={(isLabelExist ? 'pad ' : '')+'icon '+ buttonIcon}></i>) : '' }
+            
+            {/* show button label */}
             { props.label }
         </button>
     );
@@ -67,6 +80,8 @@ const Button = (props) => {
 
 //prop types initialize
 Button.propTypes = {
+    className: PropTypes.string,
+    icon: PropTypes.string,
     type: PropTypes.string,
     size: PropTypes.string,
     label: PropTypes.string,
