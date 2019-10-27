@@ -22,14 +22,14 @@ body{
 }
 
 .add-spaces{
-    .custom-button,
-    .custom-badge{
-        margin-left:5px;
-        margin-right:5px;
+    >.custom-button,
+    >.custom-badge{
+        margin-right:10px;
         margin-bottom: 10px;
     }
 
-    .custom-icon-card{
+    .custom-icon-card,
+    .custom-user-card{
         margin-bottom: 10px;
     }
 }
@@ -499,6 +499,53 @@ body{
 
     .user-card-child{
         margin-top:10px;
+    }
+}
+
+.custom-image-card{
+    &.overlay{
+        background-color: rgba(0,0,0,0.9); /* Black background with opacity */
+
+        .card-body{
+            position: absolute;
+            .card-title{
+                color:$white;
+            }
+            .card-subtitle{
+                color:$white;
+            }
+            .card-text{
+                color:$white;
+            }
+        }
+
+        &:hover{
+            .card-img-top{
+                opacity: 1;
+            }
+        }
+    }
+
+    .card-img-top{
+        transition: 0.5s;
+        opacity: 0.9;
+        &:hover{
+            opacity:1;
+        }
+    }
+    .card-body{
+        .card-title{
+            font-size: $default-font-size;
+        }
+        .card-subtitle{
+            font-size: $small-font-size;
+            font-weight: 300;
+            margin-top:-10px;
+        }
+        .card-text{
+            margin-top:7px;
+            font-size: $small-font-size;
+        }
     }
 }
 /*======================= Components ============================ */

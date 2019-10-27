@@ -18,25 +18,31 @@ const BadgePage = () => {
                 <Container>
                     <Row>
                         <Box md={4}>
-                            <BoxTitle label="Badge"/>
-                            <Badge type="success" message="success"/>
-                            <Badge type="danger" message="danger"/>
-                            <Badge type="primary" message="primary"/>
-                            <Badge type="warning" message="warning"/>
-                            <Badge type="info" message="info"/>
+                            <div className="add-spaces">
+                                <BoxTitle label="Badge"/>
+                                <Badge type="success" message="success"/>
+                                <Badge type="danger" message="danger"/>
+                                <Badge type="primary" message="primary"/>
+                                <Badge type="warning" message="warning"/>
+                                <Badge type="info" message="info"/>
+                            </div>
                         </Box>
                         <Box md={4}>
-                            <BoxTitle label="Badge with icon"/>
-                            <Badge type="success" icon="fa fa-check-circle" message="success"/>
-                            <Badge type="danger" icon="fa fa-exclamation" message="danger"/>
-                            <Badge type="primary" icon="fa fa-star" message="primary"/>
-                            <Badge type="warning" icon="fa fa-info-circle" message="warning"/>
-                            <Badge type="info" icon="fa fa-paper-plane" message="info"/>
+                            <div className="add-spaces">
+                                <BoxTitle label="Badge with icon"/>
+                                <Badge type="success" icon="fa fa-check-circle" message="success"/>
+                                <Badge type="danger" icon="fa fa-exclamation" message="danger"/>
+                                <Badge type="primary" icon="fa fa-star" message="primary"/>
+                                <Badge type="warning" icon="fa fa-info-circle" message="warning"/>
+                                <Badge type="info" icon="fa fa-paper-plane" message="info"/>
+                            </div>
                         </Box>
                         <Box md={4}>
-                            <BoxTitle label="Badge with icon and image"/>
-                            <Badge type="success" icon="fa fa-check-circle" image="/images/avatar.png" message="success"/>
-                            <Badge type="primary" image="/images/avatar.png" message="primary"/>
+                            <div className="add-spaces">
+                                <BoxTitle label="Badge with icon and image"/>
+                                <Badge type="success" icon="fa fa-check-circle" image="/images/avatar.png" message="success"/>
+                                <Badge type="primary" image="/images/avatar.png" message="primary"/>
+                            </div>
                         </Box>
                     </Row>
                 </Container>

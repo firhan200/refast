@@ -47,7 +47,7 @@ const UserCard = (props) => {
                 <div>
                     <div className="top-bg">
                         { background!=='' ? (
-                            <img src={background}/>
+                            <img alt={""} src={background}/>
                         ) : '' }
                     </div>
                     <div className="frame">
