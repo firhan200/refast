@@ -1,7 +1,7 @@
 import React from 'react';
 
 /* Styles */
-import { Row, Container, IconCard } from './../../styles';
+import { Col, Row, Container, IconCard, UserCard, Button } from './../../styles';
 /* Styles */
 
 const CardPage = () => {
@@ -14,43 +14,52 @@ const CardPage = () => {
                 </div>
             </div>
 
-            <div className="body">
+            <div className="body add-spaces">
                 <Container>
                     <Row>
-                        <div className="col-6 col-sm-6 col-md-4 col-lg-3">
+                        <Col xs={6} sm={6} md={3}>
                             <IconCard label="iOS Downloads" isWavy={true} number={5207} icon="fa fa-apple"/>  
-                        </div>  
-                        <div className="col-6 col-sm-6 col-md-4 col-lg-3"> 
+                        </Col>  
+                        <Col xs={6} sm={6} md={3}> 
                             <IconCard label="Android Downloads" number={10523} icon="fa fa-android"/> 
-                        </div>
-                        <div className="col-6 col-sm-6 col-md-4 col-lg-3">
+                        </Col>
+                        <Col xs={6} sm={6} md={3}>
                             <div className="help">
                                 *no icon with wavy style
                             </div>
                             <IconCard label="Windows Phone Downloads" isWavy={true} number={602} />
-                        </div>  
-                        <div className="col-6 col-sm-6 col-md-4 col-lg-3"> 
+                        </Col>  
+                        <Col xs={6} sm={6} md={3}> 
                             <div className="help">
                                 *no icon with blank style
                             </div>
                             <IconCard label="Web Access" number={9020321} /> 
-                        </div>            
+                        </Col>             
                     </Row>
-                </Container>
-            </div>
-            <div className="title">
-                User Cards
-                <div className="sub-title">
-                    <i className="fa fa-info-circle"></i> squared box with bunch of element inside.
-                </div>
-            </div>
-
-            <div className="body">
-                <Container>
                     <Row>
-            
+                        <Col xs={12}>
+                            <div className="title">
+                                User Cards
+                                <div className="sub-title">
+                                    <i className="fa fa-info-circle"></i> squared box with bunch of element inside.
+                                </div>
+                            </div>
+                        </Col>
                     </Row>
-                </Container>
+                    <Row>
+                        <Col sm={12} md={6}>
+                            <Container>
+                                <Row>
+                                    <Col xs={12} sm={6} md={6}>
+                                        <UserCard avatar="/images/avatar.png" title="John Doe" subTitle="Software Engineer">
+                                            <Button label="Edit Profile" size="medium" icon="fa fa-gear" isOutlined={true}/>
+                                        </UserCard> 
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </Col>
+                    </Row>
+                </Container> 
             </div>
         </div>
     );

@@ -9,6 +9,7 @@ import BoxTitle from './BoxTitle.js';
 //grid
 import Container from './Container.js';
 import Row from './Row.js';
+import Col from './Col.js';
 
 //alert
 import Alert from './Alert.js';
@@ -33,6 +34,7 @@ export {
     Button,
     Container,
     Row,
+    Col,
     Alert,
     Badge,
     IconCard,

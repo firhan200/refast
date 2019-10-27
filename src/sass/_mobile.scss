@@ -46,5 +46,14 @@
             }
         }
     }
+
+    .custom-icon-card{
+        .icon-card-body{
+            margin-bottom: 10px;
+            &.wavy{
+                margin-bottom:-20px !important;
+            }
+        }
+    }
     /*======================= Components ============================ */
 }

@@ -23,15 +23,10 @@ const IconCard = (props) => {
     //get button outlined
     const isButtonWavy = typeof props.isWavy !== 'undefined' ? props.isWavy : false;
 
-    let customStyle = {
-        marginBottom : (isButtonWavy ? -40 : 0),
-        paddingBottom : (isButtonWavy ? 0 : 10)
-    }
-
     return(
         <div className={'custom-icon-card '+align+' '+customClassName}>
             {/* main content */}
-            <div className="icon-card-body" style={customStyle}>
+            <div className={"icon-card-body "+(isButtonWavy ? 'wavy' : '')}>
                 { icon !== '' ? (
                 <div className="icon">
                     <i className={ icon }></i>

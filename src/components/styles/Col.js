@@ -4,7 +4,7 @@ import React from 'react';
 //libs
 import PropTypes from 'prop-types'; // prop types
 
-const Box = (props) => {
+const Col = (props) => {
     //default bootstrap col grid size
     const xs = typeof props.xs !== 'undefined' ? ' col-'+props.xs : '';
     const xsOffset = typeof props.xsOffset !== 'undefined' ? ' offset-'+props.xsOffset : '';
@@ -22,16 +22,14 @@ const Box = (props) => {
     const customClassName = typeof props.className !== 'undefined' ? props.className : '';
 
     return(
-        <div className={'custom-col'+ xs + xsOffset + sm + smOffset + md + mdOffset + lg + lgOffset + " "+customClassName}>
-            <div className="box">
-                { props.children }
-            </div>
+        <div className={xs + xsOffset + sm + smOffset + md + mdOffset + lg + lgOffset + " "+customClassName}>
+            { props.children }
         </div>
     );
 }
 
 //prop types initialize
-Box.propTypes = {
+Col.propTypes = {
     className: PropTypes.string,
     xs: PropTypes.number,
     sm: PropTypes.number,
@@ -39,4 +37,4 @@ Box.propTypes = {
     lg: PropTypes.number
 }
 
-export default Box;
+export default Col;

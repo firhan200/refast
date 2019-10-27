@@ -24,7 +24,12 @@ body{
 .add-spaces{
     .custom-button,
     .custom-badge{
-        margin-right:10px;
+        margin-left:5px;
+        margin-right:5px;
+        margin-bottom: 10px;
+    }
+
+    .custom-icon-card{
         margin-bottom: 10px;
     }
 }
@@ -323,7 +328,7 @@ body{
 }
 
 .custom-button{
-    border-radius: 2px;
+    border-radius: 4px;
     box-shadow: 2px 3px 4px darken($gray, 10%);
 
     &.btn-sm{
@@ -351,7 +356,9 @@ body{
     background-color: $white;
     padding:0px;
     box-shadow: 2px 3px 4px darken($gray, 5%);
+    border-radius: 5px;
     color:$dark-gray;
+    overflow: hidden;
 
     text-align: center;
 
@@ -365,6 +372,7 @@ body{
 
     .icon-card-body{
         padding:0px 20px 0px 20px;
+        margin-bottom: 10px;
 
         .icon{
             font-size:$large-font-size + 10;
@@ -380,6 +388,10 @@ body{
             font-size:$large-font-size;
             font-weight: 400;
         }
+
+        &.wavy{
+            margin-bottom: -40px;
+        }
     }
 
     svg{
@@ -389,6 +401,54 @@ body{
         path{
             fill : $default-color !important;
         }
+    }
+}
+
+.custom-user-card{
+    background-color: $white;
+    padding:0px 0px 20px 0px;
+    box-shadow: 2px 3px 4px darken($gray, 5%);
+    border-radius: 5px;
+    color:$dark-gray;
+    overflow: hidden;
+    text-align: center;
+
+    .top-bg{
+        height:100px;
+        background-color: $default-color;
+    }
+
+    .frame{
+        margin:0 auto;
+        margin-top:-50px;
+        margin-bottom: 20px;
+        width:100px;
+        height:100px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img{
+            margin: 0 auto;
+            max-width:150px;
+            max-height:150px;
+        }
+    }
+
+    .title{
+        font-size: $large-font-size;
+    }
+
+    .sub-title{
+        margin-top:5px;
+        font-size: $default-font-size;
+    }
+
+    .user-card-child{
+        margin-top:10px;
     }
 }
 /*======================= Components ============================ */
