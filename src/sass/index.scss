@@ -29,6 +29,10 @@ body{
     }
 }
 
+.help{
+    font-size:$small-font-size;
+}
+
 .content{
     padding:20px 0px 20px 0px;
 
@@ -345,7 +349,46 @@ body{
 
 .custom-icon-card{
     background-color: $white;
-    padding:20px;
+    padding:0px;
     box-shadow: 2px 3px 4px darken($gray, 5%);
+    color:$dark-gray;
+
+    text-align: center;
+
+    &.left{
+        text-align:left;
+    }
+
+    &.right{
+        text-align:right;
+    }
+
+    .icon-card-body{
+        padding:0px 20px 0px 20px;
+
+        .icon{
+            font-size:$large-font-size + 10;
+            color: darken($default-color, 5%);
+            margin-bottom:-20px;
+        }
+        .label{
+            padding-top:20px;
+            font-size:$small-font-size - 1;
+        }
+        .number{
+            margin-top:0px;
+            font-size:$large-font-size;
+            font-weight: 400;
+        }
+    }
+
+    svg{
+        left:0;
+        bottom:0;
+
+        path{
+            fill : $default-color !important;
+        }
+    }
 }
 /*======================= Components ============================ */
