@@ -3,7 +3,7 @@ import React from 'react';
 /* Styles */
 import { Col, Row, Container, IconCard, UserCard, Button, ImageCard,
     ImageCardTitle,ImageCardSubTitle,ImageCardDescription,ProductCard,
-    ProductCardName,ProductCardImage,ProductCardPrice,ProductCardDescription
+    ProductCardName,ProductCardImage,ProductCardPrice,ProductCardDescription, ProductCardCategory
 } from './../../styles';
 /* Styles */
 
@@ -44,7 +44,7 @@ const CardPage = () => {
                             <div className="title">
                                 User Cards
                                 <div className="sub-title">
-                                    <i className="fa fa-info-circle"></i> squared box with bunch of element inside.
+                                    <i className="fa fa-info-circle"></i> box contains with user information.
                                 </div>
                             </div>
                         </Col>
@@ -75,7 +75,7 @@ const CardPage = () => {
                             <div className="title">
                                 Image Cards
                                 <div className="sub-title">
-                                    <i className="fa fa-info-circle"></i> squared box with bunch of element inside.
+                                    <i className="fa fa-info-circle"></i> squared box with overlay or topped image.
                                 </div>
                             </div>
                         </Col>
@@ -116,7 +116,7 @@ const CardPage = () => {
                             <div className="title">
                                 Product Cards
                                 <div className="sub-title">
-                                    <i className="fa fa-info-circle"></i> squared box with bunch of element inside.
+                                    <i className="fa fa-info-circle"></i> e-commerce product card.
                                 </div>
                             </div>
                         </Col>
@@ -128,11 +128,14 @@ const CardPage = () => {
                                     <Col xs={12} sm={6} md={4} lg={3}>
                                         <ProductCard>
                                             <ProductCardName>Asus Vivobook Ultra A412FL</ProductCardName>
+                                            <ProductCardCategory>Notebook</ProductCardCategory>
                                             <ProductCardImage image="/images/asus.jpg"/>
                                             <ProductCardDescription maxLength={150}>
                                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                                             </ProductCardDescription>
                                             <ProductCardPrice price={1299} afterDiscountPrice={999} currency="$"/>
+                                            <Button label="ADD TO CART" size="small" className="m-1" />
+                                            <Button label="ADD TO WISHLIST" size="small" type="danger" />
                                         </ProductCard> 
                                     </Col>
                                     <Col xs={12} sm={6} md={4} lg={3}>
@@ -140,6 +143,8 @@ const CardPage = () => {
                                             <ProductCardName>Asus Vivobook Ultra A412FL</ProductCardName>
                                             <ProductCardImage image="/images/asus.jpg"/>
                                             <ProductCardPrice price={1299} currency="$"/>
+                                            <Button className="m-1" icon="fa fa-shopping-cart" isOutlined={true} isRounded={true}/>
+                                            <Button icon="fa fa-heart" type="danger" isOutlined={true} isRounded={true}/>
                                         </ProductCard> 
                                     </Col>
                                 </Row>

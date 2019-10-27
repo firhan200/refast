@@ -32,6 +32,11 @@ import ProductCardName from './ProductCardName';
 import ProductCardImage from './ProductCardImage';
 import ProductCardPrice from './ProductCardPrice';
 import ProductCardDescription from './ProductCardDescription';
+import ProductCardCategory from './ProductCardCategory';
+
+//breadcrumbs
+import Breadcrumb from './Breadcrumb';
+import BreadcrumbItem from './BreadcrumbItem';
 
 /* Styles */
 
@@ -56,4 +61,7 @@ export {
     ProductCardImage,
     ProductCardPrice,
     ProductCardDescription,
+    ProductCardCategory,
+    Breadcrumb,
+    BreadcrumbItem,
 };

@@ -157,7 +157,7 @@ body{
 .menu-navbar{
     background-color: $white !important;
     border-bottom: 1px solid $gray;
-    box-shadow: 1px 1px 2px $gray;
+    box-shadow: $shadow;
 }
 
 //styling for horizontal scrollable menu
@@ -244,7 +244,7 @@ body{
 .box{
     padding:20px;
     background-color: $white;
-    box-shadow: 2px 4px 4px $gray;
+    box-shadow: $shadow;
     border:1px solid $gray;
 
     .box-title{
@@ -270,7 +270,7 @@ body{
 .custom-alert{
     padding:0px;
     border:0px;
-    box-shadow: 1px 3px 4px $gray;
+    box-shadow: $shadow;
     
     .alert-icon{
         width:40px;
@@ -292,7 +292,7 @@ body{
     cursor: pointer;
     padding:8px 12px 8px 12px;
     font-size: $default-font-size;
-    box-shadow: 2px 2px 3px $gray;
+    box-shadow: $shadow;
     font-weight: 100;
 
     .icon{
@@ -329,7 +329,7 @@ body{
 
 .custom-button{
     border-radius: 4px;
-    box-shadow: 2px 3px 4px darken($gray, 10%);
+    box-shadow: $shadow;
 
     &.btn-sm{
         font-size:6pt;   
@@ -355,7 +355,7 @@ body{
 .custom-icon-card{
     background-color: $white;
     padding:0px;
-    box-shadow: 2px 3px 4px darken($gray, 5%);
+    box-shadow: $shadow;
     border-radius: 5px;
     color:$dark-gray;
     overflow: hidden;
@@ -479,7 +479,7 @@ body{
     }
 
     background-color: $white;
-    box-shadow: 2px 3px 4px darken($gray, 5%);
+    box-shadow: $shadow;
     border-radius: 5px;
     color:$dark-gray;
     overflow: hidden;
@@ -552,14 +552,22 @@ body{
 .custom-product-card{
     background-color: $white;
     padding:20px;
-    box-shadow: 2px 3px 4px darken($gray, 5%);
+    box-shadow: $shadow;
     border-radius: 5px;
     color:$black;
     overflow: hidden;
 
     .product-card-name{
+        cursor: pointer;
         font-size: $default-font-size;
         font-weight: 400;
+    }
+
+    .product-card-category{
+        cursor: pointer;
+        font-size:$small-font-size - 1;
+        font-weight: 200;
+        color:lighten($dark-gray, 20%);
     }
 
     .product-card-image{
@@ -581,6 +589,19 @@ body{
 
     .product-card-description{
         font-size:$default-font-size - 2;
+    }
+}
+
+.custom-breadcrumb{
+    background-color: transparent;
+    margin-bottom: 0px;
+
+    .breadcrumb-item + .breadcrumb-item::before{
+        content: ">";
+    }
+
+    li{
+        font-size:$default-font-size;
     }
 }
 /*======================= Components ============================ */
