@@ -1,10 +1,10 @@
 import React from 'react';
 
 /* Styles */
-import { Col, Row, Container, IconCard, UserCard, Button, ImageCard } from './../../styles';
-import ImageCardTitle from '../../styles/ImageCardTitle';
-import ImageCardSubTitle from '../../styles/ImageCardSubTitle';
-import ImageCardDescription from '../../styles/ImageCardDescription';
+import { Col, Row, Container, IconCard, UserCard, Button, ImageCard,
+    ImageCardTitle,ImageCardSubTitle,ImageCardDescription,ProductCard,
+    ProductCardName,ProductCardImage,ProductCardPrice,ProductCardDescription
+} from './../../styles';
 /* Styles */
 
 const CardPage = () => {
@@ -106,6 +106,41 @@ const CardPage = () => {
                                                 </ImageCardDescription>
                                                 <Button size="small" type="primary" label="Read more" isRounded={true}></Button>
                                         </ImageCard> 
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={12}>
+                            <div className="title">
+                                Product Cards
+                                <div className="sub-title">
+                                    <i className="fa fa-info-circle"></i> squared box with bunch of element inside.
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col sm={12} md={12}>
+                            <Container>
+                                <Row>
+                                    <Col xs={12} sm={6} md={4} lg={3}>
+                                        <ProductCard>
+                                            <ProductCardName>Asus Vivobook Ultra A412FL</ProductCardName>
+                                            <ProductCardImage image="/images/asus.jpg"/>
+                                            <ProductCardDescription maxLength={150}>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                            </ProductCardDescription>
+                                            <ProductCardPrice price={1299} afterDiscountPrice={999} currency="$"/>
+                                        </ProductCard> 
+                                    </Col>
+                                    <Col xs={12} sm={6} md={4} lg={3}>
+                                        <ProductCard>
+                                            <ProductCardName>Asus Vivobook Ultra A412FL</ProductCardName>
+                                            <ProductCardImage image="/images/asus.jpg"/>
+                                            <ProductCardPrice price={1299} currency="$"/>
+                                        </ProductCard> 
                                     </Col>
                                 </Row>
                             </Container>
