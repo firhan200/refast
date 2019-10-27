@@ -405,25 +405,86 @@ body{
 }
 
 .custom-user-card{
+    $user-card-image: 100px;
+
+    &.vertical{
+        text-align: center;
+        padding:0px 0px 20px 0px;
+
+        .top-bg{
+            height:100px;
+            background-color: $default-color;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img{
+                margin:0 auto;
+                width:100%;
+            }
+        }
+
+        .frame{
+            width:$user-card-image;
+            height:$user-card-image;
+            margin:0 auto;
+            margin-bottom: 20px;
+            margin-top:-50px;
+
+            img{
+                max-width:$user-card-image + 50;
+                max-height:$user-card-image + 50;
+            }
+        }
+
+        .title{
+            font-size: $large-font-size;
+        }
+    
+        .sub-title{
+            margin-top:5px;
+            font-size: $default-font-size;
+        }
+    }
+
+    &.horizontal{
+        text-align: left;
+        padding:10px 10px 10px 10px;
+
+        .frame{
+            float: left;
+            width:$user-card-image - 30;
+            height:$user-card-image - 30;
+            img{
+                max-width:$user-card-image + 20;
+                max-height:$user-card-image + 20;
+            }
+        }
+
+        .user-card-left{
+            float:left;
+            margin-left:10px;
+            margin-top:10px;
+        }
+
+        .title{
+            font-size: $default-font-size + 3;
+        }
+    
+        .sub-title{
+            margin-top:0px;
+            font-size: $small-font-size;
+        }
+    }
+
     background-color: $white;
-    padding:0px 0px 20px 0px;
     box-shadow: 2px 3px 4px darken($gray, 5%);
     border-radius: 5px;
     color:$dark-gray;
     overflow: hidden;
-    text-align: center;
-
-    .top-bg{
-        height:100px;
-        background-color: $default-color;
-    }
 
     .frame{
-        margin:0 auto;
-        margin-top:-50px;
-        margin-bottom: 20px;
-        width:100px;
-        height:100px;
         border-radius: 50%;
         overflow: hidden;
         border: 4px solid $white;
@@ -432,19 +493,8 @@ body{
         align-items: center;
 
         img{
-            margin: 0 auto;
-            max-width:150px;
-            max-height:150px;
+            margin: 0 auto; 
         }
-    }
-
-    .title{
-        font-size: $large-font-size;
-    }
-
-    .sub-title{
-        margin-top:5px;
-        font-size: $default-font-size;
     }
 
     .user-card-child{

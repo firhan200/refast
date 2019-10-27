@@ -47,12 +47,20 @@ const CardPage = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col sm={12} md={6}>
+                        <Col sm={12} md={12}>
                             <Container>
                                 <Row>
-                                    <Col xs={12} sm={6} md={6}>
+                                    <Col xs={12} sm={6} md={4} lg={3}>
                                         <UserCard avatar="/images/avatar.png" title="John Doe" subTitle="Software Engineer">
                                             <Button label="Edit Profile" size="medium" icon="fa fa-gear" isOutlined={true}/>
+                                        </UserCard> 
+                                    </Col>
+                                    <Col xs={12} sm={6} md={4} lg={3}>
+                                        <UserCard avatar="/images/avatar.png" background="/images/background.png" title="John Doe" subTitle="Software Engineer">
+                                        </UserCard> 
+                                    </Col>
+                                    <Col xs={12} sm={6} md={4} lg={3}>
+                                        <UserCard avatar="/images/avatar.png" title="John Doe" subTitle="Software Engineer" isHorizontal={true}>
                                         </UserCard> 
                                     </Col>
                                 </Row>
