@@ -8,13 +8,19 @@ const CarouselPage = () => {
 
     const carouselImages = [
         {
-            image: '/images/avatar.png',
+            image: '/images/slider1.jpg',
             useCaption : true,
             title: 'Caption Title',
             subTitle: 'Caption Sub Title or Paragraph Here.'
         },
         {
-            image: '/images/background.png',
+            image: '/images/slider2.jpg',
+            useCaption : false,
+            title: 'Caption Title',
+            subTitle: 'Caption Sub Title or Paragraph Here.'
+        },
+        {
+            image: '/images/slider3.jpg',
             useCaption : false,
             title: 'Caption Title',
             subTitle: 'Caption Sub Title or Paragraph Here.'
