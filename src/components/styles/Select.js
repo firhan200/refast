@@ -17,7 +17,7 @@ const Select = (props) => {
     const inputId = typeof props.id !== 'undefined' ? props.id : 'text';
 
     //get required
-    const required = typeof props.required !== 'undefined' ? props.required : false;
+    const isRequired = typeof props.required !== 'undefined' ? props.required : false;
 
     return(
         <div className="custom-form-control">
@@ -25,7 +25,7 @@ const Select = (props) => {
                 className={'form-control ' + customClassName}
                 name={inputName}
                 id={inputId}
-                required={(required ? "required" : "false")}
+                { ...{ required : isRequired } }
                 onChange={props.handleChange}
                 >
                     { placeholder!=='' ? (

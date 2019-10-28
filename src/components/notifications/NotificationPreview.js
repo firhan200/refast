@@ -1,11 +1,8 @@
 import React from 'react';
 
-//libs
-import { Link } from 'react-router-dom';
-
 const NotificationPreview = ({ notification }) => {
     return(
-        <Link className="dropdown-item">
+        <a href="#!" className="dropdown-item">
             <div className="media">
                 <img src={notification.image} className="img-fluid rounded align-self-start" alt="..." />
                 <div className="media-body">
@@ -17,7 +14,7 @@ const NotificationPreview = ({ notification }) => {
                     </div>
                 </div>
             </div>
-        </Link>
+        </a>
     );
 }
 

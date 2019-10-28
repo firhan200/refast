@@ -25,6 +25,7 @@ import Form from './Form';
 import FormGroup from './FormGroup';
 import Input from './Input';
 import Select from './Select';
+import Textarea from './Textarea';
 
 //cards
 import IconCard from './IconCard.js';
@@ -57,6 +58,7 @@ export {
     Form,
     FormGroup,
     Input,
+    Textarea,
     Select,
     Container,
     Row,

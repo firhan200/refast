@@ -3,13 +3,9 @@ import React, { useState } from 'react';
 //libs
 import PropTypes from 'prop-types'; // prop types
 
-const Input = (props) => {
+const Textarea = (props) => {
     //get custom class
     const customClassName = typeof props.className !== 'undefined' ? props.className : '';
-
-    //get type
-    let inputType = typeof props.type !== 'undefined' ? props.type : 'text';
-    const [type, setType] = useState(inputType);
     
     //get name
     const inputName = typeof props.name !== 'undefined' ? props.name : '';
@@ -30,25 +26,13 @@ const Input = (props) => {
     //get required
     const isRequired = typeof props.required !== 'undefined' ? props.required : false;
 
-    //get is valid
-    const isValid = typeof props.isValid !== 'undefined' ? (props.isValid ? 'valid ' : 'invalid ') : ' ';
-
-    //get message
-    let message = typeof props.message !== 'undefined' ? props.message : '';
-
     return(
-        <div className="custom-form-control">
-            { message !== '' ? (
-                <div className={"message " + isValid}>
-                    { message }
-                </div>
-            ) : '' }
-            <input 
-                className={'form-control ' + isValid + customClassName}
-                type={type}
+        <div className="custom-form-control textarea">
+            <textarea 
+                className={'form-control ' + customClassName}
+                type="textarea"
                 name={inputName}
                 id={inputId}
-                value={props.value}
                 maxLength={maxLength}
                 { ...{ required : isRequired } }
                 { ...{ pattern : (pattern==='' ? 'false' : pattern) } }
@@ -61,17 +45,9 @@ const Input = (props) => {
                         setCurrentLength(e.target.value.length);
                     }
                 }}
-                />
-
-            {/* password type */}
-            { inputType.toLowerCase() === 'password' ? (
-                <div className="icon">
-                    <i className={"fa " + (type.toLowerCase()==='password' ? "fa-eye" : "fa-eye-slash") } onClick={() => {
-                        inputType = type.toLowerCase()==='password' ? 'text' : 'password';
-                        setType(inputType);
-                    }}></i>
-                </div>
-            ) : '' }
+                >
+                    {props.value}
+            </textarea>
 
             { maxLength !== 9999 ? (
                 <div className="right-help">
@@ -83,10 +59,9 @@ const Input = (props) => {
 }
 
 //prop types initialize
-Input.propTypes = {
+Textarea.propTypes = {
     className : PropTypes.string,
-    value : PropTypes.any,
-    type : PropTypes.string,
+    value: PropTypes.any,
     name : PropTypes.string,
     id : PropTypes.string,
     maxLength : PropTypes.number,
@@ -96,7 +71,6 @@ Input.propTypes = {
     placeholder : PropTypes.string,
     handleChange : PropTypes.func,
     isValid : PropTypes.bool,
-    message : PropTypes.string,
 }
 
-export default Input;
+export default Textarea;

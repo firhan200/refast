@@ -1,7 +1,7 @@
 import React from 'react';
 
 /* Styles */
-import { Box, Row, Container, BoxTitle, Form, FormGroup, Input, Select, Button } from './../../styles';
+import { Box, Row, Container, BoxTitle, Form, FormGroup, Input, Select, Button, Textarea } from './../../styles';
 /* Styles */
 
 const FormsPage = () => {
@@ -43,39 +43,38 @@ const FormsPage = () => {
                                         <option>Lemon</option>
                                     </Select>
                                 </FormGroup>
+                                <div className="help">
+                                    Password Input
+                                </div>
+                                <FormGroup>
+                                    <Textarea name="Address" id="address" placeholder="Address"/>
+                                </FormGroup>
                             </Form>
                         </Box>
                         <Box sm={12} md={6} lg={6}>
                             <BoxTitle label="Length Validation"/>
                             <Form>
                                 <FormGroup>
-                                    <Input type="text" handleChange={(e) => {
-                                        console.log(e.target.value);
-                                    }} maxLength={40} name="first_name" id="first_name" placeholder="First Name"/>
+                                    <Input type="text" maxLength={40} name="first_name" id="first_name_length" placeholder="First Name"/>
                                 </FormGroup>
                                 <FormGroup>
-                                    <Input type="password" maxLength={20} name="password" id="password" placeholder="Password"/>
+                                    <Input type="password" maxLength={20} name="password" id="password_length" placeholder="Password"/>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Textarea  maxLength={100} name="Address" id="address" placeholder="Address"/>
                                 </FormGroup>
                             </Form>
-                        </Box>
-                    </Row>
-                    <Row>
-                        <Box sm={12} md={6} lg={6}>
-                            <BoxTitle label="Required Validation"/>
-                            <Form handleSubmit={(e) => { e.preventDefault(); alert('submitted'); }}>
+                            <BoxTitle label="Error Validation"/>
+                            <Form>
                                 <FormGroup>
-                                    <Input type="email" required={true} name="email" id="email" placeholder="Email Address"/>
+                                    <Input type="text" isValid={false} message="*please fill this field" name="first_name" id="first_name_valid" placeholder="First Name"/>
                                 </FormGroup>
                                 <FormGroup>
-                                    <Input type="password" required={true} maxLength={20} name="password" id="password" placeholder="Password"/>
+                                    <Input type="password" value="password" isValid={true} message="password ok!" maxLength={20} name="password" id="password_length" placeholder="Password"/>
                                 </FormGroup>
                                 <FormGroup>
-                                    <Select name="role" id="role" required={true} placeholder="Select Role">
-                                        <option value="admin">Administrator</option>
-                                        <option value="employee">Employee</option>
-                                    </Select>
+                                    <Textarea  maxLength={100} name="Address" id="address" placeholder="Address"/>
                                 </FormGroup>
-                                <Button type="submit" color="primary" label="Submit"/>
                             </Form>
                         </Box>
                     </Row>

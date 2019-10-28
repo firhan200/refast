@@ -350,6 +350,25 @@ body{
 }
 
 .custom-form-control{
+    &.textarea{
+        textarea{
+            height:100px;
+        }
+    }
+
+    .message{
+        font-size:$small-font-size;
+        color:darken($gray, 70%);
+
+        &.invalid{
+            color:darken($red, 20%);
+        }
+
+        &.valid{
+            color:darken($green, 30%);
+        }
+    }
+
     .form-control{
         height: $form-height;
         font-size: $default-font-size;
@@ -360,6 +379,14 @@ body{
 
         &:focus{
             color:$black;
+        }
+
+        &.invalid{
+            border:1px solid $red;
+        }
+
+        &.valid{
+            border:1px solid $green;
         }
     }
 
