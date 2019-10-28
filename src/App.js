@@ -22,6 +22,7 @@ import BoxPage from './components/pages/components/BoxPage.js';
 import AlertPage from './components/pages/components/AlertPage.js';
 import BadgePage from './components/pages/components/BadgePage.js';
 import ButtonPage from './components/pages/components/ButtonPage.js';
+import FormsPage from './components/pages/components/FormsPage';
 import CardPage from './components/pages/components/CardPage.js';
 import BreadcrumbsPage from './components/pages/components/BreadcrumbsPage';
 import CarouselPage from './components/pages/components/CarouselPage';
@@ -46,6 +47,7 @@ const App = () => {
                         <Route path="/components/alert" component={AlertPage} />
                         <Route path="/components/badges" component={BadgePage} />
                         <Route path="/components/buttons" component={ButtonPage} />
+                        <Route path="/components/forms" component={FormsPage} />
                         <Route path="/components/cards" component={CardPage} />
                         <Route path="/components/breadcrumbs" component={BreadcrumbsPage} />
                         <Route path="/components/carousel" component={CarouselPage} />

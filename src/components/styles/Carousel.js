@@ -33,12 +33,12 @@ const Carousel = (props) => {
             {/* Main Carousel Items */}
             <div className="carousel-inner">
                 { items.map((item, index) => (
-                    <div key={index} className={"carousel-item" + (index===0 ? ' active' : '')}>
+                    <div onClick={item.handleClick} key={index} className={"carousel-item" + (index===0 ? ' active' : '') + (item.useCaption ? ' overlay' : '')}>
                         <img src={item.image} className="d-block w-100" alt={""} />
                         { item.useCaption ? (
                             <div className="carousel-caption d-none d-md-block">
-                                <h5>{ item.title }</h5>
-                                <p>{ item.subTitle }</p>
+                                <h5 style={{color: item.captionColor}}>{ item.title }</h5>
+                                <p style={{color: item.captionColor}}>{ item.subTitle }</p>
                             </div>
                         ) : '' }
                     </div>

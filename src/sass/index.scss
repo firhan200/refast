@@ -67,13 +67,6 @@ body{
     text-align: center !important;
 }
 
-//input
-.form-control{
-    background-color: $input-color;
-    border: 0px;
-    font-size: $default-font-size;
-}
-
 //avatar
 .avatar{
     width: 30px;
@@ -356,6 +349,30 @@ body{
     }
 }
 
+.custom-form-control{
+    .form-control{
+        height: $form-height;
+        font-size: $default-font-size;
+        color:lighten($black, 30%);
+        background-color: $form-bg;
+        border: 1px solid darken($form-bg, 10%);
+        border-radius: 0px;
+
+        &:focus{
+            color:$black;
+        }
+    }
+
+    .icon{
+        cursor: pointer;
+        color:lighten($dark-gray, 20%);
+        position: absolute;
+        margin-top: -35px;
+        right:0px;
+        margin-right : 50px;
+    }
+}
+
 .custom-icon-card{
     background-color: $white;
     padding:0px;
@@ -606,6 +623,16 @@ body{
 
     li{
         font-size:$default-font-size;
+    }
+}
+
+.custom-carousel{
+    cursor: pointer;
+    .carousel-control-next{
+        background-image: linear-gradient(to right,transparent, $black);
+    }
+    .carousel-control-prev{
+        background-image: linear-gradient(to left,transparent, $black);
     }
 }
 /*======================= Components ============================ */

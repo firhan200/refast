@@ -20,6 +20,12 @@ import Badge from './Badge.js';
 //button
 import Button from './Button.js';
 
+//forms
+import Form from './Form';
+import FormGroup from './FormGroup';
+import Input from './Input';
+import Select from './Select';
+
 //cards
 import IconCard from './IconCard.js';
 import UserCard from './UserCard';
@@ -48,6 +54,10 @@ export {
     Box,
     BoxTitle,
     Button,
+    Form,
+    FormGroup,
+    Input,
+    Select,
     Container,
     Row,
     Col,

@@ -21,11 +21,6 @@ const Menubar = () => {
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" data-toggle="collapse" href="#submenu-forms" role="button" aria-expanded="false" aria-controls="submenu-forms">
-                                Forms
-                            </a>
-                        </li>
-                        <li className="nav-item">
                             <a className="nav-link" data-toggle="collapse" href="#submenu-components" role="button" aria-expanded="false" aria-controls="submenu-components">
                                 Components
                             </a>
@@ -99,22 +94,6 @@ const Menubar = () => {
                     </div>
                 </div>
 
-                <div className="collapse" data-parent="#main-menu" id="submenu-forms">
-                    <div className="horizontal-menu">
-                        <ul>
-                            <li>
-                                <Link>Layout</Link>
-                            </li>
-                            <li>
-                                <Link>Component</Link>
-                            </li>
-                            <li>
-                                <Link>Validation</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
                 <div className="collapse" data-parent="#main-menu" id="submenu-components">
                     <div className="horizontal-menu">
                         <ul>
@@ -129,6 +108,9 @@ const Menubar = () => {
                             </li>
                             <li>
                                 <Link to="/components/buttons">Buttons</Link>
+                            </li>
+                            <li>
+                                <Link to="/components/forms">Forms</Link>
                             </li>
                             <li>
                                 <Link to="/components/cards">Cards</Link>

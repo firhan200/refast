@@ -1,7 +1,7 @@
 import React from 'react';
 
 /* Styles */
-import { Box, Row, Container, Carousel } from './../../styles';
+import { Box, Row, Container, Carousel, BoxTitle } from './../../styles';
 /* Styles */
 
 const CarouselPage = () => {
@@ -9,21 +9,21 @@ const CarouselPage = () => {
     const carouselImages = [
         {
             image: '/images/slider1.jpg',
-            useCaption : true,
-            title: 'Caption Title',
-            subTitle: 'Caption Sub Title or Paragraph Here.'
+            useCaption : false,
+            handleClick : () => {
+                alert("Carousel clicked");
+            }
         },
         {
             image: '/images/slider2.jpg',
-            useCaption : false,
+            useCaption : true,
+            captionColor : '#000',
             title: 'Caption Title',
             subTitle: 'Caption Sub Title or Paragraph Here.'
         },
         {
             image: '/images/slider3.jpg',
-            useCaption : false,
-            title: 'Caption Title',
-            subTitle: 'Caption Sub Title or Paragraph Here.'
+            useCaption : false
         }
     ];
 
@@ -39,8 +39,13 @@ const CarouselPage = () => {
             <div className="body">
                 <Container>
                     <Row>
-                        <Box sm={12} md={12} lg={12}>
+                        <Box sm={12} md={6} lg={6}>
+                            <BoxTitle label="carousel with controls and indicators"/>
                             <Carousel id="default-carousel" items={carouselImages} />
+                        </Box>
+                        <Box sm={12} md={6} lg={6}>
+                        <BoxTitle label="carousel without controls and indicators"/>
+                            <Carousel id="empty-carousel" items={carouselImages} indicators={false} controls={false} />
                         </Box>
                     </Row>
                 </Container>
