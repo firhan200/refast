@@ -371,6 +371,13 @@ body{
         right:0px;
         margin-right : 50px;
     }
+
+    .right-help{
+        float:right;
+        font-size: $small-font-size;
+        color:$dark-gray;
+        margin-bottom: 10px;
+    }
 }
 
 .custom-icon-card{

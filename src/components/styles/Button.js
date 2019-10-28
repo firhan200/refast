@@ -14,7 +14,13 @@ const Button = (props) => {
     const isFull = typeof props.isFull !== 'undefined' ? props.isFull : false;
 
     //get button type
-    const inputButtonType = typeof props.type !== 'undefined' ? props.type : ' btn-primary';
+    let buttonBehaviorType = typeof props.type !== 'undefined' ? props.type : 'button';
+    if(buttonBehaviorType!=='submit'){
+        buttonBehaviorType = 'button';
+    }
+
+    //get button color
+    const inputButtonType = typeof props.color !== 'undefined' ? props.color : ' btn-primary';
     let buttonType;
     switch(inputButtonType){
         case 'success':
@@ -71,7 +77,7 @@ const Button = (props) => {
     const buttonIcon = typeof props.icon !== 'undefined' ? props.icon : '';
 
     return(
-        <button onClick={props.handleClick} className={"custom-button btn"+ buttonType + buttonSize + isButtonRounded + (isFull ? " full" : "") + " " + customClassName}>
+        <button type={buttonBehaviorType} onClick={props.handleClick} className={"custom-button btn"+ buttonType + buttonSize + isButtonRounded + (isFull ? " full" : "") + " " + customClassName}>
             {/* check if use icon */}
             { buttonIcon !== '' ? (<i className={(isLabelExist ? 'pad ' : '')+'icon '+ buttonIcon}></i>) : '' }
             
@@ -86,6 +92,7 @@ Button.propTypes = {
     className: PropTypes.string,
     icon: PropTypes.string,
     type: PropTypes.string,
+    color: PropTypes.string,
     size: PropTypes.string,
     label: PropTypes.string,
     isEnable: PropTypes.bool,
