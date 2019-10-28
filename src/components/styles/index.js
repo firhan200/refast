@@ -38,6 +38,9 @@ import ProductCardCategory from './ProductCardCategory';
 import Breadcrumb from './Breadcrumb';
 import BreadcrumbItem from './BreadcrumbItem';
 
+//carousel
+import Carousel from './Carousel';
+
 /* Styles */
 
 //multiple export
@@ -64,4 +67,5 @@ export {
     ProductCardCategory,
     Breadcrumb,
     BreadcrumbItem,
+    Carousel,
 };

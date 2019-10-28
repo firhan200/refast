@@ -65,6 +65,9 @@ const ButtonPage = () => {
                                 <Button icon="fa fa-download" type="primary" isOutlined={true} size="small"/>
                                 <Button icon="fa fa-print" type="success" isRounded={true} size="medium"/>
                                 <Button icon="fa fa-github" type="info" size="large"/>
+                                <BoxTitle label="Full Width button"/>
+                                <Button label="Primary" type="primary" isOutlined={true} isFull={true} size="medium"/>
+                                <Button label="Export" icon="fa fa-print" type="success" isFull={true} size="medium"/>
                             </div>
                         </Box>
                     </Row>

@@ -24,6 +24,7 @@ import BadgePage from './components/pages/components/BadgePage.js';
 import ButtonPage from './components/pages/components/ButtonPage.js';
 import CardPage from './components/pages/components/CardPage.js';
 import BreadcrumbsPage from './components/pages/components/BreadcrumbsPage';
+import CarouselPage from './components/pages/components/CarouselPage';
 /* pages */
 
 const App = () => {
@@ -47,6 +48,7 @@ const App = () => {
                         <Route path="/components/buttons" component={ButtonPage} />
                         <Route path="/components/cards" component={CardPage} />
                         <Route path="/components/breadcrumbs" component={BreadcrumbsPage} />
+                        <Route path="/components/carousel" component={CarouselPage} />
 
                         {/* Default index page */}
                         <Route path="/" />

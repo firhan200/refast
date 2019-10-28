@@ -10,6 +10,9 @@ const Button = (props) => {
     //get button outlined
     const inputButtonOutlined = typeof props.isOutlined !== 'undefined' ? props.isOutlined : false;
 
+    //get button full width
+    const isFull = typeof props.isFull !== 'undefined' ? props.isFull : false;
+
     //get button type
     const inputButtonType = typeof props.type !== 'undefined' ? props.type : ' btn-primary';
     let buttonType;
@@ -68,7 +71,7 @@ const Button = (props) => {
     const buttonIcon = typeof props.icon !== 'undefined' ? props.icon : '';
 
     return(
-        <button onClick={props.handleClick} className={"custom-button btn"+ buttonType + buttonSize + isButtonRounded + " " + customClassName}>
+        <button onClick={props.handleClick} className={"custom-button btn"+ buttonType + buttonSize + isButtonRounded + (isFull ? " full" : "") + " " + customClassName}>
             {/* check if use icon */}
             { buttonIcon !== '' ? (<i className={(isLabelExist ? 'pad ' : '')+'icon '+ buttonIcon}></i>) : '' }
             
@@ -88,7 +91,8 @@ Button.propTypes = {
     isEnable: PropTypes.bool,
     isOutlined: PropTypes.bool,
     isRounded: PropTypes.bool,
-    handleClick: PropTypes.func
+    isFull: PropTypes.bool,
+    handleClick: PropTypes.func,
 }
 
 export default Button;

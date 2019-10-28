@@ -9,7 +9,7 @@ const ProductCardImage = (props) => {
 
     return(
         <div className={'product-card-image'}>
-            <img src={image} className="img-fluid"/>
+            <img src={image} className="img-fluid" alt={""}/>
         </div>
     );
 }

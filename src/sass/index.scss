@@ -331,6 +331,10 @@ body{
     border-radius: 4px;
     box-shadow: $shadow;
 
+    &.full{
+        width:100% !important;
+    }
+
     &.btn-sm{
         font-size:6pt;   
     }
