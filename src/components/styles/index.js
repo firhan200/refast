@@ -26,6 +26,7 @@ import FormGroup from './FormGroup';
 import Input from './Input';
 import Select from './Select';
 import Textarea from './Textarea';
+import Checkbox from './Checkbox';
 
 //cards
 import IconCard from './IconCard.js';
@@ -60,6 +61,7 @@ export {
     Input,
     Textarea,
     Select,
+    Checkbox,
     Container,
     Row,
     Col,

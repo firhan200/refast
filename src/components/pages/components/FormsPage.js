@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 /* Styles */
-import { Box, Row, Container, BoxTitle, Form, FormGroup, Input, Select, Button, Textarea } from './../../styles';
+import { Box, Row, Container, BoxTitle, Form, FormGroup, Input, Select, Button, Textarea, Checkbox } from './../../styles';
 /* Styles */
 
 const FormsPage = () => {
@@ -41,7 +41,7 @@ const FormsPage = () => {
                 <Container>
                     <Row>
                         <Box sm={12} md={6} lg={6}>
-                            <BoxTitle label="form controls"/>
+                            <BoxTitle label="Form Controls"/>
                             <Form>
                                 <div className="help">
                                     Text Input
@@ -71,6 +71,13 @@ const FormsPage = () => {
                                 </div>
                                 <FormGroup>
                                     <Textarea name="Address" id="address" placeholder="Address"/>
+                                </FormGroup>
+                                <div className="help">
+                                    Checkbox
+                                </div>
+                                <FormGroup>
+                                    <Checkbox className="m-r-20"/>
+                                    <Checkbox isCircular={true} className="m-2"/>
                                 </FormGroup>
                             </Form>
                         </Box>
