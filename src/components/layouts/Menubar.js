@@ -60,13 +60,13 @@ const Menubar = () => {
                                 <Link to="/page/login">Login</Link>
                             </li>
                             <li>
-                                <Link href="#">Sign up</Link>
+                                <Link to="/page/signup">Sign up</Link>
                             </li>
                             <li>
-                                <Link href="#">Forgot Password</Link>
+                                <Link to="/page/forgot-password">Forgot Password</Link>
                             </li>
                             <li>
-                                <Link href="#">Reset Password</Link>
+                                <Link to="/page/reset-password">Reset Password</Link>
                             </li>
                         </ul>
                     </div>

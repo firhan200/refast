@@ -19,6 +19,9 @@ import Menubar from './components/layouts/Menubar';
 
 /* pages sample */
 import LoginPage from './components/pages/LoginPage';
+import SignupPage from './components/pages/SignupPage';
+import ForgotPasswordPage from './components/pages/ForgotPasswordPage';
+import ResetPasswordPage from './components/pages/ResetPasswordPage';
 /* pages sample */
 
 /* pages components */
@@ -48,6 +51,9 @@ const App = () => {
                     <Switch>
                         {/* Pages Sample */}
                         <Route path="/page/login" component={LoginPage} />
+                        <Route path="/page/signup" component={SignupPage} />
+                        <Route path="/page/forgot-password" component={ForgotPasswordPage} />
+                        <Route path="/page/reset-password" component={ResetPasswordPage} />
 
                         {/* Components */}
                         <Route path="/components/box" component={BoxPage} />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 /* Styles */
-import { Box, Row, Container, BoxTitle, Form, FormGroup, Input, Select, Button, Textarea, Checkbox } from './../../styles';
+import { Box, Row, Container, BoxTitle, Form, FormGroup, Input, Select, Textarea, Checkbox } from './../../styles';
 /* Styles */
 
 const FormsPage = () => {

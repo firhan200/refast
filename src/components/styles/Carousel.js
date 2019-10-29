@@ -37,8 +37,8 @@ const Carousel = (props) => {
                         <img src={item.image} className="d-block w-100" alt={""} />
                         { item.useCaption ? (
                             <div className="carousel-caption d-none d-md-block">
-                                <h5 style={{color: item.captionColor}}>{ item.title }</h5>
-                                <p style={{color: item.captionColor}}>{ item.subTitle }</p>
+                                <h2 style={{color: item.captionColor}}>{ item.title }</h2>
+                                <h4 style={{color: item.captionColor}}>{ item.subTitle }</h4>
                             </div>
                         ) : '' }
                     </div>

@@ -45,6 +45,8 @@ body{
 
 .content{
     padding:20px 0px 20px 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 
     .title{
         font-size:$huge-font-size;
@@ -239,19 +241,64 @@ body{
 
 
 /*======================= Components ============================ */
+.left{
+    text-align: left;
+}
+
+.right{
+    text-align: right;
+}
+
+h1{
+    font-size:$h1;
+}
+
+h2{
+    font-size:$h2;
+}
+
+h3{
+    font-size:$h3;
+}
+
+h4{
+    font-size:$h4;
+}
+
+h5{
+    font-size:$h5;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 300;
+    margin-bottom:15px;
+}
+
+.center{
+    text-align: center;
+}
+
 .box{
     padding:20px;
     background-color: $white;
     box-shadow: $shadow;
     border:1px solid $gray;
 
-    .box-title{
-        font-size: $default-font-size;
-        color: $dark-gray;
-        margin-bottom: 10px;
+    .box-title-container{
+        margin-bottom: 20px;
 
-        i{
-            font-size: 8pt;
+        .box-title{
+            font-size: $default-font-size;
+            color: $dark-gray;
+    
+            i{
+                font-size: 8pt;
+            }
+        }
+    
+        .box-subtitle{
+            font-size: $small-font-size;
+            color: lighten($dark-gray, 30%);
         }
     }
 }
@@ -737,7 +784,7 @@ body{
         height: 0px;
         width: 0px;
         border-radius: 5px;
-        border: solid $dark-gray;
+        border: solid darken($form-border, 20%);
         border-width: 0 3px 3px 0;
         -webkit-transform: rotate(0deg) scale(0);
         -ms-transform: rotate(0deg) scale(0);
@@ -760,7 +807,7 @@ body{
         top: 3px;
         width: 6px;
         height: 12px;
-        border: solid $black;
+        border: solid darken($form-border, 20%);
         border-width: 0 2px 2px 0;
         background-color: transparent;
         border-radius: 0;
@@ -775,7 +822,7 @@ body{
         width: 0px;
         height: 0px;
         border-radius: 5px;
-        border: 2px solid $dark-gray;
+        border: 2px solid darken($form-border, 20%);
         -webkit-transform: scale(0);
         -ms-transform: scale(0);
         transform: scale(0);    
@@ -805,16 +852,16 @@ body{
     /* Style for Circular Checkbox */
     .checkbox-label .checkbox-custom.circular {
         border-radius: 50%;
-        border: 1px solid $dark-gray;
+        border: 1px solid darken($form-border, 20%);
     }
 
     .checkbox-label input:checked ~ .checkbox-custom.circular {
         background-color: #FFFFFF;
         border-radius: 50%;
-        border: 1px solid $dark-gray;
+        border: 1px solid darken($form-border, 20%);
     }
     .checkbox-label input:checked ~ .checkbox-custom.circular::after {
-        border: solid $dark-gray;
+        border: solid darken($form-border, 20%);
         border-width: 0 2px 2px 0;
     }
     .checkbox-label .checkbox-custom.circular::after {
@@ -823,7 +870,7 @@ body{
 
     .checkbox-label .checkbox-custom.circular::before {
         border-radius: 50%;
-        border: 1px solid $dark-gray;
+        border: 1px solid darken($form-border, 20%);
     }
 
     .checkbox-label input:checked ~ .checkbox-custom.circular::before {
