@@ -19,10 +19,21 @@ const Select = (props) => {
     //get required
     const isRequired = typeof props.required !== 'undefined' ? props.required : false;
 
+    //get is valid
+    const isValid = typeof props.isValid !== 'undefined' ? (props.isValid ? 'valid ' : 'invalid ') : ' ';
+
+    //get message
+    let message = typeof props.message !== 'undefined' ? props.message : '';
+
     return(
         <div className="custom-form-control">
+            { message !== '' ? (
+                <div className={"message " + isValid}>
+                    { message }
+                </div>
+            ) : '' }
             <select 
-                className={'form-control ' + customClassName}
+                className={'form-control ' +  isValid + customClassName}
                 name={inputName}
                 id={inputId}
                 { ...{ required : isRequired } }
@@ -46,6 +57,7 @@ Select.propTypes = {
     required : PropTypes.bool,
     handleChange : PropTypes.func,
     isValid : PropTypes.bool,
+    message : PropTypes.string,
 }
 
 export default Select;

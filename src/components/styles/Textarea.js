@@ -26,10 +26,21 @@ const Textarea = (props) => {
     //get required
     const isRequired = typeof props.required !== 'undefined' ? props.required : false;
 
+    //get is valid
+    const isValid = typeof props.isValid !== 'undefined' ? (props.isValid ? 'valid ' : 'invalid ') : ' ';
+
+    //get message
+    let message = typeof props.message !== 'undefined' ? props.message : '';
+
     return(
         <div className="custom-form-control textarea">
+            { message !== '' ? (
+                <div className={"message " + isValid}>
+                    { message }
+                </div>
+            ) : '' }
             <textarea 
-                className={'form-control ' + customClassName}
+                className={'form-control ' + isValid + customClassName}
                 type="textarea"
                 name={inputName}
                 id={inputId}
@@ -71,6 +82,7 @@ Textarea.propTypes = {
     placeholder : PropTypes.string,
     handleChange : PropTypes.func,
     isValid : PropTypes.bool,
+    message : PropTypes.string,
 }
 
 export default Textarea;

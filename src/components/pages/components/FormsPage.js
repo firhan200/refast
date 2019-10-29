@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 /* Styles */
 import { Box, Row, Container, BoxTitle, Form, FormGroup, Input, Select, Button, Textarea } from './../../styles';
 /* Styles */
 
 const FormsPage = () => {
+
+    // error validation
+    const [firstNameValidation, setFirstNameValidation] = useState({
+        text : '',
+        isValid : false,
+        message : '*please fill this field'
+    });
+    const [passwordValidation, setPasswordValidation] = useState({
+        text : '',
+        isValid : false,
+        message : '*please fill this field'
+    });
+    const [selectValidation, setSelectValidation] = useState({
+        text : '',
+        isValid : false,
+        message : '*please select fruit'
+    });
+    const [addressValidation, setAddressValidation] = useState({
+        text : '',
+        isValid : false,
+        message : '*address cannot be empty.'
+    });
+
     return(
         <div>
             <div className="title">
@@ -67,13 +90,85 @@ const FormsPage = () => {
                             <BoxTitle label="Error Validation"/>
                             <Form>
                                 <FormGroup>
-                                    <Input type="text" isValid={false} message="*please fill this field" name="first_name" id="first_name_valid" placeholder="First Name"/>
+                                    <Input 
+                                        type="text" 
+                                        value={firstNameValidation.text}
+                                        isValid={firstNameValidation.isValid} 
+                                        message={firstNameValidation.message} 
+                                        name="first_name" 
+                                        id="first_name_valid" 
+                                        placeholder="First Name"
+                                        handleChange={(e) => {
+                                            setFirstNameValidation(
+                                                {
+                                                    text : e.target.value,
+                                                    isValid : (e.target.value.length > 0 ? true : false),
+                                                    message : (e.target.value.length > 0 ? 'ok!' : '*please fill this field'),
+                                                }
+                                            )
+                                        }}/>
                                 </FormGroup>
                                 <FormGroup>
-                                    <Input type="password" value="password" isValid={true} message="password ok!" maxLength={20} name="password" id="password_length" placeholder="Password"/>
+                                    <Input 
+                                        type="password" 
+                                        value={passwordValidation.text}
+                                        isValid={passwordValidation.isValid} 
+                                        message={passwordValidation.message} 
+                                        maxLength={20} 
+                                        name="password" 
+                                        id="password_length_validation" 
+                                        placeholder="Password"
+                                        handleChange={(e) => {
+                                            setPasswordValidation(
+                                                {
+                                                    text : e.target.value,
+                                                    isValid : (e.target.value.length > 0 ? true : false),
+                                                    message : (e.target.value.length > 0 ? 'ok!' : '*please fill this field'),
+                                                }
+                                            )
+                                        }}/>
                                 </FormGroup>
                                 <FormGroup>
-                                    <Textarea  maxLength={100} name="Address" id="address" placeholder="Address"/>
+                                    <Select 
+                                        name="fruits" 
+                                        id="fruits_validation" 
+                                        value={selectValidation.text}
+                                        isValid={selectValidation.isValid} 
+                                        message={selectValidation.message} 
+                                        placeholder="Select Fruit"
+                                        handleChange={(e) => {
+                                            setSelectValidation(
+                                                {
+                                                    text : e.target.value,
+                                                    isValid : (e.target.value.length > 0 ? true : false),
+                                                    message : (e.target.value.length > 0 ? 'ok!' : '*please fill this field'),
+                                                }
+                                            )
+                                        }}>
+                                        <option>Apple</option>
+                                        <option>Manggo</option>
+                                        <option>Orange</option>
+                                        <option>Lemon</option>
+                                    </Select>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Textarea 
+                                        maxLength={100} 
+                                        value={addressValidation.text}
+                                        isValid={addressValidation.isValid} 
+                                        message={addressValidation.message} 
+                                        name="Address" 
+                                        id="address" 
+                                        placeholder="Address"
+                                        handleChange={(e) => {
+                                            setAddressValidation(
+                                                {
+                                                    text : e.target.value,
+                                                    isValid : (e.target.value.length > 0 ? true : false),
+                                                    message : (e.target.value.length > 0 ? 'ok!' : '*please fill this field'),
+                                                }
+                                            )
+                                        }}/>
                                 </FormGroup>
                             </Form>
                         </Box>
