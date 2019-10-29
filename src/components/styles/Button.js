@@ -21,6 +21,8 @@ const Button = (props) => {
 
     //get button color
     const inputButtonType = typeof props.color !== 'undefined' ? props.color : ' btn-primary';
+    let useAnotherColor = false;
+    let anotherColor = '';
     let buttonType;
     switch(inputButtonType){
         case 'success':
@@ -40,6 +42,8 @@ const Button = (props) => {
             break;
         default:
             buttonType = 'btn-primary';
+            useAnotherColor = true;
+            anotherColor = props.color;
             break;
     }
     //check for outline
@@ -76,8 +80,15 @@ const Button = (props) => {
     //get button icon
     const buttonIcon = typeof props.icon !== 'undefined' ? props.icon : '';
 
+    let customStyle = {};
+    if(useAnotherColor){
+        customStyle = {
+            backgroundColor: anotherColor
+        }
+    }
+
     return(
-        <button type={buttonBehaviorType} onClick={props.handleClick} className={"custom-button btn"+ buttonType + buttonSize + isButtonRounded + (isFull ? " full" : "") + " " + customClassName}>
+        <button style={customStyle} type={buttonBehaviorType} onClick={props.handleClick} className={"custom-button btn"+ buttonType + buttonSize + isButtonRounded + (isFull ? " full" : "") + " " + customClassName}>
             {/* check if use icon */}
             { buttonIcon !== '' ? (<i className={(isLabelExist ? 'pad ' : '')+'icon '+ buttonIcon}></i>) : '' }
             

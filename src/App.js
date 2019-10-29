@@ -17,7 +17,11 @@ import Navbar from './components/layouts/Navbar.js';
 import Menubar from './components/layouts/Menubar';
 /* components */
 
-/* pages */
+/* pages sample */
+import LoginPage from './components/pages/LoginPage';
+/* pages sample */
+
+/* pages components */
 import BoxPage from './components/pages/components/BoxPage.js';
 import AlertPage from './components/pages/components/AlertPage.js';
 import BadgePage from './components/pages/components/BadgePage.js';
@@ -26,7 +30,7 @@ import FormsPage from './components/pages/components/FormsPage';
 import CardPage from './components/pages/components/CardPage.js';
 import BreadcrumbsPage from './components/pages/components/BreadcrumbsPage';
 import CarouselPage from './components/pages/components/CarouselPage';
-/* pages */
+/* pages components */
 
 const App = () => {
     return(
@@ -42,6 +46,9 @@ const App = () => {
                     {/* A <Switch> looks through its children <Route>s and
                     renders the first one that matches the current URL. */}
                     <Switch>
+                        {/* Pages Sample */}
+                        <Route path="/page/login" component={LoginPage} />
+
                         {/* Components */}
                         <Route path="/components/box" component={BoxPage} />
                         <Route path="/components/alert" component={AlertPage} />

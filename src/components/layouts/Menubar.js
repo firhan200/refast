@@ -57,7 +57,7 @@ const Menubar = () => {
                         </div>
                         <ul>
                             <li>
-                                <Link href="#">Login</Link>
+                                <Link to="/page/login">Login</Link>
                             </li>
                             <li>
                                 <Link href="#">Sign up</Link>

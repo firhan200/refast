@@ -676,6 +676,14 @@ body{
 }
 
 .custom-checkbox{
+    .label{
+        top:-5px;
+        margin-left:5px;
+        position: relative;
+        color:$dark-gray;
+        font-size:$default-font-size;
+    }
+
     /* Styling Checkbox Starts */
     .checkbox-label {
         position: relative;
@@ -701,24 +709,23 @@ body{
         height: 24px;
         width: 24px;
         background-color: transparent;
-        border-radius: 5px;
+        border-radius: 2px;
         transition: all 0.3s ease-out;
         -webkit-transition: all 0.3s ease-out;
         -moz-transition: all 0.3s ease-out;
         -ms-transition: all 0.3s ease-out;
         -o-transition: all 0.3s ease-out;
-        border: 1px solid lighten($black, 10%);
+        border: 1px solid darken($form-border, 10%);
     }
 
 
     .checkbox-label input:checked ~ .checkbox-custom {
         background-color: #FFFFFF;
-        border-radius: 5px;
         -webkit-transform: rotate(0deg) scale(1);
         -ms-transform: rotate(0deg) scale(1);
         transform: rotate(0deg) scale(1);
         opacity:1;
-        border: 1px solid $black;
+        border: 1px solid darken($form-border, 20%);
     }
 
 
@@ -730,7 +737,7 @@ body{
         height: 0px;
         width: 0px;
         border-radius: 5px;
-        border: solid $black;
+        border: solid $dark-gray;
         border-width: 0 3px 3px 0;
         -webkit-transform: rotate(0deg) scale(0);
         -ms-transform: rotate(0deg) scale(0);
@@ -768,7 +775,7 @@ body{
         width: 0px;
         height: 0px;
         border-radius: 5px;
-        border: 2px solid $black;
+        border: 2px solid $dark-gray;
         -webkit-transform: scale(0);
         -ms-transform: scale(0);
         transform: scale(0);    
@@ -798,16 +805,16 @@ body{
     /* Style for Circular Checkbox */
     .checkbox-label .checkbox-custom.circular {
         border-radius: 50%;
-        border: 1px solid $black;
+        border: 1px solid $dark-gray;
     }
 
     .checkbox-label input:checked ~ .checkbox-custom.circular {
         background-color: #FFFFFF;
         border-radius: 50%;
-        border: 1px solid $black;
+        border: 1px solid $dark-gray;
     }
     .checkbox-label input:checked ~ .checkbox-custom.circular::after {
-        border: solid $black;
+        border: solid $dark-gray;
         border-width: 0 2px 2px 0;
     }
     .checkbox-label .checkbox-custom.circular::after {
@@ -816,7 +823,7 @@ body{
 
     .checkbox-label .checkbox-custom.circular::before {
         border-radius: 50%;
-        border: 1px solid $black;
+        border: 1px solid $dark-gray;
     }
 
     .checkbox-label input:checked ~ .checkbox-custom.circular::before {

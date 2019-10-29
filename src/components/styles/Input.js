@@ -51,7 +51,7 @@ const Input = (props) => {
                 value={props.value}
                 maxLength={maxLength}
                 { ...{ required : isRequired } }
-                { ...{ pattern : (pattern==='' ? 'false' : pattern) } }
+                { ...{ pattern : (pattern==='' ? false : pattern) } }
                 placeholder={props.placeholder}
                 autoComplete={(autoComplete ? "on" : "off")}
                 onChange={props.handleChange}

@@ -34,9 +34,13 @@ const Box = (props) => {
 Box.propTypes = {
     className: PropTypes.string,
     xs: PropTypes.number,
+    xsOffset: PropTypes.number,
     sm: PropTypes.number,
+    smOffset: PropTypes.number,
     md: PropTypes.number,
-    lg: PropTypes.number
+    mdOffset: PropTypes.number,
+    lg: PropTypes.number,
+    lgOffset: PropTypes.number,
 }
 
 export default Box;

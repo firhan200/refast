@@ -28,6 +28,11 @@ const FormsPage = () => {
         message : '*address cannot be empty.'
     });
 
+    const [squareCb, setSquareCb] = useState(false);
+    const [circularCb, setCircularCb] = useState(false);
+    const [squareCbChecked, setSquareCbChecked] = useState(true);
+    const [circularCbChecked, setCircularCbChecked] = useState(true);
+
     return(
         <div>
             <div className="title">
@@ -76,8 +81,10 @@ const FormsPage = () => {
                                     Checkbox
                                 </div>
                                 <FormGroup>
-                                    <Checkbox className="m-r-20"/>
-                                    <Checkbox isCircular={true} className="m-2"/>
+                                    <Checkbox label="Active" isChecked={squareCb} handleChange={(e) => setSquareCb(e.target.checked)} className="m-r-20"/>
+                                    <Checkbox label="Deleted" isChecked={circularCb} handleChange={(e) => setCircularCb(e.target.checked)} isCircular={true} className="m-r-20"/>
+                                    <Checkbox label="On" isChecked={squareCbChecked} handleChange={(e) => setSquareCbChecked(e.target.checked)} className="m-r-20"/>
+                                    <Checkbox label="Connect" isChecked={circularCbChecked} handleChange={(e) => setCircularCbChecked(e.target.checked)} isCircular={true} className="m-r-20"/>
                                 </FormGroup>
                             </Form>
                         </Box>
