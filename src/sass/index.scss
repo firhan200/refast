@@ -886,4 +886,19 @@ overflow: hidden;
 box-sizing: border-box;
     }
 }
+
+.custom-accordion{
+    .card{
+        .card-header{
+            border-radius: 0px;
+            padding:10px;
+            background-color: darken($white, 1%);
+
+            .btn-link{
+                font-size:$default-font-size;
+                color :$black;
+            }
+        }
+    }
+}
 /*======================= Components ============================ */

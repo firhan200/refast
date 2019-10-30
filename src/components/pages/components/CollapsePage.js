@@ -1,13 +1,30 @@
 import React, { useState } from 'react';
 
 /* Styles */
-import { Box, Row, Container, Button, Collapse, BoxTitle } from './../../styles';
+import { Box, Row, Container, Button, Collapse, BoxTitle, Accordion, Alert } from './../../styles';
 /* Styles */
 
 const CollapsePage = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isNestedOpen, setIsNestedOpen] = useState(false);
     const [isNestedSubOpen, setIsNestedSubOpen] = useState(false);
+
+    const accordionItems = [
+        {
+            key : 'Button 1',
+            body : (
+                <div>
+                    <Alert type="success" icon={true} message="Successfully transfer all data."/>
+                    Successfully deploy to staging.
+                    &nbsp;<Button label="Go To Site" icon="fa fa-chevron-right" color="primary"/>
+                </div>
+            )
+        },
+        {
+            key : 'Button 2',
+            body : "Lorem ipsup dolor sir amet"
+        }
+    ];
 
     return(
         <div>
@@ -53,6 +70,12 @@ const CollapsePage = () => {
                                     </a>
                                 </div>
                             </Collapse>
+                        </Box>
+                    </Row>
+                    <Row>
+                        <Box sm={12} md={12} lg={12}>
+                            <BoxTitle label="Accordion"/>
+                            <Accordion items={accordionItems}/>
                         </Box>
                     </Row>
                 </Container>

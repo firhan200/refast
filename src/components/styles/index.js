@@ -58,6 +58,7 @@ import Carousel from './Carousel';
 
 //collapse
 import Collapse from './Collapse';
+import Accordion from './Accordion';
 
 /* Styles */
 
@@ -98,4 +99,5 @@ export {
     BreadcrumbItem,
     Carousel,
     Collapse,
+    Accordion,
 };
