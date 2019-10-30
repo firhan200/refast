@@ -60,6 +60,9 @@ import Carousel from './Carousel';
 import Collapse from './Collapse';
 import Accordion from './Accordion';
 
+//dropdown
+import Dropdown from './Dropdown';
+
 //table
 import Table from './Table';
 
@@ -103,5 +106,6 @@ export {
     Carousel,
     Collapse,
     Accordion,
+    Dropdown,
     Table,
 };

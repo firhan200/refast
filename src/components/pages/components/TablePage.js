@@ -53,7 +53,7 @@ const TablePage = () => {
             <div className="title">
                 Tables
                 <div className="sub-title">
-                    <i className="fa fa-info-circle"></i> give information about current page navigation.
+                    <i className="fa fa-info-circle"></i> tables example and styling.
                 </div>
             </div>
 
