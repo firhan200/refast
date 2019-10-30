@@ -60,6 +60,9 @@ import Carousel from './Carousel';
 import Collapse from './Collapse';
 import Accordion from './Accordion';
 
+//table
+import Table from './Table';
+
 /* Styles */
 
 //multiple export
@@ -100,4 +103,5 @@ export {
     Carousel,
     Collapse,
     Accordion,
+    Table,
 };
