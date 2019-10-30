@@ -77,6 +77,9 @@ const Button = (props) => {
     //get custom class
     const customClassName = typeof props.className !== 'undefined' ? props.className : '';
 
+    //get custom class
+    const id = typeof props.id !== 'undefined' ? props.id : '';
+
     //get button icon
     const buttonIcon = typeof props.icon !== 'undefined' ? props.icon : '';
 
@@ -88,7 +91,7 @@ const Button = (props) => {
     }
 
     return(
-        <button style={customStyle} type={buttonBehaviorType} onClick={props.handleClick} className={"custom-button btn"+ buttonType + buttonSize + isButtonRounded + (isFull ? " full" : "") + " " + customClassName}>
+        <button { ...{ id : id} } style={customStyle} type={buttonBehaviorType} onClick={props.handleClick} className={"custom-button btn"+ buttonType + buttonSize + isButtonRounded + (isFull ? " full" : "") + " " + customClassName}>
             {/* check if use icon */}
             { buttonIcon !== '' ? (<i className={(isLabelExist ? 'pad ' : '')+'icon '+ buttonIcon}></i>) : '' }
             
@@ -101,6 +104,7 @@ const Button = (props) => {
 //prop types initialize
 Button.propTypes = {
     className: PropTypes.string,
+    id: PropTypes.string,
     icon: PropTypes.string,
     type: PropTypes.string,
     color: PropTypes.string,

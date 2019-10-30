@@ -56,6 +56,9 @@ import BreadcrumbItem from './BreadcrumbItem';
 //carousel
 import Carousel from './Carousel';
 
+//collapse
+import Collapse from './Collapse';
+
 /* Styles */
 
 //multiple export
@@ -94,4 +97,5 @@ export {
     Breadcrumb,
     BreadcrumbItem,
     Carousel,
+    Collapse,
 };
