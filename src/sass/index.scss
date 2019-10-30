@@ -43,6 +43,10 @@ body{
     margin-right: 20px;
 }
 
+.m-r-5{
+    margin-right: 5px;
+}
+
 .content{
     padding:20px 0px 20px 0px;
     margin-top: 20px;
@@ -725,7 +729,7 @@ h1, h2, h3, h4, h5 {
 
 .custom-checkbox{
     .label{
-        top:-5px;
+        top:-($checkbox-size / 3) + 2;
         margin-left:5px;
         position: relative;
         color:$dark-gray;
@@ -738,9 +742,9 @@ h1, h2, h3, h4, h5 {
         margin: auto;
         cursor: pointer;
         font-size: 22px;
-        line-height: 24px;
-        height: 24px;
-        width: 24px;
+        line-height: $checkbox-size;
+        height: $checkbox-size;
+        width: $checkbox-size;
         clear: both;
     }
 
@@ -754,8 +758,8 @@ h1, h2, h3, h4, h5 {
         position: absolute;
         top: 0px;
         left: 0px;
-        height: 24px;
-        width: 24px;
+        height: $checkbox-size;
+        width: $checkbox-size;
         background-color: transparent;
         border-radius: 2px;
         transition: all 0.3s ease-out;
@@ -780,8 +784,8 @@ h1, h2, h3, h4, h5 {
     .checkbox-label .checkbox-custom::after {
         position: absolute;
         content: "";
-        left: 12px;
-        top: 12px;
+        left: $checkbox-size / 2;
+        top: $checkbox-size / 2;
         height: 0px;
         width: 0px;
         border-radius: 5px;
@@ -804,10 +808,10 @@ h1, h2, h3, h4, h5 {
         -ms-transform: rotate(45deg) scale(1);
         transform: rotate(45deg) scale(1);
         opacity:1;
-        left: 8px;
-        top: 3px;
-        width: 6px;
-        height: 12px;
+        left: $checkbox-size / 3;
+        top: $checkbox-size / 8;
+        width: $checkbox-size / 4;
+        height: $checkbox-size / 2;
         border: solid darken($form-border, 20%);
         border-width: 0 2px 2px 0;
         background-color: transparent;
@@ -832,8 +836,8 @@ h1, h2, h3, h4, h5 {
     .checkbox-label input:checked ~ .checkbox-custom::before {
         left: -3px;
         top: -3px;
-        width: 24px;
-        height: 24px;
+        width: $checkbox-size;
+        height: $checkbox-size;
         border-radius: 5px;
         -webkit-transform: scale(3);
         -ms-transform: scale(3);
@@ -846,9 +850,6 @@ h1, h2, h3, h4, h5 {
         -ms-transition: all 0.3s ease-out;
         -o-transition: all 0.3s ease-out;
     }
-
-
-
 
     /* Style for Circular Checkbox */
     .checkbox-label .checkbox-custom.circular {

@@ -62,12 +62,12 @@ const CollapsePage = () => {
                                     <Collapse isOpen={isNestedSubOpen}>
                                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
                                     </Collapse>
-                                    <a className="link" onClick={() => { setIsNestedSubOpen(!isNestedSubOpen) }}>
+                                    <span className="link" onClick={() => { setIsNestedSubOpen(!isNestedSubOpen) }}>
                                         {isNestedSubOpen ? 
                                         (
                                             <div><i className="fa fa-chevron-up"></i> Show Less</div>
                                         ) : (<div><i className="fa fa-chevron-down"></i> Show More</div>)}
-                                    </a>
+                                    </span>
                                 </div>
                             </Collapse>
                         </Box>
