@@ -13,6 +13,9 @@ const Button = (props) => {
     //get button full width
     const isFull = typeof props.isFull !== 'undefined' ? props.isFull : false;
 
+    //get button enable
+    const disabled = typeof props.disabled !== 'undefined' ? props.disabled : false;
+
     //get button type
     let buttonBehaviorType = typeof props.type !== 'undefined' ? props.type : 'button';
     if(buttonBehaviorType!=='submit'){
@@ -91,12 +94,20 @@ const Button = (props) => {
     }
 
     return(
-        <button { ...{ id : id} } style={customStyle} type={buttonBehaviorType} onClick={props.handleClick} className={"custom-button btn"+ buttonType + buttonSize + isButtonRounded + (isFull ? " full" : "") + " " + customClassName}>
+        <button 
+            { ...{ id : id} } 
+            { ...{ disabled : disabled} } 
+            style={customStyle} 
+            type={buttonBehaviorType} 
+            onClick={props.handleClick} 
+            className={"custom-button btn"+ buttonType + buttonSize + isButtonRounded + (isFull ? " full" : "") + " " + customClassName}>
+
             {/* check if use icon */}
             { buttonIcon !== '' ? (<i className={(isLabelExist ? 'pad ' : '')+'icon '+ buttonIcon}></i>) : '' }
             
             {/* show button label */}
             { props.label }
+
         </button>
     );
 }
@@ -110,7 +121,7 @@ Button.propTypes = {
     color: PropTypes.string,
     size: PropTypes.string,
     label: PropTypes.string,
-    isEnable: PropTypes.bool,
+    disabled: PropTypes.bool,
     isOutlined: PropTypes.bool,
     isRounded: PropTypes.bool,
     isFull: PropTypes.bool,

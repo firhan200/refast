@@ -1,7 +1,7 @@
 import React from 'react';
 
 /* Styles */
-import { Box, Row, Container, Dropdown } from './../../styles';
+import { Box, Row, Container, Dropdown, DropdownItem } from './../../styles';
 /* Styles */
 
 const DropdownsPage = () => {
@@ -18,7 +18,9 @@ const DropdownsPage = () => {
                 <Container>
                     <Row>
                         <Box sm={12} md={12} lg={12}>
-                            <Dropdown icon="fa fa-user" size="small" label="Dropdown"/>
+                            <Dropdown icon="fa fa-user" size="medium" label="Dropdown" position="bottom">
+                                <DropdownItem>testing</DropdownItem>
+                            </Dropdown>
                         </Box>
                     </Row>
                 </Container>

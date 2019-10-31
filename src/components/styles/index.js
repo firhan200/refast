@@ -62,6 +62,7 @@ import Accordion from './Accordion';
 
 //dropdown
 import Dropdown from './Dropdown';
+import DropdownItem from './DropdownItem';
 
 //table
 import Table from './Table';
@@ -107,5 +108,6 @@ export {
     Collapse,
     Accordion,
     Dropdown,
+    DropdownItem,
     Table,
 };

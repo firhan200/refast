@@ -7,6 +7,25 @@ const Dropdown = (props) => {
     //get custom class
     const customClassName = typeof props.className !== 'undefined' ? props.className : '';
 
+    //get position
+    const inputPosition = typeof props.position !== 'undefined' ? props.position : '';
+    let position;
+    switch(inputPosition){
+        case 'top':
+            position = 'dropup'
+            break;
+        case 'left':
+            position = 'dropleft'
+            break;
+        case 'right':
+            position = 'dropright'
+            break;
+        default:
+            position = ' '
+            break;
+    }
+    position = position !== ' ' ? 'btn-group '+position+' ' : '';
+
     //get button color
     const inputButtonType = typeof props.color !== 'undefined' ? props.color : ' btn-primary';
     let useAnotherColor = false;
@@ -66,17 +85,15 @@ const Dropdown = (props) => {
     }
 
     return(
-        <div className={"custom-dropdown dropdown "+customClassName}>
-            <button style={customStyle} className={"btn btn-secondary dropdown-toggle " + buttonType + buttonSize} type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div className={"custom-dropdown dropdown"+ position + customClassName}>
+            <button style={customStyle} className={"custom-button btn dropdown-toggle " + buttonType + buttonSize} type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {/* show button icon */}
-                <i className={buttonIcon}></i>
+                <i className={'label-icon ' + buttonIcon}></i>
                 {/* show button label */}
                 { props.label }
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                { props.children }
             </div>
         </div>
     );
