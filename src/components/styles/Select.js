@@ -34,6 +34,7 @@ const Select = (props) => {
             ) : '' }
             <select 
                 className={'form-control ' +  isValid + customClassName}
+                value={props.value}
                 name={inputName}
                 id={inputId}
                 { ...{ required : isRequired } }
@@ -52,6 +53,7 @@ const Select = (props) => {
 Select.propTypes = {
     className : PropTypes.string,
     name : PropTypes.string,
+    value : PropTypes.any,
     id : PropTypes.string,
     placeholder : PropTypes.string,
     required : PropTypes.bool,

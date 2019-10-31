@@ -157,6 +157,9 @@ body{
     }
 }
 
+.m-b-20{
+    margin-bottom:20px;
+}
 
 /* Menu navigation styling */
 .menu-navbar{
@@ -298,6 +301,8 @@ h1, h2, h3, h4, h5 {
     
             i{
                 font-size: 8pt;
+                margin-right:10px;
+                color:ligten($dark-gray, 20%);
             }
         }
     
@@ -933,6 +938,24 @@ h1, h2, h3, h4, h5 {
 .custom-dropdown{
     .label-icon{
         margin-right:10px;
+    }
+
+    &.small{
+        .dropdown-item{
+            font-size:$small-font-size;
+        }
+    }
+
+    &.medium{
+        .dropdown-item{
+            font-size:$default-font-size;
+        }
+    }
+
+    &.large{
+        .dropdown-item{
+            font-size:$large-font-size;
+        }
     }
 }
 /*======================= Components ============================ */

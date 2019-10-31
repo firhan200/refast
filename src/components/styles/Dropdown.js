@@ -55,7 +55,7 @@ const Dropdown = (props) => {
     }
 
     //get button size
-    const inputButtonSize = typeof props.size !== 'undefined' ? props.size : ' btn-sm';
+    const inputButtonSize = typeof props.size !== 'undefined' ? props.size : 'medium';
     let buttonSize;
     switch(inputButtonSize){
         case 'small':
@@ -77,6 +77,9 @@ const Dropdown = (props) => {
     //get button icon
     const buttonIcon = typeof props.icon !== 'undefined' ? props.icon : '';
 
+    //get button enable
+    const disabled = typeof props.disabled !== 'undefined' ? (props.disabled ? ' disabled ' : ' ') : ' ';
+
     let customStyle = {};
     if(useAnotherColor){
         customStyle = {
@@ -85,10 +88,13 @@ const Dropdown = (props) => {
     }
 
     return(
-        <div className={"custom-dropdown dropdown"+ position + customClassName}>
-            <button style={customStyle} className={"custom-button btn dropdown-toggle " + buttonType + buttonSize} type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div className={"custom-dropdown dropdown"+ position + ' ' + inputButtonSize + ' ' + customClassName}>
+            <button style={customStyle} className={"custom-button btn dropdown-toggle" + disabled + buttonType + buttonSize} type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {/* show button icon */}
-                <i className={'label-icon ' + buttonIcon}></i>
+                {buttonIcon !== '' ? (
+                    <i className={'label-icon ' + buttonIcon}></i>
+                ) : ''}
+
                 {/* show button label */}
                 { props.label }
             </button>
@@ -106,6 +112,7 @@ Dropdown.propTypes = {
     color: PropTypes.string,
     size: PropTypes.string,
     icon: PropTypes.string,
+    disabled: PropTypes.bool,
     position: PropTypes.oneOf(["top", "bottom", "left", "right"]),
 }
 

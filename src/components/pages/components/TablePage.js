@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 /* Styles */
-import { Box, Row, Container, Table, BoxTitle, Checkbox, Badge, Button } from './../../styles';
+import { Box, Row, Container, Col, Table, BoxTitle, Checkbox, Badge, Button, Dropdown, DropdownItem, Collapse, Form, Input, Select } from './../../styles';
 /* Styles */
 
 const TablePage = () => {
-    const [users, setUsers] = useState([
+    //variables
+    const originalUsers = [
         {
             id: 0,
             name: 'John Doe',
@@ -19,10 +20,48 @@ const TablePage = () => {
             email: 'sarah.johnson@gmail.com',
             active: false,
             isSelected : false
-        }
-    ]);
+        },
+        {
+            id: 2,
+            name: 'Firhan Faisal',
+            email: 'firhan.faisal1995@gmail.com',
+            active: true,
+            isSelected : false
+        },
+    ]
 
+    /* Hooks */
+    const [users, setUsers] = useState(originalUsers);
     const [selectAll, setSelectAll] = useState(false);
+    const [selectedActionsDisabled, setSelectedActionsDisabled] = useState(true);
+    const [showCollapse, setShowCollapse] = useState(false);
+    const [filterStatus, setFilterStatus] = useState(null);
+    const [keyword, setKeyword] = useState('');
+
+    useEffect(() => {
+        //filter users function
+        const filterUser = () => {
+            //filter users
+            let filteredUsers = [...originalUsers].filter(user => (
+                //status filter
+                (filterStatus !== null ? (user.active === filterStatus) : true)
+                &&
+                //keyword filter
+                (
+                    user.name.toLowerCase().includes(keyword.toLowerCase()) 
+                    || 
+                    user.email.toLowerCase().includes(keyword.toLowerCase())
+                )
+            ));
+    
+            //set users
+            setUsers(filteredUsers);
+        }
+
+        //filter users
+        filterUser();
+    }, [keyword, filterStatus])
+    /* Hooks */
 
     /* Select All Users */
     const selectAllUsers = () => {
@@ -34,6 +73,9 @@ const TablePage = () => {
             user.isSelected = !selectAll;
             return user;
         });
+
+        //set selected actions
+        setSelectedActionButtons();
     }
 
     const setSelectedUser = (userId) => {
@@ -45,8 +87,26 @@ const TablePage = () => {
 
             return user;
         });
+
+        //set selected actions
+        setSelectedActionButtons();
+
+        //call hooks
         setUsers(newUsers);
     }
+
+    const setSelectedActionButtons = () => {
+        //check if at least 1 selected
+        if(users.filter(user => (user.isSelected)).length > 0){
+            //set actions button to enable
+            setSelectedActionsDisabled(false);
+        }else{
+            //set actions button to disable
+            setSelectedActionsDisabled(true);
+        }
+    }
+
+    
 
     return(
         <div>
@@ -62,6 +122,44 @@ const TablePage = () => {
                     <Row>
                         <Box sm={12}>
                             <BoxTitle icon="fa fa-users" label="User Account"/>
+                            <Button 
+                                handleClick={() => {
+                                    setShowCollapse(!showCollapse)
+                                }}
+                                className="m-b-20"
+                                label="Filter" 
+                                icon="fa fa-filter"/>
+                            <Collapse label="Filter" isOpen={showCollapse}>
+                                <div className="card card-body">
+                                    <Form>
+                                        <Container>
+                                            <Row>
+                                                <Col md={4} lg={3}>
+                                                    <BoxTitle label="Filter by keyword"/>
+                                                    <Input 
+                                                        value={keyword}
+                                                        handleChange={(e) => setKeyword(e.target.value)}
+                                                        placeholder="Search..."
+                                                        />
+                                                </Col>
+                                                <Col md={3} lg={2}>
+                                                    <BoxTitle label="Filter by status"/>
+                                                    <Select 
+                                                        value={filterStatus} 
+                                                        handleChange={(e) => { setFilterStatus(e.target.value === '' ? null : (e.target.value==='true' ? true : false))} } 
+                                                        placeholder="Select Status">
+
+                                                        <option value="">All</option>
+                                                        <option value={true}>Active</option>
+                                                        <option value={false}>In-Active</option>
+
+                                                    </Select>
+                                                </Col>
+                                            </Row>
+                                        </Container>
+                                    </Form>
+                                </div>
+                            </Collapse>
                             <Table>
                                 <thead>
                                     <tr>
@@ -107,6 +205,10 @@ const TablePage = () => {
                                     )) }
                                 </tbody>
                             </Table>
+                            <Dropdown disabled={selectedActionsDisabled} label="Actions">
+                                <DropdownItem>Delete Selected Users</DropdownItem>
+                                <DropdownItem>Archive Selected Users</DropdownItem>
+                            </Dropdown>
                         </Box>
                     </Row>
                     <Row>

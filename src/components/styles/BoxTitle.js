@@ -7,10 +7,16 @@ const BoxTitle = (props) => {
     //get align
     const align = typeof props.align !== 'undefined' ? props.align : 'left';
 
+    //get icon
+    const icon = typeof props.icon !== 'undefined' ? props.icon : '';
+
     return(
         <div className={align + " box-title-container"}>
             <div className="box-title">
-                <i className={props.icon}></i> { props.label }
+                { icon !== '' ? (
+                    <i className={props.icon}></i>
+                ) : '' }
+                { props.label }
             </div>
             <div className="box-subtitle">
                 { props.subLabel }

@@ -9,12 +9,12 @@ const DropdownItem = (props) => {
 
     //get button enable
     const disabled = typeof props.disabled !== 'undefined' ? props.disabled : false;
+    const isDisabled = disabled ? ' disabled ' : ' ';
 
     return(
             <button 
-                onClick={props.handleClick} 
-                { ...{ disabled : disabled} } 
-                className={"dropdown-item "+customClassName}>
+                onClick={props.handleClick}  
+                className={"dropdown-item"+isDisabled+customClassName}>
 
                 { props.children }
 
