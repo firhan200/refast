@@ -33,6 +33,7 @@ import FormsPage from './components/pages/components/FormsPage';
 import CardPage from './components/pages/components/CardPage.js';
 import BreadcrumbsPage from './components/pages/components/BreadcrumbsPage';
 import CarouselPage from './components/pages/components/CarouselPage';
+import ChartsPage from './components/pages/components/ChartsPage';
 import CollapsePage from './components/pages/components/CollapsePage';
 import DropdownsPage from './components/pages/components/DropdownsPage';
 import TablePage from './components/pages/components/TablePage';
@@ -67,6 +68,7 @@ const App = () => {
                         <Route path="/components/cards" component={CardPage} />
                         <Route path="/components/breadcrumbs" component={BreadcrumbsPage} />
                         <Route path="/components/carousel" component={CarouselPage} />
+                        <Route path="/components/charts" component={ChartsPage} />
                         <Route path="/components/collapse" component={CollapsePage} />
                         <Route path="/components/dropdowns" component={DropdownsPage} />
                         <Route path="/components/tables" component={TablePage} />

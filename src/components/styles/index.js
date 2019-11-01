@@ -56,6 +56,9 @@ import BreadcrumbItem from './BreadcrumbItem';
 //carousel
 import Carousel from './Carousel';
 
+//charts
+import ChartDonut from './ChartDonut';
+
 //collapse
 import Collapse from './Collapse';
 import Accordion from './Accordion';
@@ -105,6 +108,7 @@ export {
     Breadcrumb,
     BreadcrumbItem,
     Carousel,
+    ChartDonut,
     Collapse,
     Accordion,
     Dropdown,
