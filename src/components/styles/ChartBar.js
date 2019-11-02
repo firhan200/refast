@@ -9,9 +9,6 @@ const ChartBar = (props) => {
     //get items & init data
     const items = typeof props.items !== 'undefined' ? props.items : [];
 
-    //get size
-    const chartSize = typeof props.size !== 'undefined' ? props.size : null;
-
     //init default options
     let options = null;
 
@@ -112,7 +109,6 @@ const ChartBar = (props) => {
 ChartBar.propTypes = {
     items : PropTypes.array,
     title : PropTypes.string,
-    size : PropTypes.number,
     legend: PropTypes.oneOf(["none", "top", "bottom", "right", "left"])
 }
 

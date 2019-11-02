@@ -21,9 +21,12 @@ const Box = (props) => {
     //get custom class
     const customClassName = typeof props.className !== 'undefined' ? props.className : '';
 
+    //get transparent
+    const isTransparent = typeof props.isTransparent !== 'undefined' ? (props.isTransparent ? ' transparent' : '') : '';
+
     return(
         <div className={'custom-col'+ xs + xsOffset + sm + smOffset + md + mdOffset + lg + lgOffset + " "+customClassName}>
-            <div className="box">
+            <div className={"box" + isTransparent}>
                 { props.children }
             </div>
         </div>
@@ -41,6 +44,7 @@ Box.propTypes = {
     mdOffset: PropTypes.number,
     lg: PropTypes.number,
     lgOffset: PropTypes.number,
+    isTransparent: PropTypes.bool,
 }
 
 export default Box;

@@ -1,6 +1,26 @@
 import React from 'react';
 import CurrencyFormat  from 'react-currency-format';
-import { Box, BoxTitle, Container, Row, Col, IconCard, ChartLine, ChartDonut, ChartPie, Table, Badge } from '../styles';
+import { 
+    Box, 
+    BoxTitle, 
+    Container, 
+    Row, 
+    Col, 
+    IconCard, 
+    ChartLine, 
+    ChartDonut, 
+    ChartPie, 
+    Table, 
+    Badge, 
+    H3, 
+    UserCard, 
+    ProductCardCategory, 
+    ProductCardImage,
+    ProductCardPrice, 
+    Button, 
+    ProductCard, 
+    ProductCardName, 
+    ProductCardDescription } from '../styles';
 
 const DashboardECommercePage = () => {
     const favoriteProducts = [
@@ -120,6 +140,8 @@ const DashboardECommercePage = () => {
                 type = 'primary';
                 icon = 'fa fa-truck';
                 break;
+            default:
+                break;
         }
 
         return (
@@ -129,9 +151,40 @@ const DashboardECommercePage = () => {
         )
     }
 
+    const recentUsers = [
+        {
+            image: '/images/avatar.png',
+            name: 'John Doe',
+            email: 'john.doe@gmail.com'
+        },
+        {
+            image: '/images/slider2.jpg',
+            name: 'Sarah Johnson',
+            email: 'sarah.johnson@gmail.com'
+        },
+        {
+            image: '/images/slider1.jpg',
+            name: 'Firhan Faisal',
+            email: 'firhan@gmail.com'
+        }
+    ]
+
+    const recentProducts = [
+        {
+            image: '/images/asus.jpg',
+            name: 'Asus VivoBook Ultra A412FL',
+            category: 'Laptop'
+        }
+    ]
+
     return(
         <div>
-            <BoxTitle label="E-Commerce Dashboard" align="left"/>
+            <div className="title">
+                E-Commerce Dashboard
+                <div className="sub-title">
+                    <i className="fa fa-dashboard"></i> orders, sales and many related content.
+                </div>
+            </div>
             <br/>
             <Container>
                 <Row>
@@ -169,35 +222,72 @@ const DashboardECommercePage = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Box lg={12} md={6} lg={6}>
-                        <BoxTitle label="Recent Orders"/>
-                        <Table>
-                            <thead>
-                                <tr>
-                                    <th>Order ID</th>
-                                    <th>Quantity</th>
-                                    <th>Total Cost</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                { recentOrders.map(recentOrder => (
-                                    <tr>
-                                        <td>{ recentOrder.orderId }</td>
-                                        <td align="right">
-                                            <CurrencyFormat value={ recentOrder.qty } displayType={'text'} thousandSeparator={true}/>
-                                        </td>
-                                        <td align="right">
-                                            $ <CurrencyFormat value={ recentOrder.totalCost } displayType={'text'} thousandSeparator={true}/>
-                                        </td>
-                                        <td align="center">
-                                            { renderRecentOrderStatus(recentOrder.status) }
-                                        </td>
-                                    </tr>
-                                )) }
-                            </tbody>
-                        </Table>
-                    </Box>
+                    <Col md={6} lg={6}>
+                        <Container>
+                            <Row>
+                                <Box md={12}>
+                                    <BoxTitle label="Recent Orders"/>
+                                    <Table isResponsive={true}>
+                                        <thead>
+                                            <tr>
+                                                <th>Order ID</th>
+                                                <th>Quantity</th>
+                                                <th>Total Cost</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            { recentOrders.map(recentOrder => (
+                                                <tr key={recentOrder.orderId}>
+                                                    <td><a href="#!">{ recentOrder.orderId }</a></td>
+                                                    <td align="right">
+                                                        <CurrencyFormat value={ recentOrder.qty } displayType={'text'} thousandSeparator={true}/>
+                                                    </td>
+                                                    <td align="right">
+                                                        $ <CurrencyFormat value={ recentOrder.totalCost } displayType={'text'} thousandSeparator={true}/>
+                                                    </td>
+                                                    <td align="center">
+                                                        { renderRecentOrderStatus(recentOrder.status) }
+                                                    </td>
+                                                </tr>
+                                            )) }
+                                        </tbody>
+                                    </Table>
+                                </Box>
+                            </Row>
+                            <Row>
+                                <Col md={12} lg={6}>
+                                    <H3>Recent Users</H3>
+                                    { recentUsers.map((recentUser, index) => (
+                                        <UserCard 
+                                            key={index}
+                                            avatar={recentUser.image} 
+                                            title={recentUser.name} 
+                                            subTitle={recentUser.email} 
+                                            isHorizontal={true}
+                                            handleClick={() => {
+                                                alert("Click on: "+recentUser.name);
+                                            }}/>
+                                    )) }
+                                </Col>
+                                <Col md={12} lg={6}>
+                                    <H3>Recent Products</H3>
+                                    { recentProducts.map((recentProduct, index) => (
+                                        <ProductCard key={index}>
+                                            <ProductCardName>Asus Vivobook Ultra A412FL</ProductCardName>
+                                            <ProductCardCategory>Notebook</ProductCardCategory>
+                                            <ProductCardImage image="/images/asus.jpg"/>
+                                            <ProductCardDescription maxLength={150}>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                            </ProductCardDescription>
+                                            <ProductCardPrice price={1299} afterDiscountPrice={999} currency="$"/>
+                                            <Button label="View Products" isFull={true} size="small" handleClick={() => { alert('view products: '+recentProduct.name) }}/>
+                                        </ProductCard> 
+                                    )) }
+                                </Col>
+                            </Row>
+                        </Container>
+                    </Col>
                     <Col md={6} lg={6}>
                         <Container>
                             <Row>

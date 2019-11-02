@@ -9,9 +9,6 @@ const ChartLine = (props) => {
     //get items & init data
     const items = typeof props.items !== 'undefined' ? props.items : [];
 
-    //get size
-    const chartSize = typeof props.size !== 'undefined' ? props.size : null;
-
     //init default options
     let options = null;
 
@@ -110,9 +107,8 @@ const ChartLine = (props) => {
 
 //prop types initialize
 ChartLine.propTypes = {
-    items : PropTypes.array,
+    items : PropTypes.object,
     title : PropTypes.string,
-    size : PropTypes.number,
     legend: PropTypes.oneOf(["none", "top", "bottom", "right", "left"])
 }
 

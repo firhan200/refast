@@ -25,11 +25,6 @@ const Menubar = () => {
                                 Components
                             </a>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" data-toggle="collapse" href="#submenu-layouts" role="button" aria-expanded="false" aria-controls="submenu-layouts">
-                                Layouts
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </nav>
@@ -73,19 +68,19 @@ const Menubar = () => {
                         </div>
                         <ul>
                             <li>
-                                <Link href="#">FAQ</Link>
+                                <Link to="/page/faq">FAQ</Link>
                             </li>
                             <li>
-                                <Link href="#">404</Link>
+                                <Link to="/page/404">404</Link>
                             </li>
                             <li>
-                                <Link href="#">Search</Link>
+                                <Link to="/page/search">Search</Link>
                             </li>
                             <li>
-                                <Link href="#">Mailing</Link>
+                                <Link to="/page/mailing">Mailing</Link>
                             </li>
                             <li>
-                                <Link href="#">Pricing</Link>
+                                <Link to="/page/pricing">Pricing</Link>
                             </li>
                         </ul>
                     </div>
@@ -129,25 +124,6 @@ const Menubar = () => {
                             </li>
                             <li>
                                 <Link to="/components/tables">Tables</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="collapse" data-parent="#main-menu" id="submenu-layouts">
-                    <div className="horizontal-menu">
-                        <ul>
-                            <li>
-                                <Link>full grid</Link>
-                            </li>
-                            <li>
-                                <Link>2 grid</Link>
-                            </li>
-                            <li>
-                                <Link>2 grid with top</Link>
-                            </li>
-                            <li>
-                                <Link>2 grid with top &amp; bottom</Link>
                             </li>
                         </ul>
                     </div>

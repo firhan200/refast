@@ -294,12 +294,26 @@ h1, h2, h3, h4, h5 {
     text-align: center;
 }
 
+.click-available{
+    cursor: pointer;
+
+    &:hover{
+        box-shadow: 4px 4px 5px $gray;
+    }
+}
+
 .box{
     padding:20px;
     background-color: $white;
     box-shadow: $shadow;
     border:1px solid $gray;
     margin-bottom:20px;
+
+    &.transparent{
+        background-color: transparent;
+        border:0px;
+        box-shadow: none;
+    }
 
     .box-title-container{
         margin-bottom: 20px;
@@ -534,6 +548,7 @@ h1, h2, h3, h4, h5 {
 
 .custom-user-card{
     $user-card-image: 100px;
+    margin-bottom:10px;
 
     &.vertical{
         text-align: center;
@@ -566,11 +581,11 @@ h1, h2, h3, h4, h5 {
             }
         }
 
-        .title{
+        .user-card-title{
             font-size: $large-font-size;
         }
     
-        .sub-title{
+        .user-card-sub-title{
             margin-top:5px;
             font-size: $default-font-size;
         }
@@ -582,6 +597,8 @@ h1, h2, h3, h4, h5 {
 
         .frame{
             float: left;
+            margin-top:-10px;
+            margin-right:10px;
             width:$user-card-image - 30;
             height:$user-card-image - 30;
             img{
@@ -591,16 +608,15 @@ h1, h2, h3, h4, h5 {
         }
 
         .user-card-left{
-            float:left;
             margin-left:10px;
             margin-top:10px;
         }
 
-        .title{
+        .user-card-title{
             font-size: $default-font-size + 3;
         }
     
-        .sub-title{
+        .user-card-sub-title{
             margin-top:0px;
             font-size: $small-font-size;
         }

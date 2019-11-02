@@ -22,8 +22,11 @@ const UserCard = (props) => {
     //get button outlined
     const isHorizontal = typeof props.isHorizontal !== 'undefined' ? props.isHorizontal : false;
 
+    //get is handle click
+    const isHandleClick = typeof props.handleClick !== 'undefined' ? ' click-available ' : ' ';
+
     return(
-        <div className={'custom-user-card ' + (isHorizontal ? 'horizontal ' : 'vertical ') + customClassName}>
+        <div onClick={props.handleClick} className={'custom-user-card' + isHandleClick + (isHorizontal ? 'horizontal ' : 'vertical ') + customClassName}>
             { isHorizontal ? (
                 // horizontal
                 <div>
@@ -31,10 +34,10 @@ const UserCard = (props) => {
                         <img alt={""} src={avatar}/>
                     </div>
                     <div className="user-card-left">
-                        <div className="title">
+                        <div className="user-card-title">
                             { title }
                         </div>
-                        <div className="sub-title">
+                        <div className="user-card-sub-title">
                             { subTitle }
                         </div>
                         <div className="user-card-child">
@@ -53,10 +56,10 @@ const UserCard = (props) => {
                     <div className="frame">
                         <img alt={""} src={avatar}/>
                     </div>
-                    <div className="title">
+                    <div className="user-card-title">
                         { title }
                     </div>
-                    <div className="sub-title">
+                    <div className="user-card-sub-title">
                         { subTitle }
                     </div>
                     <div className="user-card-child">
@@ -78,6 +81,7 @@ UserCard.propTypes = {
     title: PropTypes.string,
     subTitle: PropTypes.string,
     isHorizontal: PropTypes.bool,
+    handleClick: PropTypes.func,
 }
 
 export default UserCard;

@@ -16,7 +16,7 @@ const ProductCardDescription = (props) => {
     }
 
     return(
-        <p class="product-card-description">{ description }</p>
+        <p className="product-card-description">{ description }</p>
     );
 }
 

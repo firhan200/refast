@@ -1,9 +1,9 @@
-@media (max-width: $mobile) and (min-width: $tablet) {
+@media (min-width: $mobile) and (max-width: $tablet) {
     /* components */
     
     .custom-icon-card{
         .icon-card-body{
-            padding-bottom:220px !important;
+            padding-bottom:20px !important;
         }
         .label, .number{
             font-size:$small-font-size !important;
