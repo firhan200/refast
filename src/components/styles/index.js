@@ -74,6 +74,9 @@ import DropdownItem from './DropdownItem';
 //table
 import Table from './Table';
 
+//Progress Bar
+import ProgressBar from './ProgressBar';
+
 /* Styles */
 
 //multiple export
@@ -122,4 +125,5 @@ export {
     Dropdown,
     DropdownItem,
     Table,
+    ProgressBar,
 };

@@ -20,7 +20,8 @@ import {
     Button, 
     ProductCard, 
     ProductCardName, 
-    ProductCardDescription } from '../styles';
+    ProductCardDescription, 
+    ProgressBar} from '../styles';
 
 const DashboardECommercePage = () => {
     const favoriteProducts = [
@@ -305,6 +306,40 @@ const DashboardECommercePage = () => {
                             </Row>
                         </Container>
                     </Col>
+                </Row>
+                <Row>
+                    <Box sm={6} md={3}>
+                        <BoxTitle icon="fa fa-inbox" label="Disk Storage"/>
+                        <ProgressBar 
+                            color="success"
+                            label="25GB / 100GB"
+                            showLabel={true}
+                            percentage={25}/>
+                    </Box>
+                    <Box sm={6} md={3}>
+                        <BoxTitle icon="fa fa-database" label="Database"/>
+                        <ProgressBar 
+                            color="danger"
+                            label="484MB / 512MB"
+                            showLabel={true}
+                            percentage={96}/>
+                    </Box>
+                    <Box sm={6} md={3}>
+                        <BoxTitle icon="fa fa-server" label="Bandwidth"/>
+                        <ProgressBar 
+                            color="primary"
+                            label="40GB / 80GB"
+                            showLabel={true}
+                            percentage={50}/>
+                    </Box>
+                    <Box sm={6} md={3}>
+                        <BoxTitle icon="fa fa-server" label="Latency"/>
+                        <ProgressBar 
+                            color="primary"
+                            label="70/ms"
+                            showLabel={true}
+                            percentage={70}/>
+                    </Box>
                 </Row>
             </Container>
         </div>

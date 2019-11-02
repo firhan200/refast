@@ -38,6 +38,7 @@ import ChartsPage from './components/pages/components/ChartsPage';
 import CollapsePage from './components/pages/components/CollapsePage';
 import DropdownsPage from './components/pages/components/DropdownsPage';
 import TablePage from './components/pages/components/TablePage';
+import ProgressBarPage from './components/pages/components/ProgressBarPage';
 /* pages components */
 
 const App = () => {
@@ -73,6 +74,7 @@ const App = () => {
                         <Route path="/components/collapse" component={CollapsePage} />
                         <Route path="/components/dropdowns" component={DropdownsPage} />
                         <Route path="/components/tables" component={TablePage} />
+                        <Route path="/components/progressbar" component={ProgressBarPage} />
 
                         {/* Default index page */}
                         <Route path="/" component={DashboardECommercePage}/>

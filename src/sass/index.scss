@@ -265,6 +265,10 @@ body{
     text-align: right;
 }
 
+.center{
+    text-align: center;
+}
+
 h1{
     font-size:$h1;
 }
@@ -316,14 +320,14 @@ h1, h2, h3, h4, h5 {
     }
 
     .box-title-container{
-        margin-bottom: 20px;
+        margin-bottom: 10px;
 
         .box-title{
             font-size: $default-font-size;
             color: $dark-gray;
     
             i{
-                font-size: 8pt;
+                font-size: $default-font-size;
                 margin-right:10px;
                 color:ligten($dark-gray, 20%);
             }
@@ -985,4 +989,64 @@ h1, h2, h3, h4, h5 {
         }
     }
 }
+
+.custom-progress-bar-container{
+    &.small{
+        .custom-progress-bar{
+            height:10px;
+        }
+
+        .progress-bar-value{
+            font-size:$small-font-size - 2;
+        }
+    }
+    &.medium{
+        .custom-progress-bar{
+            height:20px;
+        }
+        
+        .progress-bar-value{
+            font-size:$default-font-size;
+        }
+    }
+    &.large{
+        .custom-progress-bar{
+            height:30px;
+        }
+        
+        .progress-bar-value{
+            font-size:$large-font-size - 2;
+        }
+    }
+
+    .custom-progress-bar{
+        position: relative;
+        width:100%;
+        border-radius: 20px;
+        background-color: darken($gray,5%);
+    
+        .progress-bar-fill{
+            height:100%;
+            border-radius: inherit;
+            transition: width .2s ease-in;
+    
+            &.progress-bar-primary{
+                background : $primary;
+            }
+            &.progress-bar-danger{
+                background : $danger;
+            }
+            &.progress-bar-success{
+                background : $success;
+            }
+            &.progress-bar-info{
+                background : $info;
+            }
+            &.progress-bar-warning{
+                background : $warning;
+            }
+        }
+    }
+}
+
 /*======================= Components ============================ */

@@ -125,6 +125,9 @@ const Menubar = () => {
                             <li>
                                 <Link to="/components/tables">Tables</Link>
                             </li>
+                            <li>
+                                <Link to="/components/progressbar">Progress Bar</Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
