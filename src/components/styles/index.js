@@ -58,6 +58,8 @@ import Carousel from './Carousel';
 
 //charts
 import ChartDonut from './ChartDonut';
+import ChartPie from './ChartPie';
+import ChartRadar from './ChartRadar';
 
 //collapse
 import Collapse from './Collapse';
@@ -109,6 +111,8 @@ export {
     BreadcrumbItem,
     Carousel,
     ChartDonut,
+    ChartPie,
+    ChartRadar,
     Collapse,
     Accordion,
     Dropdown,

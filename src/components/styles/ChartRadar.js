@@ -5,9 +5,12 @@ import React from 'react';
 import Chart from 'react-apexcharts';
 import PropTypes from 'prop-types'; // prop types
 
-const ChartDonut = (props) => {
+const ChartRadar = (props) => {
     //get items & init data
     const items = typeof props.items !== 'undefined' ? props.items : [];
+
+    //get size
+    const chartSize = typeof props.size !== 'undefined' ? props.size : null;
 
     //init default options
     let options = null;
@@ -19,29 +22,44 @@ const ChartDonut = (props) => {
     
     try{
         //get datas
-        let numbers = items.map(item => (item.data));
-        let labels = items.map(item => (item.label));
-        let colors = items.map(item => (item.color));
+        let dataItems = items.data;
+        let colors = dataItems.map(item => (item.color));
+        let seriesData = dataItems.map(item => {
+            return {
+                name : item.label,
+                data : item.data
+            }
+        })
 
         options = {
-            series: numbers,
-            labels: labels,
-            colors: colors,
-            dataLabels: {
-                enabled : false
+            radar : {
+                size : 1400
             },
-            states: {
+            series: seriesData,
+            stroke: {
+                show: true,
+                colors: colors
+            },
+            markers: {
+                size: 3,
                 hover: {
-                    enabled: false
-                }
+                    size: 4
+                },
+                colors: colors
             },
+            fill: {
+                opacity: 0.2,
+                colors: colors
+            },
+            labels: items.labels,
             plotOptions: {
-                pie: {
-                    donut: {
-                        labels : {
-                            show : true
-                        },
-                        size: '75%'
+                radar: {
+                    size : chartSize,
+                    polygons: {
+                        strokeColor: '#e8e8e8',
+                        fill: {
+                            colors: ['#f8f8f8', '#fff']
+                        }
                     }
                 }
             }
@@ -84,7 +102,8 @@ const ChartDonut = (props) => {
                     position: legendPosition,
                     markers:{
                         width:8,
-                        height:8
+                        height:8,
+                        fillColors : colors
                     }
                 }
             });
@@ -103,7 +122,7 @@ const ChartDonut = (props) => {
     return(
         <div>
             { options !== null ? (
-                <Chart options={options} series={options.series} type="donut" width="100%" />
+                <Chart options={options} series={options.series} type="radar" width="100%" />
             ) : error }
         </div>
         
@@ -111,10 +130,11 @@ const ChartDonut = (props) => {
 }
 
 //prop types initialize
-ChartDonut.propTypes = {
+ChartRadar.propTypes = {
     items : PropTypes.array,
     title : PropTypes.string,
+    size : PropTypes.number,
     legend: PropTypes.oneOf(["none", "top", "bottom", "right", "left"])
 }
 
-export default ChartDonut;
+export default ChartRadar;

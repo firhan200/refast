@@ -5,7 +5,7 @@ import React from 'react';
 import Chart from 'react-apexcharts';
 import PropTypes from 'prop-types'; // prop types
 
-const ChartDonut = (props) => {
+const ChartPie = (props) => {
     //get items & init data
     const items = typeof props.items !== 'undefined' ? props.items : [];
 
@@ -39,9 +39,8 @@ const ChartDonut = (props) => {
                 pie: {
                     donut: {
                         labels : {
-                            show : true
-                        },
-                        size: '75%'
+                            show : false
+                        }
                     }
                 }
             }
@@ -103,7 +102,7 @@ const ChartDonut = (props) => {
     return(
         <div>
             { options !== null ? (
-                <Chart options={options} series={options.series} type="donut" width="100%" />
+                <Chart options={options} series={options.series} type="pie" width="100%" />
             ) : error }
         </div>
         
@@ -111,10 +110,10 @@ const ChartDonut = (props) => {
 }
 
 //prop types initialize
-ChartDonut.propTypes = {
+ChartPie.propTypes = {
     items : PropTypes.array,
     title : PropTypes.string,
     legend: PropTypes.oneOf(["none", "top", "bottom", "right", "left"])
 }
 
-export default ChartDonut;
+export default ChartPie;
