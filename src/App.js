@@ -22,6 +22,7 @@ import LoginPage from './components/pages/LoginPage';
 import SignupPage from './components/pages/SignupPage';
 import ForgotPasswordPage from './components/pages/ForgotPasswordPage';
 import ResetPasswordPage from './components/pages/ResetPasswordPage';
+import DashboardECommercePage from './components/pages/DashboardECommercePage';
 /* pages sample */
 
 /* pages components */
@@ -54,6 +55,7 @@ const App = () => {
                     renders the first one that matches the current URL. */}
                     <Switch>
                         {/* Pages Sample */}
+                        <Route path="/dashboard/ecommerce" component={DashboardECommercePage} />
                         <Route path="/page/login" component={LoginPage} />
                         <Route path="/page/signup" component={SignupPage} />
                         <Route path="/page/forgot-password" component={ForgotPasswordPage} />

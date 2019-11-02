@@ -23,6 +23,24 @@ const IconCard = (props) => {
     //get button outlined
     const isButtonWavy = typeof props.isWavy !== 'undefined' ? props.isWavy : false;
 
+    //get statistic
+    const statisticValue = typeof props.statisticValue !== 'undefined' ? props.statisticValue : '';
+    const statisticPostfix = typeof props.statisticPostfix !== 'undefined' ? props.statisticPostfix : '';
+    const getStatistic = (statisticValue) => {
+        return(
+            <span className={statisticValue > 0 ? 'green' : 'red'}>
+                &nbsp;
+                &nbsp;
+                { statisticValue > 0 ? (
+                    <i className="fa fa-caret-up"></i>
+                ) : (
+                    <i className="fa fa-caret-down"></i>
+                ) }
+                &nbsp;<span>{Math.abs(statisticValue)+ '' +statisticPostfix}</span>
+            </span>
+        )
+    }
+
     return(
         <div className={'custom-icon-card '+align+' '+customClassName}>
             {/* main content */}
@@ -34,6 +52,9 @@ const IconCard = (props) => {
                 
                 <div className="label">
                     { label.toUpperCase() }
+                    { statisticValue !== '' ? (
+                        getStatistic(statisticValue)
+                    ) : '' }
                 </div>
                 <div className="number">
                     <CurrencyFormat value={ number } displayType={'text'} thousandSeparator={true}/>
@@ -56,6 +77,8 @@ IconCard.propTypes = {
     label: PropTypes.string,
     icon: PropTypes.string,
     number: PropTypes.number,
+    statisticValue: PropTypes.number,
+    statisticPostfix: PropTypes.string,
 }
 
 export default IconCard;

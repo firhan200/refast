@@ -5,7 +5,7 @@ import React from 'react';
 import Chart from 'react-apexcharts';
 import PropTypes from 'prop-types'; // prop types
 
-const ChartRadar = (props) => {
+const ChartBar = (props) => {
     //get items & init data
     const items = typeof props.items !== 'undefined' ? props.items : [];
 
@@ -23,6 +23,7 @@ const ChartRadar = (props) => {
     try{
         //get datas
         let dataItems = items.data;
+        let labels = items.labels;
         let colors = dataItems.map(item => (item.color));
         let seriesData = dataItems.map(item => {
             return {
@@ -32,34 +33,16 @@ const ChartRadar = (props) => {
         })
 
         options = {
-            series: seriesData,
-            stroke: {
-                show: true,
-                colors: colors
-            },
-            markers: {
-                size: 3,
-                hover: {
-                    size: 4
-                },
-                colors: colors
-            },
-            fill: {
-                opacity: 0.2,
-                colors: colors
-            },
-            labels: items.labels,
-            plotOptions: {
-                radar: {
-                    size : chartSize,
-                    polygons: {
-                        strokeColor: '#e8e8e8',
-                        fill: {
-                            colors: ['#f8f8f8', '#fff']
-                        }
-                    }
+            series:seriesData,
+            colors: colors,
+            yaxis:{
+                axisBorder:{
+                    show:false
                 }
-            }
+            },
+            xaxis: {
+                categories: labels
+            },
         }
 
         //check title
@@ -100,7 +83,6 @@ const ChartRadar = (props) => {
                     markers:{
                         width:8,
                         height:8,
-                        fillColors : colors
                     }
                 }
             });
@@ -119,7 +101,7 @@ const ChartRadar = (props) => {
     return(
         <div>
             { options !== null ? (
-                <Chart options={options} series={options.series} type="radar" width="100%" />
+                <Chart options={options} series={options.series} type="bar" width="100%" />
             ) : error }
         </div>
         
@@ -127,11 +109,11 @@ const ChartRadar = (props) => {
 }
 
 //prop types initialize
-ChartRadar.propTypes = {
+ChartBar.propTypes = {
     items : PropTypes.array,
     title : PropTypes.string,
     size : PropTypes.number,
     legend: PropTypes.oneOf(["none", "top", "bottom", "right", "left"])
 }
 
-export default ChartRadar;
+export default ChartBar;

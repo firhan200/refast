@@ -1,7 +1,7 @@
 import React from 'react';
 
 /* Styles */
-import { Box, Row, Container, ChartDonut, ChartPie, ChartRadar } from './../../styles';
+import { Box, Row, Container, ChartDonut, ChartPie, ChartRadar, ChartLine, ChartBar } from './../../styles';
 /* Styles */
 
 const ChartsPage = () => {
@@ -39,6 +39,23 @@ const ChartsPage = () => {
         }]
     };
 
+    //line items
+    const lineItems = {
+        labels : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        data : [
+            {
+                label: 'Android Downloads',
+                color:'#7757F7',
+                data : [203, 175, 377, 245, 289, 200]
+            },
+            {
+                label: 'iOS Downloads',
+                color:'#6E55CE',
+                data : [14, 33, 85, 124, 203, 201]
+            }
+        ]
+    };
+
     return(
         <div>
             <div className="title">
@@ -59,6 +76,14 @@ const ChartsPage = () => {
                         </Box>
                         <Box sm={12} md={6} lg={4}>
                             <ChartRadar legend="bottom" title="Radar Chart" size={50} items={radarItems}/>
+                        </Box>
+                    </Row>
+                    <Row>
+                        <Box sm={12} md={6} lg={6}>
+                            <ChartLine legend="bottom" title="Line Chart" items={lineItems}/>
+                        </Box>
+                        <Box sm={12} md={6} lg={6}>
+                            <ChartBar legend="bottom" title="Bar Chart" items={lineItems}/>
                         </Box>
                     </Row>
                 </Container>

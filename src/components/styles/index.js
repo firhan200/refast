@@ -60,6 +60,8 @@ import Carousel from './Carousel';
 import ChartDonut from './ChartDonut';
 import ChartPie from './ChartPie';
 import ChartRadar from './ChartRadar';
+import ChartLine from './ChartLine';
+import ChartBar from './ChartBar';
 
 //collapse
 import Collapse from './Collapse';
@@ -113,6 +115,8 @@ export {
     ChartDonut,
     ChartPie,
     ChartRadar,
+    ChartLine,
+    ChartBar,
     Collapse,
     Accordion,
     Dropdown,

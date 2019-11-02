@@ -249,6 +249,14 @@ body{
 
 
 /*======================= Components ============================ */
+.green{
+    color : $success;
+}
+
+.red{
+    color : $danger;
+}
+
 .left{
     text-align: left;
 }
