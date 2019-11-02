@@ -176,7 +176,7 @@ const DashboardECommercePage = () => {
                                 <tr>
                                     <th>Order ID</th>
                                     <th>Quantity</th>
-                                    <th>Cost</th>
+                                    <th>Total Cost</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
@@ -184,13 +184,13 @@ const DashboardECommercePage = () => {
                                 { recentOrders.map(recentOrder => (
                                     <tr>
                                         <td>{ recentOrder.orderId }</td>
-                                        <td>
+                                        <td align="right">
                                             <CurrencyFormat value={ recentOrder.qty } displayType={'text'} thousandSeparator={true}/>
                                         </td>
-                                        <td>
+                                        <td align="right">
                                             $ <CurrencyFormat value={ recentOrder.totalCost } displayType={'text'} thousandSeparator={true}/>
                                         </td>
-                                        <td>
+                                        <td align="center">
                                             { renderRecentOrderStatus(recentOrder.status) }
                                         </td>
                                     </tr>
