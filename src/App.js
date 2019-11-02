@@ -55,7 +55,6 @@ const App = () => {
                     renders the first one that matches the current URL. */}
                     <Switch>
                         {/* Pages Sample */}
-                        <Route path="/dashboard/ecommerce" component={DashboardECommercePage} />
                         <Route path="/page/login" component={LoginPage} />
                         <Route path="/page/signup" component={SignupPage} />
                         <Route path="/page/forgot-password" component={ForgotPasswordPage} />
@@ -76,7 +75,7 @@ const App = () => {
                         <Route path="/components/tables" component={TablePage} />
 
                         {/* Default index page */}
-                        <Route path="/" />
+                        <Route path="/" component={DashboardECommercePage}/>
                     </Switch>
                 </div>
             </Router>

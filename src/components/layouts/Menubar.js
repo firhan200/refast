@@ -41,7 +41,7 @@ const Menubar = () => {
                     <div className="horizontal-menu">
                         <ul>
                             <li>
-                                <Link to="/dashboard/ecommerce">E-Commerce</Link>
+                                <Link to="/">E-Commerce</Link>
                             </li>
                         </ul>
                     </div>

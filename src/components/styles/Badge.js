@@ -28,15 +28,15 @@ const Badge = (props) => {
                 </div>
             ) : '' }
 
-            {/* Badge Label */}
-            <span className="badge-message">
-                { badgeMessage }
-            </span>
-
             {/* Badge Icon */}
             { badgeIcon !== '' ? (
                 <i className={'icon '+badgeIcon}></i>
             ) : '' }
+
+            {/* Badge Label */}
+            <span className="badge-message">
+                { badgeMessage }
+            </span>
         </div>
     );
 }

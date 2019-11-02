@@ -1,0 +1,18 @@
+@media (max-width: $mobile) and (min-width: $tablet) {
+    /* components */
+    
+    .custom-icon-card{
+        .icon-card-body{
+            padding-bottom:220px !important;
+        }
+        .label, .number{
+            font-size:$small-font-size !important;
+        }
+
+        .icon{
+            font-size: $small-font-size + 10;
+        }
+    }
+
+    /* components */
+}

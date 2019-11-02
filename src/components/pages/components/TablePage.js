@@ -160,7 +160,7 @@ const TablePage = () => {
                                     </Form>
                                 </div>
                             </Collapse>
-                            <Table>
+                            <Table isResponsive={true}>
                                 <thead>
                                     <tr>
                                         <th>

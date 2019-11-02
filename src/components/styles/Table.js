@@ -11,10 +11,13 @@ const Table = (props) => {
     const type = typeof props.type !== 'undefined' ? ' table-'+props.type : ' ';
 
     //get size
-    const size = typeof props.size !== 'undefined' ? " "+props.size+' ' : ' medium ';
+    const size = typeof props.size !== 'undefined' ? ' '+props.size+' ' : ' medium ';
+
+    //get responsive
+    const isResponsive = typeof props.isResponsive !== 'undefined' ? ' table-responsive-sm ' : ' ';
 
     return(
-        <table className={"custom-table table table-hover" + type + size + customClassName}>
+        <table className={"custom-table table table-hover" + type + size + isResponsive + customClassName}>
             { props.children }
         </table>
     );
@@ -23,6 +26,7 @@ const Table = (props) => {
 //prop types initialize
 Table.propTypes = {
     className : PropTypes.string,
+    isResponsive : PropTypes.bool,
     type : PropTypes.oneOf(['dark', 'striped', 'bordered']),
     size : PropTypes.oneOf(['small', 'medium', 'large']),
 }

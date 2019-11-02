@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Box, BoxTitle, Container, Row, Col, IconCard, ChartLine, ChartDonut, ChartPie } from '../styles';
+import React from 'react';
+import CurrencyFormat  from 'react-currency-format';
+import { Box, BoxTitle, Container, Row, Col, IconCard, ChartLine, ChartDonut, ChartPie, Table, Badge } from '../styles';
 
 const DashboardECommercePage = () => {
     const favoriteProducts = [
@@ -9,7 +10,7 @@ const DashboardECommercePage = () => {
             color: "#7757F7"
         },
         {
-            label: 'Shoess',
+            label: 'Shoes',
             data: 674,
             color: "#6E55CE"
         },
@@ -59,13 +60,82 @@ const DashboardECommercePage = () => {
         ]
     };
 
+    const recentOrders = [
+        {
+            orderId: 'ODR-0005',
+            qty : 5,
+            totalCost : 560,
+            status : 1 //completed
+        },
+        {
+            orderId: 'ODR-0004',
+            qty : 2,
+            totalCost : 1000,
+            status : 2 //pending
+        },
+        {
+            orderId: 'ODR-0003',
+            qty : 1,
+            totalCost : 99,
+            status : 2 //pending
+        },
+        {
+            orderId: 'ODR-0002',
+            qty : 23,
+            totalCost : 789,
+            status : 3 //Cancelled
+        },
+        {
+            orderId: 'ODR-0001',
+            qty : 4,
+            totalCost : 35,
+            status : 4 //Shipped
+        }
+    ];
+
+    const renderRecentOrderStatus = (status) => {
+        let label = '';
+        let type = 'primary';
+        let icon = '';
+
+        //check label
+        switch(status){
+            case 1:
+                label = 'completed';
+                type = 'success';
+                icon = 'fa fa-check';
+                break;
+            case 2:
+                label = 'pending';
+                type = 'info';
+                icon = 'fa fa-clock-o';
+                break;
+            case 3:
+                label = 'cancelled';
+                type = 'danger';
+                icon = 'fa fa-remove';
+                break;
+            case 4:
+                label = 'shipped';
+                type = 'primary';
+                icon = 'fa fa-truck';
+                break;
+        }
+
+        return (
+            <div>
+                <Badge message={label} icon={icon} type={type}/>
+            </div>
+        )
+    }
+
     return(
         <div>
             <BoxTitle label="E-Commerce Dashboard" align="left"/>
-            <hr/>
+            <br/>
             <Container>
                 <Row>
-                    <Col md={3} className="m-b-20">
+                    <Col xs={6} md={3} className="m-b-20">
                         <IconCard 
                             isWavy={true} 
                             statisticValue={-12} 
@@ -74,7 +144,7 @@ const DashboardECommercePage = () => {
                             label="Orders" 
                             icon="fa fa-shopping-cart"/>
                     </Col>
-                    <Col md={3} className="m-b-20">
+                    <Col xs={6} md={3} className="m-b-20">
                         <IconCard 
                             isWavy={true} 
                             number={12506} 
@@ -83,14 +153,14 @@ const DashboardECommercePage = () => {
                             label="Earnings" 
                             icon="fa fa-dollar"/>
                     </Col>
-                    <Col md={3} className="m-b-20">
+                    <Col xs={6} md={3} className="m-b-20">
                         <IconCard 
                             isWavy={true} 
                             number={203} 
                             label="Tickets" 
                             icon="fa fa-ticket"/>
                     </Col>
-                    <Col md={3} className="m-b-20">
+                    <Col xs={6} md={3} className="m-b-20">
                         <IconCard 
                             isWavy={true} 
                             number={3002} 
@@ -99,11 +169,35 @@ const DashboardECommercePage = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col md={6} lg={6}>
-                        <Box lg={12}>
-                            <BoxTitle label="Recent Orders"/>
-                        </Box>
-                    </Col>
+                    <Box lg={12} md={6} lg={6}>
+                        <BoxTitle label="Recent Orders"/>
+                        <Table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Quantity</th>
+                                    <th>Cost</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                { recentOrders.map(recentOrder => (
+                                    <tr>
+                                        <td>{ recentOrder.orderId }</td>
+                                        <td>
+                                            <CurrencyFormat value={ recentOrder.qty } displayType={'text'} thousandSeparator={true}/>
+                                        </td>
+                                        <td>
+                                            $ <CurrencyFormat value={ recentOrder.totalCost } displayType={'text'} thousandSeparator={true}/>
+                                        </td>
+                                        <td>
+                                            { renderRecentOrderStatus(recentOrder.status) }
+                                        </td>
+                                    </tr>
+                                )) }
+                            </tbody>
+                        </Table>
+                    </Box>
                     <Col md={6} lg={6}>
                         <Container>
                             <Row>
