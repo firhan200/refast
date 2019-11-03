@@ -52,33 +52,37 @@ const App = () => {
                 
                 {/* set container width to all content */}
                 <div className="container content">
-                    {/* A <Switch> looks through its children <Route>s and
-                    renders the first one that matches the current URL. */}
-                    <Switch>
-                        {/* Pages Sample */}
-                        <Route path="/page/login" component={LoginPage} />
-                        <Route path="/page/signup" component={SignupPage} />
-                        <Route path="/page/forgot-password" component={ForgotPasswordPage} />
-                        <Route path="/page/reset-password" component={ResetPasswordPage} />
+                    <div class="row">
+                        <div class="col-sm-12">
+                            {/* A <Switch> looks through its children <Route>s and
+                            renders the first one that matches the current URL. */}
+                            <Switch>
+                                {/* Pages Sample */}
+                                <Route path="/page/login" component={LoginPage} />
+                                <Route path="/page/signup" component={SignupPage} />
+                                <Route path="/page/forgot-password" component={ForgotPasswordPage} />
+                                <Route path="/page/reset-password" component={ResetPasswordPage} />
 
-                        {/* Components */}
-                        <Route path="/components/box" component={BoxPage} />
-                        <Route path="/components/alert" component={AlertPage} />
-                        <Route path="/components/badges" component={BadgePage} />
-                        <Route path="/components/buttons" component={ButtonPage} />
-                        <Route path="/components/forms" component={FormsPage} />
-                        <Route path="/components/cards" component={CardPage} />
-                        <Route path="/components/breadcrumbs" component={BreadcrumbsPage} />
-                        <Route path="/components/carousel" component={CarouselPage} />
-                        <Route path="/components/charts" component={ChartsPage} />
-                        <Route path="/components/collapse" component={CollapsePage} />
-                        <Route path="/components/dropdowns" component={DropdownsPage} />
-                        <Route path="/components/tables" component={TablePage} />
-                        <Route path="/components/progressbar" component={ProgressBarPage} />
+                                {/* Components */}
+                                <Route path="/components/box" component={BoxPage} />
+                                <Route path="/components/alert" component={AlertPage} />
+                                <Route path="/components/badges" component={BadgePage} />
+                                <Route path="/components/buttons" component={ButtonPage} />
+                                <Route path="/components/forms" component={FormsPage} />
+                                <Route path="/components/cards" component={CardPage} />
+                                <Route path="/components/breadcrumbs" component={BreadcrumbsPage} />
+                                <Route path="/components/carousel" component={CarouselPage} />
+                                <Route path="/components/charts" component={ChartsPage} />
+                                <Route path="/components/collapse" component={CollapsePage} />
+                                <Route path="/components/dropdowns" component={DropdownsPage} />
+                                <Route path="/components/tables" component={TablePage} />
+                                <Route path="/components/progressbar" component={ProgressBarPage} />
 
-                        {/* Default index page */}
-                        <Route path="/" component={DashboardECommercePage}/>
-                    </Switch>
+                                {/* Default index page */}
+                                <Route path="/" component={DashboardECommercePage}/>
+                            </Switch>
+                        </div>
+                    </div>
                 </div>
             </Router>
         </div>

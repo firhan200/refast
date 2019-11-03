@@ -14,7 +14,7 @@ const BadgePage = () => {
                 </div>
             </div>
 
-            <div className="body add-spaces">
+            <div className="body">
                 <Container>
                     <Row>
                         <Box md={4}>

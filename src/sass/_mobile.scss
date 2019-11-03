@@ -30,23 +30,23 @@
     }
 
     /*======================= Components ============================ */
-    .box{
-        margin-bottom: 10px;
+
+    .row{
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+
+        .custom-col{
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+
+        .col-box{
+            padding:10px;
+        }
     }
 
-    .custom-container{
-        //padding:25px;
-
-        .custom-row {
-            margin-left: 0px !important;
-            margin-right: 0px !important;
-            margin-bottom: 0px !important;
-
-            .custom-col{
-                padding-left: 10px !important;
-                padding-right: 10px !important;
-            }
-        }
+    .custom-row{
+        margin-bottom:0px;
     }
 
     .custom-icon-card{

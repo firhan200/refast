@@ -25,7 +25,7 @@ const Box = (props) => {
     const isTransparent = typeof props.isTransparent !== 'undefined' ? (props.isTransparent ? ' transparent' : '') : '';
 
     return(
-        <div className={'custom-col'+ xs + xsOffset + sm + smOffset + md + mdOffset + lg + lgOffset + " "+customClassName}>
+        <div className={'custom-col col-box'+ xs + xsOffset + sm + smOffset + md + mdOffset + lg + lgOffset + " "+customClassName}>
             <div className={"box" + isTransparent}>
                 { props.children }
             </div>

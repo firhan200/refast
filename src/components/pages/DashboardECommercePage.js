@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import CurrencyFormat  from 'react-currency-format';
 import { 
     Box, 
@@ -179,7 +179,7 @@ const DashboardECommercePage = () => {
     ]
 
     return(
-        <div>
+        <Fragment>
             <div className="title">
                 E-Commerce Dashboard
                 <div className="sub-title">
@@ -189,7 +189,7 @@ const DashboardECommercePage = () => {
             <br/>
             <Container>
                 <Row>
-                    <Col xs={6} md={3} className="m-b-20">
+                    <Col xs={12} md={3} className="m-b-20">
                         <IconCard 
                             isWavy={true} 
                             statisticValue={-12} 
@@ -198,7 +198,7 @@ const DashboardECommercePage = () => {
                             label="Orders" 
                             icon="fa fa-shopping-cart"/>
                     </Col>
-                    <Col xs={6} md={3} className="m-b-20">
+                    <Col xs={12} md={3} className="m-b-20">
                         <IconCard 
                             isWavy={true} 
                             number={12506} 
@@ -207,14 +207,14 @@ const DashboardECommercePage = () => {
                             label="Earnings" 
                             icon="fa fa-dollar"/>
                     </Col>
-                    <Col xs={6} md={3} className="m-b-20">
+                    <Col xs={12} md={3} className="m-b-20">
                         <IconCard 
                             isWavy={true} 
                             number={203} 
                             label="Tickets" 
                             icon="fa fa-ticket"/>
                     </Col>
-                    <Col xs={6} md={3} className="m-b-20">
+                    <Col xs={12} md={3}>
                         <IconCard 
                             isWavy={true} 
                             number={3002} 
@@ -333,7 +333,7 @@ const DashboardECommercePage = () => {
                             percentage={50}/>
                     </Box>
                     <Box sm={6} md={3}>
-                        <BoxTitle icon="fa fa-server" label="Latency"/>
+                        <BoxTitle icon="fa fa-signal" label="Latency"/>
                         <ProgressBar 
                             color="primary"
                             label="70/ms"
@@ -342,7 +342,7 @@ const DashboardECommercePage = () => {
                     </Box>
                 </Row>
             </Container>
-        </div>
+        </Fragment>
     );
 }
 
