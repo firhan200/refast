@@ -1076,3 +1076,55 @@ h1, h2, h3, h4, h5 {
 }
 
 /*======================= Components ============================ */
+
+/*======================= Page ============================ */
+.pricing{
+    text-align: center;
+
+    &:hover{
+        cursor: pointer;
+
+        .pricing-cost{
+            font-size: $large-font-size + 3;
+            font-weight: 600;
+        }
+    }
+
+    .pricing-icon{
+        background-color:$default-color;
+        border-radius: 25px;
+        width:50px;
+        height:50px;
+        font-size: $large-font-size;
+        margin: 0 auto;
+
+        i{
+            color:$white;
+            margin-top:15px;
+        }
+    }
+
+    .pricing-title{
+        font-size: $default-font-size;
+        margin-top:10px;
+        margin-bottom:10px;
+    }
+    .pricing-desc{
+        font-size: $small-font-size;
+        margin-top:10px;
+        margin-bottom:10px;
+        color:$dark-gray;
+    }
+    .pricing-cost-label{
+        font-size: $large-font-size - 5;
+    }
+    .pricing-cost{
+        font-size: $large-font-size;
+        font-weight: 600;
+        transition: 0.5s;
+        -webkit-transition: 0.5s;
+        -moz-transition: 0.5s;
+        -o-transition: 0.5s;
+    }
+}
+/*======================= Page ============================ */

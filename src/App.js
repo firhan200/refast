@@ -23,6 +23,8 @@ import SignupPage from './components/pages/SignupPage';
 import ForgotPasswordPage from './components/pages/ForgotPasswordPage';
 import ResetPasswordPage from './components/pages/ResetPasswordPage';
 import DashboardECommercePage from './components/pages/DashboardECommercePage';
+
+import PricingPage from './components/pages/PricingPage';
 /* pages sample */
 
 /* pages components */
@@ -62,6 +64,7 @@ const App = () => {
                                 <Route path="/page/signup" component={SignupPage} />
                                 <Route path="/page/forgot-password" component={ForgotPasswordPage} />
                                 <Route path="/page/reset-password" component={ResetPasswordPage} />
+                                <Route path="/page/pricing" component={PricingPage} />
 
                                 {/* Components */}
                                 <Route path="/components/box" component={BoxPage} />
