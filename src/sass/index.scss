@@ -347,19 +347,19 @@ h1, h2, h3, h4, h5 {
         margin-bottom: 10px;
 
         .box-title{
-            font-size: $default-font-size;
-            color: $dark-gray;
+            font-size: $default-font-size + 2;
+            color: $black;
     
             i{
-                font-size: $default-font-size;
+                font-size: inherit;
                 margin-right:10px;
-                color:ligten($dark-gray, 20%);
+                color:lighten($black, 20%);
             }
         }
     
         .box-subtitle{
             font-size: $small-font-size;
-            color: lighten($dark-gray, 30%);
+            color:lighten($black, 30%);
         }
     }
 }
