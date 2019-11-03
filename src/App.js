@@ -1,7 +1,8 @@
 import React from 'react';
 
 /* libs */
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { connect } from 'react-redux';
 
 //font-awesome
 import 'font-awesome/css/font-awesome.min.css';
@@ -45,6 +46,24 @@ import ProgressBarPage from './components/pages/components/ProgressBarPage';
 /* pages components */
 
 const App = () => {
+    /* use this element to create route that only logged in user can access */
+    const PrivateRoute = ({ component: Component, ...rest }) => (
+        <Route {...rest} render={(props) => (
+            this.props.isAuthenticated === true
+            ? <Component {...props} />
+            : <Redirect to='/login' />
+        )} />
+    )
+  
+      /* use this element to create route that only guest can access */
+    const UnauthorizedRoute = ({ component: Component, ...rest }) => (
+        <Route {...rest} render={(props) => (
+            !this.props.isAuthenticated
+            ? <Component {...props} />
+            : <Redirect to='/' />
+        )} />
+    )
+
     return(
         <div>          
             {/* Start routing here */}
@@ -94,4 +113,13 @@ const App = () => {
     );
 }
 
-export default App;
+/* map redux states to be accessed by global props */
+const mapStateToProps = state => ({
+    isAuthenticated : state.authReducer.isAuthenticated
+});
+
+/* map redux actions to be accessed by global props */
+const mapActionToProps = () => ({});
+
+/* connect use react redux */
+export default connect(mapStateToProps, mapActionToProps)(App);
