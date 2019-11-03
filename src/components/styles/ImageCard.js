@@ -15,8 +15,8 @@ const ImageCard = (props) => {
 
     return(
         <div className={'custom-image-card card ' + (isOverlay ? 'overlay ' : '') + customClassName}>
-            <img src={image} class="card-img-top" alt={""} />
-            <div class="card-body">
+            <img src={image} className="card-img-top" alt={""} />
+            <div className="card-body">
                 {props.children}
             </div>
         </div>

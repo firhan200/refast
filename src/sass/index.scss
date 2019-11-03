@@ -961,6 +961,14 @@ h1, h2, h3, h4, h5 {
                 font-size:$default-font-size;
                 color :$black;
             }
+            
+            .accordion-icon{
+                text-align:right;
+                font-size:$small-font-size;
+                font-weight: lighter;
+                margin-top:10px;
+                margin-right: 10px;
+            }
         }
     }
 }
@@ -1125,6 +1133,17 @@ h1, h2, h3, h4, h5 {
         -webkit-transition: 0.5s;
         -moz-transition: 0.5s;
         -o-transition: 0.5s;
+    }
+}
+
+.faq{
+    .card{
+        border: 0px !important;
+
+        .card-header{
+            background: $white !important;
+            margin-bottom:0px !important;
+        }
     }
 }
 /*======================= Page ============================ */

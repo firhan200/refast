@@ -35,7 +35,7 @@ const TablePage = () => {
     const [selectAll, setSelectAll] = useState(false);
     const [selectedActionsDisabled, setSelectedActionsDisabled] = useState(true);
     const [showCollapse, setShowCollapse] = useState(false);
-    const [filterStatus, setFilterStatus] = useState(null);
+    const [filterStatus, setFilterStatus] = useState("all");
     const [keyword, setKeyword] = useState('');
 
     useEffect(() => {
@@ -44,7 +44,7 @@ const TablePage = () => {
             //filter users
             let filteredUsers = [...originalUsers].filter(user => (
                 //status filter
-                (filterStatus !== null ? (user.active === filterStatus) : true)
+                (filterStatus !== "all" ? (user.active === filterStatus) : true)
                 &&
                 //keyword filter
                 (
@@ -147,9 +147,9 @@ const TablePage = () => {
                                                     <Select 
                                                         value={filterStatus} 
                                                         handleChange={(e) => { setFilterStatus(e.target.value === '' ? null : (e.target.value==='true' ? true : false))} } 
-                                                        placeholder="Select Status">
+                                                        >
 
-                                                        <option value="">All</option>
+                                                        <option value="all">All</option>
                                                         <option value={true}>Active</option>
                                                         <option value={false}>In-Active</option>
 
@@ -182,7 +182,7 @@ const TablePage = () => {
                                 </thead>
                                 <tbody>
                                     { users.map((user, index) =>(
-                                        <tr>
+                                        <tr key={index}>
                                             <td>
                                                 <Checkbox isChecked={user.isSelected} handleChange={setSelectedUser.bind(this, user.id)}/>
                                             </td>

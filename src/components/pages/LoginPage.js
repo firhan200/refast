@@ -16,7 +16,8 @@ const LoginPage = () => {
                     alert("Login Success, remember me: "+rememberMe);
                 }}>
                     <FormGroup>
-                        <Input 
+                        <Input
+                            id="email"
                             value={email}
                             required={true}
                             type="email" 
@@ -25,6 +26,7 @@ const LoginPage = () => {
                     </FormGroup>
                     <FormGroup>
                         <Input 
+                            id="password"
                             value={password}
                             required={true}
                             type="password" 

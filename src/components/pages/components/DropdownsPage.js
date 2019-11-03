@@ -26,7 +26,7 @@ const DropdownsPage = () => {
                                             <DropdownItem>Link 1</DropdownItem>
                                             <DropdownItem>Link 2</DropdownItem>
                                             <DropdownItem disabled={true}>Link 2</DropdownItem>
-                                            <div class="dropdown-divider"></div>
+                                            <div className="dropdown-divider"></div>
                                             <DropdownItem>Link 3</DropdownItem>
                                         </Dropdown>
                                     </Col>
@@ -36,7 +36,7 @@ const DropdownsPage = () => {
                                             <DropdownItem>Link 1</DropdownItem>
                                             <DropdownItem>Link 2</DropdownItem>
                                             <DropdownItem disabled={true}>Link 2</DropdownItem>
-                                            <div class="dropdown-divider"></div>
+                                            <div className="dropdown-divider"></div>
                                             <DropdownItem>Link 3</DropdownItem>
                                         </Dropdown>
                                     </Col>
@@ -46,7 +46,7 @@ const DropdownsPage = () => {
                                             <DropdownItem>Link 1</DropdownItem>
                                             <DropdownItem>Link 2</DropdownItem>
                                             <DropdownItem disabled={true}>Link 2</DropdownItem>
-                                            <div class="dropdown-divider"></div>
+                                            <div className="dropdown-divider"></div>
                                             <DropdownItem>Link 3</DropdownItem>
                                         </Dropdown>
                                     </Col>
@@ -56,7 +56,7 @@ const DropdownsPage = () => {
                                             <DropdownItem>Link 1</DropdownItem>
                                             <DropdownItem>Link 2</DropdownItem>
                                             <DropdownItem disabled={true}>Link 2</DropdownItem>
-                                            <div class="dropdown-divider"></div>
+                                            <div className="dropdown-divider"></div>
                                             <DropdownItem>Link 3</DropdownItem>
                                         </Dropdown>
                                     </Col>

@@ -15,7 +15,7 @@ const Input = (props) => {
     const inputName = typeof props.name !== 'undefined' ? props.name : '';
 
     //get id
-    const inputId = typeof props.id !== 'undefined' ? props.id : 'text';
+    const inputId = typeof props.id !== 'undefined' ? props.id : '';
 
     //get maxLength
     const maxLength = typeof props.maxLength !== 'undefined' ? props.maxLength : 9999;
@@ -36,6 +36,16 @@ const Input = (props) => {
     //get message
     let message = typeof props.message !== 'undefined' ? props.message : '';
 
+    //custom attr
+    let attrs = {};
+    if(pattern !== ''){
+        attrs['pattern'] = pattern;
+    }
+    if(inputId !== ''){
+        attrs['id'] = inputId;
+    }
+    attrs['required'] = isRequired;
+
     return(
         <div className="custom-form-control">
             { message !== '' ? (
@@ -47,11 +57,9 @@ const Input = (props) => {
                 className={'form-control ' + isValid + customClassName}
                 type={type}
                 name={inputName}
-                id={inputId}
                 value={props.value}
                 maxLength={maxLength}
-                { ...{ required : isRequired } }
-                { ...{ pattern : (pattern==='' ? false : pattern) } }
+                { ...attrs }
                 placeholder={props.placeholder}
                 autoComplete={(autoComplete ? "on" : "off")}
                 onChange={props.handleChange}

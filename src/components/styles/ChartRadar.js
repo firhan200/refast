@@ -128,7 +128,7 @@ const ChartRadar = (props) => {
 
 //prop types initialize
 ChartRadar.propTypes = {
-    items : PropTypes.array,
+    items : PropTypes.object,
     title : PropTypes.string,
     size : PropTypes.number,
     legend: PropTypes.oneOf(["none", "top", "bottom", "right", "left"])

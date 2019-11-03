@@ -170,8 +170,8 @@ const PricingPage = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                { pricings.map(pricing => (
-                                    <tr>
+                                { pricings.map((pricing, index) => (
+                                    <tr key={index}>
                                         <td>{ pricing.label }</td>
                                         <td align="center">{ renderIncluded(pricing.premium) }</td>
                                         <td align="center">{ renderIncluded(pricing.gold) }</td>

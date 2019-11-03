@@ -25,6 +25,13 @@ const Select = (props) => {
     //get message
     let message = typeof props.message !== 'undefined' ? props.message : '';
 
+    //custom attr
+    let attrs = {};
+    if(inputId !== ''){
+        attrs['id'] = inputId;
+    }
+    attrs['required'] = isRequired;
+
     return(
         <div className="custom-form-control">
             { message !== '' ? (
@@ -33,11 +40,10 @@ const Select = (props) => {
                 </div>
             ) : '' }
             <select 
+                { ...attrs }
                 className={'form-control ' +  isValid + customClassName}
                 value={props.value}
                 name={inputName}
-                id={inputId}
-                { ...{ required : isRequired } }
                 onChange={props.handleChange}
                 >
                     { placeholder!=='' ? (

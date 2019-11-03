@@ -86,6 +86,7 @@ const Button = (props) => {
     //get button icon
     const buttonIcon = typeof props.icon !== 'undefined' ? props.icon : '';
 
+    //custom style
     let customStyle = {};
     if(useAnotherColor){
         customStyle = {
@@ -93,10 +94,16 @@ const Button = (props) => {
         }
     }
 
+    //custom attr
+    let attrs = {};
+    if(id !== ''){
+        attrs['id'] = id;
+    }
+    attrs['disabled'] = disabled;
+
     return(
         <button 
-            { ...{ id : id} } 
-            { ...{ disabled : disabled} } 
+            { ...attrs } 
             style={customStyle} 
             type={buttonBehaviorType} 
             onClick={props.handleClick} 

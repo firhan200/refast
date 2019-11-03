@@ -16,7 +16,7 @@ const ImageCardDescription = (props) => {
     }
 
     return(
-        <p class="card-text">{ description }</p>
+        <p className="card-text">{ description }</p>
     );
 }
 

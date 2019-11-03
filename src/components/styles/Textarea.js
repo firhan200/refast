@@ -11,7 +11,7 @@ const Textarea = (props) => {
     const inputName = typeof props.name !== 'undefined' ? props.name : '';
 
     //get id
-    const inputId = typeof props.id !== 'undefined' ? props.id : 'text';
+    const inputId = typeof props.id !== 'undefined' ? props.id : '';
 
     //get maxLength
     const maxLength = typeof props.maxLength !== 'undefined' ? props.maxLength : 9999;
@@ -32,6 +32,16 @@ const Textarea = (props) => {
     //get message
     let message = typeof props.message !== 'undefined' ? props.message : '';
 
+    //custom attr
+    let attrs = {};
+    if(pattern !== ''){
+        attrs['pattern'] = pattern;
+    }
+    if(inputId !== ''){
+        attrs['id'] = inputId;
+    }
+    attrs['required'] = isRequired;
+
     return(
         <div className="custom-form-control textarea">
             { message !== '' ? (
@@ -43,21 +53,19 @@ const Textarea = (props) => {
                 className={'form-control ' + isValid + customClassName}
                 type="textarea"
                 name={inputName}
-                id={inputId}
                 maxLength={maxLength}
-                { ...{ required : isRequired } }
-                { ...{ pattern : (pattern==='' ? 'false' : pattern) } }
+                { ...attrs }
                 placeholder={props.placeholder}
                 autoComplete={(autoComplete ? "on" : "off")}
                 onChange={props.handleChange}
-                onKeyUp={(e) => {
+                onKeyPress={(e) => {
                     // custom handle change
                     if(maxLength!==9999){
                         setCurrentLength(e.target.value.length);
                     }
                 }}
+                value={props.value}
                 >
-                    {props.value}
             </textarea>
 
             { maxLength !== 9999 ? (

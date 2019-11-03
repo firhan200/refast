@@ -98,7 +98,7 @@ const Dropdown = (props) => {
                 {/* show button label */}
                 { props.label }
             </button>
-            <div class="dropdown-menu">
+            <div className="dropdown-menu">
                 { props.children }
             </div>
         </div>

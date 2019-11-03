@@ -107,7 +107,7 @@ const ChartBar = (props) => {
 
 //prop types initialize
 ChartBar.propTypes = {
-    items : PropTypes.array,
+    items : PropTypes.object,
     title : PropTypes.string,
     legend: PropTypes.oneOf(["none", "top", "bottom", "right", "left"])
 }

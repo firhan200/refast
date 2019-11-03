@@ -75,7 +75,7 @@ const FormsPage = () => {
                                     Password Input
                                 </div>
                                 <FormGroup>
-                                    <Textarea name="Address" id="address" placeholder="Address"/>
+                                    <Textarea name="Address" placeholder="Address"/>
                                 </FormGroup>
                                 <div className="help">
                                     Checkbox
@@ -98,7 +98,7 @@ const FormsPage = () => {
                                     <Input type="password" maxLength={20} name="password" id="password_length" placeholder="Password"/>
                                 </FormGroup>
                                 <FormGroup>
-                                    <Textarea  maxLength={100} name="Address" id="address" placeholder="Address"/>
+                                    <Textarea  maxLength={100} name="Address" placeholder="Address"/>
                                 </FormGroup>
                             </Form>
                             <BoxTitle label="Error Validation"/>
@@ -172,7 +172,6 @@ const FormsPage = () => {
                                         isValid={addressValidation.isValid} 
                                         message={addressValidation.message} 
                                         name="Address" 
-                                        id="address" 
                                         placeholder="Address"
                                         handleChange={(e) => {
                                             setAddressValidation(

@@ -24,6 +24,7 @@ import ForgotPasswordPage from './components/pages/ForgotPasswordPage';
 import ResetPasswordPage from './components/pages/ResetPasswordPage';
 import DashboardECommercePage from './components/pages/DashboardECommercePage';
 
+import FAQPage from './components/pages/FAQPage';
 import PricingPage from './components/pages/PricingPage';
 /* pages sample */
 
@@ -54,8 +55,8 @@ const App = () => {
                 
                 {/* set container width to all content */}
                 <div className="container content">
-                    <div class="row">
-                        <div class="col-sm-12">
+                    <div className="row">
+                        <div className="col-sm-12">
                             {/* A <Switch> looks through its children <Route>s and
                             renders the first one that matches the current URL. */}
                             <Switch>
@@ -64,6 +65,7 @@ const App = () => {
                                 <Route path="/page/signup" component={SignupPage} />
                                 <Route path="/page/forgot-password" component={ForgotPasswordPage} />
                                 <Route path="/page/reset-password" component={ResetPasswordPage} />
+                                <Route path="/page/faq" component={FAQPage} />
                                 <Route path="/page/pricing" component={PricingPage} />
 
                                 {/* Components */}
