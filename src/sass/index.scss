@@ -21,6 +21,11 @@ body{
     background-color: $background-color;
 }
 
+.logo{
+    max-height:12px;
+    margin-top:10px 0px 10px 0px;
+}
+
 .add-spaces{
     >.custom-button,
     >.custom-badge{
@@ -49,8 +54,7 @@ body{
 
 .content{
     padding:20px 0px 20px 0px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 
     .title{
         font-size:$huge-font-size;
@@ -83,14 +87,18 @@ body{
 .avatar{
     width: 30px;
     height: 30px;
+
+    &.rounded{
+        border-radius: 25px !important;
+    }
 }
 
 /* Top navigation bar styling, notification ,messages search & profile */
 .top-navbar{
     background-color: $navbar-color !important;
     font-size: $default-font-size;
-    padding: 10px 30px 10px 30px;
-    border-bottom: 1px solid $gray;
+    padding: 0px 30px 0px 30px;
+    border-bottom: 0.5px solid darken($gray,10%);
 
     .navbar-nav{
         li{
@@ -117,7 +125,11 @@ body{
             margin-top:-10px !important;
             margin-left:-5px !important;
             color:$white;
-            font-weight: bold;
+            font-weight: lighter;
+        }
+
+        i{
+            color : $black;
         }
 
         .notification-section, .message-section{
@@ -164,8 +176,8 @@ body{
 /* Menu navigation styling */
 .menu-navbar{
     background-color: $white !important;
-    border-bottom: 1px solid $gray;
-    box-shadow: $shadow;
+    border-bottom: 0.5px solid darken($gray,10%);
+    margin-top:46.5px;
 }
 
 //styling for horizontal scrollable menu
@@ -194,6 +206,8 @@ body{
             .nav-link{
                 border-radius: 15px;
                 padding:5px 15px 5px 15px;
+                color:$black !important;
+                text-align: center;
 
                 &:hover, &:active, &:focus{
                     background-color:$default-color;
@@ -321,7 +335,6 @@ h1, h2, h3, h4, h5 {
     padding:20px;
     background-color: $white;
     box-shadow: $shadow;
-    border:1px solid $gray;
     margin-bottom:20px;
 
     &.transparent{
@@ -755,6 +768,7 @@ h1, h2, h3, h4, h5 {
 .custom-breadcrumb{
     background-color: transparent;
     margin-bottom: 0px;
+    padding:5px 0px 5px 0px;
 
     .breadcrumb-item + .breadcrumb-item::before{
         content: ">";

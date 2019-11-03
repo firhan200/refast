@@ -10,28 +10,27 @@ import MessageContainer from './../messages/MessageContainer.js';
 
 const Navbar = () => {
     return(
-        <nav className="top-navbar navbar navbar-expand navbar-light bg-light">
-            <Link to="/" className="navbar-brand">Refast</Link>
+        <nav className="top-navbar navbar fixed-top navbar-expand navbar-light bg-light">
+            <Link to="/" className="navbar-brand">
+                <img src="/iconname.png" alt="Logo" className="logo"/>
+            </Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
 
             <div className="collapse navbar-collapse" id="navbar">
-                <form className="form-inline">
-                    <input className="form-control" type="search" placeholder="Search" aria-label="Search" />
-                </form>
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item dropdown notification">
                         <a href="#!" className="nav-link dropdown-toggle" id="notificationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i className="fa fa-bell"></i>
+                            <i className="fa fa-bell-o"></i>
                             <span className="total-notification">5</span>
                         </a>
                         <NotificationContainer />
                     </li>
                     <li className="nav-item dropdown notification">
                         <a href="#!" className="nav-link dropdown-toggle" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i className="fa fa-envelope"></i>
-                            <span className="total-notification">13</span>
+                            <i className="fa fa-envelope-o"></i>
+                            <span className="total-notification">12</span>
                         </a>
                         <MessageContainer />
                     </li>

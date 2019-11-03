@@ -21,7 +21,9 @@ import {
     ProductCard, 
     ProductCardName, 
     ProductCardDescription, 
-    ProgressBar} from '../styles';
+    ProgressBar,
+    BreadcrumbItem,
+    Breadcrumb} from '../styles';
 
 const DashboardECommercePage = () => {
     const favoriteProducts = [
@@ -182,9 +184,14 @@ const DashboardECommercePage = () => {
         <Fragment>
             <div className="title">
                 E-Commerce Dashboard
-                <div className="sub-title">
-                    <i className="fa fa-dashboard"></i> orders, sales and many related content.
-                </div>
+                <Breadcrumb>
+                    <BreadcrumbItem>
+                        <a href="#!">Dashboard</a>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem isActive={true}>
+                        E-Commerce
+                    </BreadcrumbItem>
+                </Breadcrumb>
             </div>
             <br/>
             <Container>

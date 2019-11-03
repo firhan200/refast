@@ -12,16 +12,22 @@ const Menubar = () => {
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
                             <a className="nav-link" data-toggle="collapse" href="#submenu-dashboard" role="button" aria-expanded="false" aria-controls="submenu-dashboard">
+                                <i className="fa fa-dashboard"></i>
+                                &nbsp;
                                 Dashboard
                             </a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" data-toggle="collapse" href="#submenu-pages" role="button" aria-expanded="false" aria-controls="submenu-pages">
+                                <i className="fa fa-file-o"></i>
+                                    &nbsp;
                                 Pages
                             </a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" data-toggle="collapse" href="#submenu-components" role="button" aria-expanded="false" aria-controls="submenu-components">
+                                <i className="fa fa-star-o"></i>
+                                &nbsp;
                                 Components
                             </a>
                         </li>
