@@ -26,6 +26,20 @@ body{
     margin-top:10px 0px 10px 0px;
 }
 
+.header-logo-container{
+    padding:30px 0px 30px 0px;
+    
+    .header-logo{
+        width:100px;
+        margin:0 auto;
+    }
+
+    .header-logo-text{
+        margin-top:10px;
+        font-size:$default-font-size;
+    }
+}
+
 .add-spaces{
     >.custom-button,
     >.custom-badge{

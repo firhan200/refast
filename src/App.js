@@ -3,6 +3,8 @@ import React from 'react';
 /* libs */
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 //font-awesome
 import 'font-awesome/css/font-awesome.min.css';
@@ -13,10 +15,10 @@ import 'popper.js/dist/popper.min.js';
 import 'bootstrap/dist/js/bootstrap.min.js';
 /* libs */
 
-/* components */
-import Navbar from './components/layouts/Navbar.js';
-import Menubar from './components/layouts/Menubar';
-/* components */
+/* layouts */
+import Adminlayout from './components/layouts/AdminLayout.js';
+import BlankLayout from './components/layouts/BlankLayout';
+/* layouts */
 
 /* pages sample */
 import LoginPage from './components/pages/LoginPage';
@@ -45,21 +47,38 @@ import TablePage from './components/pages/components/TablePage';
 import ProgressBarPage from './components/pages/components/ProgressBarPage';
 /* pages components */
 
-const App = () => {
+// Call it once in your app. At the root of your app is the best place
+toast.configure();
+
+const App = (props) => {
     /* use this element to create route that only logged in user can access */
     const PrivateRoute = ({ component: Component, ...rest }) => (
-        <Route {...rest} render={(props) => (
-            this.props.isAuthenticated === true
-            ? <Component {...props} />
-            : <Redirect to='/login' />
-        )} />
+        <Route {...rest} render={(componentProps) => 
+            (
+                //check if authenticated or not
+                props.isAuthenticated === true
+                ? 
+                    // authenticated render using admin layout
+                    (
+                        <Adminlayout>
+                            <Component {...componentProps} />
+                        </Adminlayout>
+                    )
+                : <Redirect to='/login' />
+            )
+        } />
     )
   
       /* use this element to create route that only guest can access */
     const UnauthorizedRoute = ({ component: Component, ...rest }) => (
-        <Route {...rest} render={(props) => (
-            !this.props.isAuthenticated
-            ? <Component {...props} />
+        <Route {...rest} render={(componentProps) => (
+            !props.isAuthenticated
+            ? 
+            (
+                <BlankLayout>
+                    <Component {...componentProps} />
+                </BlankLayout>
+            )
             : <Redirect to='/' />
         )} />
     )
@@ -68,46 +87,41 @@ const App = () => {
         <div>          
             {/* Start routing here */}
             <Router>
-                {/* Top navigation bar and Menu bar */}
-                <Navbar />
-                <Menubar />
                 
-                {/* set container width to all content */}
-                <div className="container content">
-                    <div className="row">
-                        <div className="col-sm-12">
-                            {/* A <Switch> looks through its children <Route>s and
-                            renders the first one that matches the current URL. */}
-                            <Switch>
-                                {/* Pages Sample */}
-                                <Route path="/page/login" component={LoginPage} />
-                                <Route path="/page/signup" component={SignupPage} />
-                                <Route path="/page/forgot-password" component={ForgotPasswordPage} />
-                                <Route path="/page/reset-password" component={ResetPasswordPage} />
-                                <Route path="/page/faq" component={FAQPage} />
-                                <Route path="/page/pricing" component={PricingPage} />
+                {/* A <Switch> looks through its children <Route>s and
+                renders the first one that matches the current URL. */}
+                <Switch>
+                    {/* Pages Sample */}
+                    <UnauthorizedRoute path="/login" component={LoginPage} />
+                    <UnauthorizedRoute path="/signup" component={SignupPage} />
+                    <PrivateRoute path="/page/forgot-password" component={ForgotPasswordPage} />
+                    <PrivateRoute path="/page/reset-password" component={ResetPasswordPage} />
+                    <PrivateRoute path="/page/faq" component={FAQPage} />
+                    <PrivateRoute path="/page/pricing" component={PricingPage} />
 
-                                {/* Components */}
-                                <Route path="/components/box" component={BoxPage} />
-                                <Route path="/components/alert" component={AlertPage} />
-                                <Route path="/components/badges" component={BadgePage} />
-                                <Route path="/components/buttons" component={ButtonPage} />
-                                <Route path="/components/forms" component={FormsPage} />
-                                <Route path="/components/cards" component={CardPage} />
-                                <Route path="/components/breadcrumbs" component={BreadcrumbsPage} />
-                                <Route path="/components/carousel" component={CarouselPage} />
-                                <Route path="/components/charts" component={ChartsPage} />
-                                <Route path="/components/collapse" component={CollapsePage} />
-                                <Route path="/components/dropdowns" component={DropdownsPage} />
-                                <Route path="/components/tables" component={TablePage} />
-                                <Route path="/components/progressbar" component={ProgressBarPage} />
+                    {/* Unautorized sample page */}
+                    <PrivateRoute path="/page/login" component={LoginPage} />
+                    <PrivateRoute path="/page/signup" component={SignupPage} />
 
-                                {/* Default index page */}
-                                <Route path="/" component={DashboardECommercePage}/>
-                            </Switch>
-                        </div>
-                    </div>
-                </div>
+                    {/* Components */}
+                    <PrivateRoute path="/components/box" component={BoxPage} />
+                    <PrivateRoute path="/components/alert" component={AlertPage} />
+                    <PrivateRoute path="/components/badges" component={BadgePage} />
+                    <PrivateRoute path="/components/buttons" component={ButtonPage} />
+                    <PrivateRoute path="/components/forms" component={FormsPage} />
+                    <PrivateRoute path="/components/cards" component={CardPage} />
+                    <PrivateRoute path="/components/breadcrumbs" component={BreadcrumbsPage} />
+                    <PrivateRoute path="/components/carousel" component={CarouselPage} />
+                    <PrivateRoute path="/components/charts" component={ChartsPage} />
+                    <PrivateRoute path="/components/collapse" component={CollapsePage} />
+                    <PrivateRoute path="/components/dropdowns" component={DropdownsPage} />
+                    <PrivateRoute path="/components/tables" component={TablePage} />
+                    <PrivateRoute path="/components/progressbar" component={ProgressBarPage} />
+
+                    {/* Default index page */}
+                    <PrivateRoute path="/" component={DashboardECommercePage}/>
+                </Switch>
+
             </Router>
         </div>
     );

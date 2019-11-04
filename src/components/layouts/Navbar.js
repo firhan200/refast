@@ -2,13 +2,23 @@ import React from 'react';
 
 //libs
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+/* redux */
+import { logout } from './../../redux/actions/authAction';
 
 /* components */
 import NotificationContainer from './../notifications/NotificationContainer.js';
 import MessageContainer from './../messages/MessageContainer.js';
 /* components */
 
-const Navbar = () => {
+const Navbar = (props) => {
+    const logoutProcess = () => {
+        props.logout(() => {
+            
+        });
+    }
+
     return(
         <nav className="top-navbar navbar fixed-top navbar-expand navbar-light bg-light">
             <Link to="/" className="navbar-brand">
@@ -42,7 +52,7 @@ const Navbar = () => {
                             <Link className="dropdown-item" to="/profile">Profile</Link>
                             <Link className="dropdown-item" to="/change-password">Change Password</Link>
                             <div className="dropdown-divider"></div>
-                            <a href="#!" className="dropdown-item">Logout</a>
+                            <span onClick={logoutProcess} className="dropdown-item">Logout</span>
                         </div>
                     </li>
                 </ul>
@@ -51,4 +61,13 @@ const Navbar = () => {
     );
 }
 
-export default Navbar;
+/* map redux states to be accessed by global props */
+const mapStateToProps = state => ({
+});
+
+
+/* connect use react redux */
+export default connect(mapStateToProps, {
+    /* redux actions to be accessed by global props */
+    logout
+})(Navbar);
