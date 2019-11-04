@@ -171,7 +171,7 @@ body{
 }
 
 //side nav notification
-#notificationNav{
+#notificationNav, #messageNav{
     .notification-item{
         cursor: pointer;
         padding:20px;
@@ -289,7 +289,7 @@ body{
     background-color: $side-nav;
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    transition: 0.5s; /* transition effect to slide in the sidenav */
     border-right:1px solid $gray;
 
     .sidenav-title{

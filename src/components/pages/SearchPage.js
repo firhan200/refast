@@ -152,7 +152,7 @@ const SearchPage = () => {
     const MAX = 1000;
 
     /* hooks */
-    const [products, setProducts] = useState(defaultProducts);
+    const [products] = useState(defaultProducts);
     const [categories, setCategories] = useState(defaultCategories);
     const [offers, setOffers] = useState(defaultOffers);
     const [rangePrice, setRangePrice] = useState([100, 500]);

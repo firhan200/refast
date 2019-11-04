@@ -9,7 +9,7 @@ import { logout } from './../../redux/actions/authAction';
 
 /* components */
 import NotificationContainer from './NotificationContainer.js'
-import MessageContainer from './../messages/MessageContainer.js';
+import MessageContainer from './MessageContainer.js'
 /* components */
 
 const Navbar = (props) => {
@@ -22,6 +22,8 @@ const Navbar = (props) => {
 
     //notification hooks
     const [openNotification, setOpenNotification] = useState(false);
+    //message hooks
+    const [openMessage, setOpenMessage] = useState(false);
 
     return(
         <nav className="top-navbar navbar fixed-top navbar-expand navbar-light bg-light">
@@ -35,18 +37,33 @@ const Navbar = (props) => {
             <div className="collapse navbar-collapse" id="navbar">
                 <ul className="navbar-nav ml-auto">
                     <li  className="nav-item notification">
-                        <span onClick={() => setOpenNotification(!openNotification) } className="nav-link click-available" role="button" aria-expanded="false">
+                        <span onClick={() => 
+                            { 
+                                //open notification & close message
+                                if(openMessage){
+                                    setOpenMessage(false);
+                                }
+                                setOpenNotification(!openNotification);
+                            } 
+                            } className="nav-link click-available" role="button" aria-expanded="false">
                             <i className="fa fa-bell-o"></i>
-                            <span className="total-notification">5</span>
+                            <span className="total-notification">8</span>
                         </span>
                         <NotificationContainer setOpenNotification={setOpenNotification} isOpen={openNotification}/>
                     </li>
-                    <li className="nav-item dropdown notification">
-                        <a href="#!" className="nav-link dropdown-toggle" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li className="nav-item notification">
+                        <span onClick={() => 
+                            { 
+                                //close notification & open message
+                                if(openNotification){
+                                    setOpenNotification(false);
+                                }
+                                setOpenMessage(!openMessage);
+                            }  } className="nav-link click-available" role="button" aria-expanded="false">
                             <i className="fa fa-envelope-o"></i>
-                            <span className="total-notification">12</span>
-                        </a>
-                        <MessageContainer />
+                            <span className="total-notification">2</span>
+                        </span>
+                        <MessageContainer setOpenMessage={setOpenMessage} isOpen={openMessage}/>
                     </li>
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#!" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
