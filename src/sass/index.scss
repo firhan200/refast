@@ -62,6 +62,10 @@ body{
     margin-right: 20px;
 }
 
+.m-t-10{
+    margin-top: 10px;
+}
+
 .m-r-5{
     margin-right: 5px;
 }
@@ -759,6 +763,10 @@ h1, h2, h3, h4, h5 {
 
     .product-card-image{
         padding:5px 10px 5px 10px;
+        height:200px;
+        img{
+            max-height:180px;
+        }
     }
 
     .product-card-price{

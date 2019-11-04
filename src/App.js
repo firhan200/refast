@@ -28,6 +28,7 @@ import ResetPasswordPage from './components/pages/ResetPasswordPage';
 import DashboardECommercePage from './components/pages/DashboardECommercePage';
 
 import FAQPage from './components/pages/FAQPage';
+import SearchPage from './components/pages/SearchPage.js';
 import PricingPage from './components/pages/PricingPage';
 /* pages sample */
 
@@ -75,6 +76,7 @@ const App = (props) => {
             !props.isAuthenticated
             ? 
             (
+                // authenticated render using blank layout
                 <BlankLayout>
                     <Component {...componentProps} />
                 </BlankLayout>
@@ -97,6 +99,7 @@ const App = (props) => {
                     <PrivateRoute path="/page/forgot-password" component={ForgotPasswordPage} />
                     <PrivateRoute path="/page/reset-password" component={ResetPasswordPage} />
                     <PrivateRoute path="/page/faq" component={FAQPage} />
+                    <PrivateRoute path="/page/search" component={SearchPage} />
                     <PrivateRoute path="/page/pricing" component={PricingPage} />
 
                     {/* Unautorized sample page */}
