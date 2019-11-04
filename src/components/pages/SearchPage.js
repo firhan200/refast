@@ -16,7 +16,8 @@ import {
     ProductCardCategory,
     ProductCardImage,
     ProductCardPrice,
-    Button} from '../styles';
+    Button,
+    Input} from '../styles';
 
 const SearchPage = () => {
     /* products */
@@ -189,9 +190,10 @@ const SearchPage = () => {
                         </Row>
                     </Col>
                     <Col sm={12} md={12} lg={9}>
-                        <Row>
+                        <Row className="m-b-20">
                             <Col md={6} lg={8}>
-                                <H4>Searching Results:</H4>
+                                <H4>Keyword Search:</H4>
+                                <Input placeholder="search name..."/>
                             </Col>
                             <Col md={6} lg={4} className="right">
                                 <H4>Sort by:</H4>
