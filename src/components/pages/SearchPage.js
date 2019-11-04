@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+
+//libs
+import { Range, getTrackBackground  } from 'react-range';
+
+//components
 import { 
     Breadcrumb, 
     BreadcrumbItem, 
@@ -22,6 +27,38 @@ import {
 const SearchPage = () => {
     /* products */
     const defaultProducts = [
+        {
+            image: '/images/asus.jpg',
+            name: 'Asus VivoBook Ultra A412FL',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            price: 899,
+            afterDiscountPrice : 799,
+            category : {
+                id: 1,
+                label: 'laptop'
+            }
+        },
+        {
+            image: '/images/iphone.jpg',
+            name: 'iPhone',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            price: 200,
+            afterDiscountPrice : 159,
+            category : {
+                id: 2,
+                label: 'Smartphone'
+            }
+        },
+        {
+            image: '/images/oppo.jpg',
+            name: 'Oppo Phone',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            price: 240,
+            category : {
+                id: 2,
+                label: 'Smartphone'
+            }
+        },
         {
             image: '/images/asus.jpg',
             name: 'Asus VivoBook Ultra A412FL',
@@ -109,10 +146,16 @@ const SearchPage = () => {
         }
     ]
 
+    /* range price variables */
+    const STEP = 10 ;
+    const MIN = 0;
+    const MAX = 1000;
+
     /* hooks */
     const [products, setProducts] = useState(defaultProducts);
     const [categories, setCategories] = useState(defaultCategories);
     const [offers, setOffers] = useState(defaultOffers);
+    const [rangePrice, setRangePrice] = useState([100, 500]);
 
     /* methods */
     const handleCategoryFilter = (id) => {
@@ -167,10 +210,10 @@ const SearchPage = () => {
                 </Breadcrumb>
             </div>
             <br/>
-            <Container>
-                <Row>
+            <Container className="search-page">
+                <Row >
                     <Col sm={12} md={12} lg={3}>
-                        <Row>
+                        <Row className="sticky-top">
                             <Box md={12}>
                                 <BoxTitle label="Category"/>
                                 { categories.map(category => (
@@ -186,6 +229,95 @@ const SearchPage = () => {
                                         <Checkbox isChecked={offer.isChecked} handleChange={handleOfferFilter.bind(this, offer.id)} label={offer.label}/>
                                     </div>
                                 )) }
+                            </Box>
+                            <Box md={12}>
+                                <BoxTitle label="Price Range"/>
+                                <div
+                                    style={{
+                                        marginTop: '20px',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        flexWrap: 'wrap'
+                                    }}
+                                >
+                                <Range
+                                    values={rangePrice}
+                                    step={STEP}
+                                    min={MIN}
+                                    max={MAX}
+                                    onChange={values => setRangePrice(values)}
+                                    renderTrack={({ props, children }) => (
+                                        <div
+                                        onMouseDown={props.onMouseDown}
+                                        onTouchStart={props.onTouchStart}
+                                        style={{
+                                            ...props.style,
+                                            height: '60px',
+                                            display: 'flex',
+                                            width: '100%'
+                                        }}
+                                        >
+                                        <div
+                                            ref={props.ref}
+                                            style={{
+                                            height: '5px',
+                                            width: '100%',
+                                            borderRadius: '4px',
+                                            background: getTrackBackground({
+                                                values: rangePrice,
+                                                colors: ['#ccc', '#7757F7', '#ccc'],
+                                                min: MIN,
+                                                max: MAX
+                                            }),
+                                            alignSelf: 'center'
+                                            }}
+                                        >
+                                            {children}
+                                        </div>
+                                        </div>
+                                    )}
+                                    renderThumb={({ index, props, isDragged }) => (
+                                        <div
+                                        {...props}
+                                        style={{
+                                            ...props.style,
+                                            height: '25px',
+                                            width: '25px',
+                                            borderRadius: '4px',
+                                            backgroundColor: '#FFF',
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            boxShadow: '0px 2px 6px #AAA'
+                                        }}
+                                        >
+                                        <div
+                                            style={{
+                                            position: 'absolute',
+                                            top: '-30px',
+                                            color: '#fff',
+                                            fontWeight: 'lighter',
+                                            fontSize: '10px',
+                                            fontFamily: 'Arial,Helvetica Neue,Helvetica,sans-serif',
+                                            padding: '4px',
+                                            borderRadius: '4px',
+                                            backgroundColor: '#7757F7',
+                                            boxShadow: '0px 2px 6px #AAA'
+                                            }}
+                                        >
+                                            ${rangePrice[index].toFixed(1)}
+                                        </div>
+                                        <div
+                                            style={{
+                                            height: '8px',
+                                            width: '5px',
+                                            backgroundColor: isDragged ? '#7757F7' : '#CCC'
+                                            }}
+                                        />
+                                        </div>
+                                    )}
+                                />
+                            </div>
                             </Box>
                         </Row>
                     </Col>
@@ -208,7 +340,7 @@ const SearchPage = () => {
                         {/* product list */}
                         <Row>
                             { products.map((product, index) => (
-                                <Col xs={12} sm={12} md={6} lg={4}>
+                                <Col key={index} xs={12} sm={12} md={6} lg={4}>
                                     <ProductCard>
                                         <ProductCardName>{ product.name }</ProductCardName>
                                         <ProductCardCategory>{ product.category.label }</ProductCardCategory>
@@ -217,11 +349,17 @@ const SearchPage = () => {
                                             { product.description }
                                         </ProductCardDescription>
                                         <ProductCardPrice price={ product.price } afterDiscountPrice={ product.afterDiscountPrice } currency="$"/>
-                                        <Button label="ADD TO CART" size="small" className="m-1" />
-                                        <Button label="ADD TO WISHLIST" size="small" type="danger" />
                                     </ProductCard> 
                                 </Col>
-                            )) }
+                            )) }  
+                        </Row>
+
+                        <Row>
+                            <Col md={12}>
+                                <div align="center">
+                                    <Button label="Load More"/>
+                                </div>
+                            </Col>
                         </Row>
                     </Col>
                 </Row>

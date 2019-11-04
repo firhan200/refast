@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 //libs
 import { Link } from 'react-router-dom';
@@ -8,16 +8,20 @@ import { connect } from 'react-redux';
 import { logout } from './../../redux/actions/authAction';
 
 /* components */
-import NotificationContainer from './../notifications/NotificationContainer.js';
+import NotificationContainer from './NotificationContainer.js'
 import MessageContainer from './../messages/MessageContainer.js';
 /* components */
 
 const Navbar = (props) => {
+    /* trigger logout */
     const logoutProcess = () => {
         props.logout(() => {
-            
+            //put your callback actions here
         });
     }
+
+    //notification hooks
+    const [openNotification, setOpenNotification] = useState(false);
 
     return(
         <nav className="top-navbar navbar fixed-top navbar-expand navbar-light bg-light">
@@ -30,12 +34,12 @@ const Navbar = (props) => {
 
             <div className="collapse navbar-collapse" id="navbar">
                 <ul className="navbar-nav ml-auto">
-                    <li className="nav-item dropdown notification">
-                        <a href="#!" className="nav-link dropdown-toggle" id="notificationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li  className="nav-item notification">
+                        <span onClick={() => setOpenNotification(!openNotification) } className="nav-link click-available" role="button" aria-expanded="false">
                             <i className="fa fa-bell-o"></i>
                             <span className="total-notification">5</span>
-                        </a>
-                        <NotificationContainer />
+                        </span>
+                        <NotificationContainer setOpenNotification={setOpenNotification} isOpen={openNotification}/>
                     </li>
                     <li className="nav-item dropdown notification">
                         <a href="#!" className="nav-link dropdown-toggle" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,7 +56,7 @@ const Navbar = (props) => {
                             <Link className="dropdown-item" to="/profile">Profile</Link>
                             <Link className="dropdown-item" to="/change-password">Change Password</Link>
                             <div className="dropdown-divider"></div>
-                            <span onClick={logoutProcess} className="dropdown-item">Logout</span>
+                            <span onClick={logoutProcess} className="dropdown-item click-available">Logout</span>
                         </div>
                     </li>
                 </ul>
@@ -64,7 +68,6 @@ const Navbar = (props) => {
 /* map redux states to be accessed by global props */
 const mapStateToProps = state => ({
 });
-
 
 /* connect use react redux */
 export default connect(mapStateToProps, {

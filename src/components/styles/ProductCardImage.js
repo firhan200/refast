@@ -8,7 +8,7 @@ const ProductCardImage = (props) => {
     const image = typeof props.image !== 'undefined' ? props.image : '';
 
     return(
-        <div className={'product-card-image'}>
+        <div align="center" className={'product-card-image'}>
             <img src={image} className="img-fluid" alt={""}/>
         </div>
     );
