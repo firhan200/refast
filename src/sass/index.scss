@@ -1305,11 +1305,26 @@ h1, h2, h3, h4, h5 {
 }
 
 .mail-table{
+    tr{
+        cursor: pointer;
+    }
     .checkbox{
-        width:30px !important;
+        width:30px;
     }
     .name{
-        width:200px !important;
+        width:100px;
+    }
+    .subject{
+        width:200px;
+        font-weight: 350;
+    }
+    .message{
+        font-weight: 350;
+        color:$dark-gray;
+        width:300px;
+    }
+    .star{
+        width:20px;
     }
 }
 /*======================= Page ============================ */
