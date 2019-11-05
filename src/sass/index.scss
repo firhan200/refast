@@ -290,7 +290,7 @@ body{
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* transition effect to slide in the sidenav */
-    border-right:1px solid $gray;
+    border-right:1px solid darken($gray, 10%);
 
     .sidenav-title{
         position: absolute;
@@ -311,7 +311,7 @@ body{
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: $dark-gray;
 }
 
 
@@ -322,6 +322,20 @@ body{
     right: 15px;
     font-size: 26px;
     margin-left: 50px;
+}
+
+/* custom dropdown menu navbar styling */
+.nav-item{
+    &.dropdown{
+        .dropdown-menu{
+            padding:10px;
+
+            .dropdown-item{
+                font-size: $default-font-size;
+                padding:10px 30px 10px 30px;
+            }
+        }
+    }
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
