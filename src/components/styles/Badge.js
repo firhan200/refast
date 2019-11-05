@@ -19,8 +19,11 @@ const Badge = (props) => {
     //get custom class
     const customClassName = typeof props.className !== 'undefined' ? props.className : '';
 
+    //get size
+    const size = typeof props.size !== 'undefined' ? ' '+props.size+' ' : ' medium ';
+
     return(
-        <div className={"custom-badge badge badge-pill badge-"+badgeType+" "+customClassName}>
+        <div className={"custom-badge badge badge-pill badge-"+badgeType+" "+size+customClassName}>
             {/* Badge Image */}
             { badgeImage !== '' ? (
                 <div className="image">
@@ -44,8 +47,9 @@ const Badge = (props) => {
 //prop types initialize
 Badge.propTypes = {
     className: PropTypes.string,
-    message: PropTypes.string,
+    message: PropTypes.any,
     type: PropTypes.string,
+    size: PropTypes.oneOf(["small", "medium", "large"]),
     icon: PropTypes.string
 }
 

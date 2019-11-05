@@ -36,6 +36,9 @@ const Input = (props) => {
     //get message
     let message = typeof props.message !== 'undefined' ? props.message : '';
 
+    //get icon
+    let icon = typeof props.icon !== 'undefined' ? props.icon : '';
+
     //custom attr
     let attrs = {};
     if(pattern !== ''){
@@ -47,12 +50,20 @@ const Input = (props) => {
     attrs['required'] = isRequired;
 
     return(
-        <div className="custom-form-control">
+        <div className={"custom-form-control" + (icon!=='' ? ' iconed' : '')}>
+            {/* message for input */}
             { message !== '' ? (
                 <div className={"message " + isValid}>
                     { message }
                 </div>
             ) : '' }
+
+            {/* check icon */}
+            { icon !== '' ? (
+                <i className={"input-icon " + icon}></i>
+            ) : '' }
+
+            {/* input element */}
             <input 
                 className={'form-control ' + isValid + customClassName}
                 type={type}
@@ -81,6 +92,7 @@ const Input = (props) => {
                 </div>
             ) : '' }
 
+            {/* max length help label */}
             { maxLength !== 9999 ? (
                 <div className="right-help">
                     { currentLength } / { maxLength }
@@ -105,6 +117,7 @@ Input.propTypes = {
     handleChange : PropTypes.func,
     isValid : PropTypes.bool,
     message : PropTypes.string,
+    icon : PropTypes.string,
 }
 
 export default Input;

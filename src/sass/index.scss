@@ -494,9 +494,20 @@ h1, h2, h3, h4, h5 {
 .custom-badge{
     cursor: pointer;
     padding:8px 12px 8px 12px;
-    font-size: $default-font-size;
     box-shadow: $shadow;
     font-weight: 100;
+
+    &.small{
+        padding:4px 6px 4px 6px;
+        font-size: $small-font-size;
+    }
+    &.medium{
+        font-size: $default-font-size;
+    }
+    &.large{
+        padding:12px 16px 12px 16px;
+        font-size: $large-font-size;
+    }
 
     .icon{
         margin-right:10px;
@@ -560,6 +571,19 @@ h1, h2, h3, h4, h5 {
 }
 
 .custom-form-control{
+    &.iconed{
+        .input-icon{
+            position: absolute;
+            margin-top:15px;
+            margin-left:15px;
+            color:lighten($black, 40%);
+        }
+
+        .form-control{
+            padding-left:35px;
+        }
+    }
+
     &.textarea{
         textarea{
             height:100px;
@@ -1248,5 +1272,44 @@ h1, h2, h3, h4, h5 {
     }
 }
 
-.search-page{}
+.mailing-menu{
+    list-style: none;
+    padding: 10px 0px 0px 0px;
+    li{
+        padding: 5px 5px 5px 5px;
+        cursor: pointer;
+
+        &:hover{
+            background-color: $gray;
+            a{
+                text-decoration: none;
+            }
+        }
+
+        a{
+            color:$black;
+            font-size: $default-font-size;
+
+            .menu-badge{
+                float:right;
+                margin-top:3px;
+            }
+
+            i{
+                margin-right:10px;
+            }
+
+            
+        }
+    }
+}
+
+.mail-table{
+    .checkbox{
+        width:30px !important;
+    }
+    .name{
+        width:200px !important;
+    }
+}
 /*======================= Page ============================ */

@@ -45,6 +45,16 @@ const BadgePage = () => {
                             </div>
                         </Box>
                     </Row>
+                    <Row>
+                        <Box md={4}>
+                            <div className="add-spaces">
+                                <BoxTitle label="Badge size"/>
+                                <Badge size="small" type="primary" message={4}/>
+                                <Badge size="medium" type="primary" image="/images/avatar.png" message="primary"/>
+                                <Badge size="large" type="primary" icon="fa fa-check-circle" message="success"/>
+                            </div>
+                        </Box>
+                    </Row>
                 </Container>
             </div>
         </div>
