@@ -8,7 +8,7 @@ const Row = (props) => {
     const customClassName = typeof props.className !== 'undefined' ? props.className : '';
 
     return(
-        <div className={"row custom-row " + customClassName}>
+        <div style={props.style} className={"row custom-row " + customClassName}>
             { props.children }
         </div>
     );
@@ -16,6 +16,7 @@ const Row = (props) => {
 
 //prop types initialize
 Row.propTypes = {
+    style : PropTypes.object,
     className: PropTypes.string
 }
 

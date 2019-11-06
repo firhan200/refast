@@ -22,7 +22,7 @@ const Col = (props) => {
     const customClassName = typeof props.className !== 'undefined' ? props.className : '';
 
     return(
-        <div className={'custom-col' + xs + xsOffset + sm + smOffset + md + mdOffset + lg + lgOffset + " "+customClassName}>
+        <div style={props.style} className={'custom-col' + xs + xsOffset + sm + smOffset + md + mdOffset + lg + lgOffset + " "+customClassName}>
             { props.children }
         </div>
     );
@@ -30,6 +30,7 @@ const Col = (props) => {
 
 //prop types initialize
 Col.propTypes = {
+    style : PropTypes.object,
     className: PropTypes.string,
     xs: PropTypes.number,
     sm: PropTypes.number,

@@ -78,6 +78,7 @@ const Accordion = (props) => {
 
 //prop types initialize
 Accordion.propTypes = {
+    style : PropTypes.object,
     className : PropTypes.string,
     items : PropTypes.array,
     id : PropTypes.string

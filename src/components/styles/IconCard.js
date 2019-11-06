@@ -42,7 +42,7 @@ const IconCard = (props) => {
     }
 
     return(
-        <div className={'custom-icon-card '+align+' '+customClassName}>
+        <div style={props.style} className={'custom-icon-card '+align+' '+customClassName}>
             {/* main content */}
             <div className={"icon-card-body "+(isButtonWavy ? 'wavy' : '')}>
                 { icon !== '' ? (
@@ -71,6 +71,7 @@ const IconCard = (props) => {
 
 //prop types initialize
 IconCard.propTypes = {
+    style : PropTypes.object,
     className: PropTypes.string,
     isWavy: PropTypes.bool,
     align: PropTypes.string,

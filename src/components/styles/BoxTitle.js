@@ -11,7 +11,7 @@ const BoxTitle = (props) => {
     const icon = typeof props.icon !== 'undefined' ? props.icon : '';
 
     return(
-        <div className={align + " box-title-container"}>
+        <div style={props.style} className={align + " box-title-container"}>
             <div className="box-title">
                 { icon !== '' ? (
                     <i className={props.icon}></i>
@@ -27,6 +27,7 @@ const BoxTitle = (props) => {
 
 //prop types initialize
 BoxTitle.propTypes = {
+    style : PropTypes.object,
     label: PropTypes.string,
     subLabel: PropTypes.string,
     align: PropTypes.string,

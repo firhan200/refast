@@ -17,7 +17,7 @@ const Table = (props) => {
     const isResponsive = typeof props.isResponsive !== 'undefined' ? ' table-responsive-sm ' : ' ';
 
     return(
-        <table className={"custom-table table table-hover" + type + size + isResponsive + customClassName}>
+        <table style={props.style} className={"custom-table table table-hover" + type + size + isResponsive + customClassName}>
             { props.children }
         </table>
     );
@@ -25,6 +25,7 @@ const Table = (props) => {
 
 //prop types initialize
 Table.propTypes = {
+    style : PropTypes.object,
     className : PropTypes.string,
     isResponsive : PropTypes.bool,
     type : PropTypes.oneOf(['dark', 'striped', 'bordered']),

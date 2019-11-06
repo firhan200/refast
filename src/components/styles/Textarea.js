@@ -50,6 +50,7 @@ const Textarea = (props) => {
                 </div>
             ) : '' }
             <textarea 
+                style={props.style}
                 className={'form-control ' + isValid + customClassName}
                 type="textarea"
                 name={inputName}
@@ -79,6 +80,7 @@ const Textarea = (props) => {
 
 //prop types initialize
 Textarea.propTypes = {
+    style : PropTypes.object,
     className : PropTypes.string,
     value: PropTypes.any,
     name : PropTypes.string,

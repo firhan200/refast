@@ -11,12 +11,13 @@ const H2 = (props) => {
     const align = typeof props.align !== 'undefined' ? props.align : 'left';
 
     return(
-        <h2 className={align + ' ' + customClassName}>{ props.children }</h2>
+        <h2 style={props.style} className={align + ' ' + customClassName}>{ props.children }</h2>
     );
 }
 
 //prop types initialize
 H2.propTypes = {
+    style : PropTypes.object,
     className : PropTypes.string,
     align : PropTypes.string
 }

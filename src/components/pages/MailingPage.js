@@ -1,34 +1,186 @@
-import React from 'react';
-import { Breadcrumb, BreadcrumbItem, Container, Row, Col, Button, Box, Badge, Form, Input, Table, Checkbox } from '../styles';
+import React, { useState } from 'react';
+import { Breadcrumb, BreadcrumbItem, Container, Row, Col, Button, Box, Badge, Form, Input, Table, Checkbox, H4 } from '../styles';
+import { toast } from 'react-toastify';
 
 const MailingPage = () => {
     //variables
     const MAX_MESSAGE_LENGTH = 50;
 
     //mails
-    const mails = [
+    const defaultMails = [
         {
+            isStarred : true,
+            isRead : false,
             isSelected : false,
-            avatar: '/images/avatar.png',
+            date: '14:20',
             name: 'John Doe',
             subject: 'local environment server fix',
             message : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
         },
         {
+            isStarred : false,
+            isRead : false,
             isSelected : false,
-            avatar: '/images/slider1.jpg',
+            date: '10:06',
             name: 'Sarah Johnson',
             subject: 'Meeting Documents',
             message : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
         },
         {
+            isStarred : false,
+            isRead : true,
             isSelected : false,
-            avatar: '/images/slider2.jpg',
+            date : "4 Nov",
             name: 'Firhan',
             subject: 'Software Documentation Update v2',
             message : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-        }
+        },
+        {
+            isStarred : false,
+            isRead : false,
+            isSelected : false,
+            date : "5 Nov",
+            name: 'Sarah Johnson',
+            subject: 'Meeting Documents',
+            message : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        },
     ];
+
+    /* Hooks */
+    const [mails, setMails] = useState(defaultMails);
+    const [selectAllMail, setSelectAllMail] = useState(false);
+    const [keyword, setKeyword] = useState('');
+    /* Hooks */
+
+    /* select mail */
+    const selectMail = (currentMail) => {
+        //get mail
+        let newMails = mails.map(mail => {
+            //create new obj
+            let newMail = Object.assign({}, mail);
+            //check if current mail
+            if(mail === currentMail){
+                //set selected
+                newMail.isSelected = !mail.isSelected;
+            }
+
+            //return new obj
+            return newMail;
+        });
+
+        //set hoks
+        setMails(newMails)
+    }
+
+    /* select all mails */
+    const selectAllMails = () => {
+        //set hooks
+        setSelectAllMail(!selectAllMail);
+        
+        //loop mails
+        let newMails = mails.map(mail => {
+            //create new obj
+            let newMail = Object.assign({}, mail);
+
+            //set selected
+            newMail.isSelected = !selectAllMail;
+
+            //return new obj
+            return newMail;
+        });
+
+        //set hooks
+        setMails(newMails);
+    }
+
+    /* starring mail */
+    const starMail = (selectedMail) => {
+        //get current mail
+        let currentMail = mails.filter(mail => (mail === selectedMail));
+        if(currentMail.length > 0){
+            let newMail = currentMail[0];
+            //change star
+            newMail.isStarred = !newMail.isStarred;
+
+            //set mail
+            setMails(
+                Object.assign([], mails, newMail)
+            );
+
+            //show toast
+            let toastMessage = !newMail.isStarred ? "remove star mail from: " : "star mail from: ";
+            toast(toastMessage + selectedMail.name);
+        }
+    }
+
+    /* delete selected mails */
+    const deleteSelectedMails = () => {
+        //get un selected mails
+        const unSelectedMails = mails.filter(mail => (!mail.isSelected));
+
+        //get selected
+        const selectedMails = mails.filter(mail => (mail.isSelected));
+
+        //check if there is selected mails
+        if(selectedMails.length > 0){
+            //set hooks
+            setMails(unSelectedMails);
+
+            //show toast
+            toast(selectedMails.length + " mails deleted");
+        }
+    }
+
+    /* star selected mails */
+    const starSelectedMails = () => {
+        //get selected
+        const selectedMails = mails.filter(mail => (mail.isSelected));
+
+        //total mail starred
+        let totalMailStarred = 0;
+
+        //check if there is selected mails
+        if(selectedMails.length > 0){
+            let newMails = mails.map(mail => {
+                //check if mail include in selected mails
+                if(selectedMails.includes(mail)){
+                    //only increment when mail are not starred before
+                    totalMailStarred += (!mail.isStarred ? 1 : 0);
+
+                    //return new object with is starred true
+                    return Object.assign({}, mail, {
+                        isStarred : true
+                    });
+                }else{
+                    //return default
+                    return mail;
+                }
+            });
+
+            //set hooks
+            setMails(
+                Object.assign([], mails, newMails)
+            );
+
+            //show toast
+            const toastMessage = totalMailStarred > 0 ? (totalMailStarred+ " mails starred") : "all mails already starred";
+            toast(toastMessage);
+        }
+    }
+
+    /* search mail by keyword */
+    const searchMails = () => {
+        let filteredMails = [...defaultMails];
+        //get mails that contains keyword
+        const mailsContainsKeyword = filteredMails.filter(mail => (
+            mail.name.toLowerCase().includes(keyword.toLowerCase())
+            ||
+            mail.subject.toLowerCase().includes(keyword.toLowerCase())
+            ))
+
+        //set hooks
+        setMails(mailsContainsKeyword);
+    }
 
     return(
         <div>
@@ -52,7 +204,10 @@ const MailingPage = () => {
                             <li>
                                 <a href="#!">
                                     <i className="fa fa-envelope-o"></i>Inbox
-                                    <Badge size="small" type="primary" className="menu-badge" message={3}/>
+                                    <Badge size="small" type="primary" className="menu-badge" message={
+                                        //unread message
+                                        mails.filter(mail => (!mail.isRead)).length
+                                    }/>
                                 </a>
                             </li>
                             <li>
@@ -76,8 +231,19 @@ const MailingPage = () => {
                         </ul>
                     </Box>
                     <Col md={8} lg={9}>
-                        <Form>
-                            <Input icon="fa fa-search" placeholder="Search Mail"/>
+                        <Form handleSubmit={(e) => e.preventDefault()}>
+                            <Input 
+                                icon="fa fa-search" 
+                                value={keyword} 
+                                handleChange={(e) => setKeyword(e.target.value)} 
+                                handleKeyPress={(e) => {
+                                    //check if enter
+                                    if(e.key === 'Enter'){
+                                        //search
+                                        searchMails();
+                                    }
+                                }}
+                                placeholder="Search Mail"/>
                         </Form>
                         <Table isResponsive={true} className="mail-table">
                             {/* header mail table */}
@@ -85,13 +251,21 @@ const MailingPage = () => {
                                 <tr>
                                     <td>
                                         <Checkbox 
-                                        handleChange={() => {}}
-                                        isChecked={false}/>
+                                        handleChange={ selectAllMails }
+                                        isChecked={ selectAllMail }/>
                                     </td>
-                                    <td colSpan="4" align="right">
-                                        <Button className="m-r-5" size="small" icon="fa fa-trash"/>
-                                        <Button className="m-r-5" size="small" icon="fa fa-star"/>
-                                        <Button className="m-r-5" size="small" icon="fa fa-file-o"/>
+                                    <td colSpan="5" align="right">
+                                        <Button 
+                                            handleClick={ deleteSelectedMails }
+                                            className="m-l-10" 
+                                            size="small" 
+                                            icon="fa fa-trash"/>
+                                        <Button 
+                                            handleClick={ starSelectedMails }
+                                            className="m-l-10" 
+                                            size="small" 
+                                            icon="fa fa-star"/>
+                                        <Button className="m-l-10" size="small" icon="fa fa-file-o"/>
                                     </td>
                                 </tr>
                             </thead>
@@ -99,24 +273,45 @@ const MailingPage = () => {
                             {/* mail table rows */}
                             <tbody>
                             { mails.map((mail, index) => (
-                                <tr key={index}>
+                                <tr key={index} className={ mail.isRead ? 'read' : 'unread' }>
                                     <td className="checkbox">
                                         <Checkbox 
-                                        handleChange={() => {}}
+                                        handleChange={ selectMail.bind(this, mail) }
                                         isChecked={mail.isSelected}/>
+                                    </td>
+                                    <td className="star">
+                                        {/* starred mail */}
+                                        <i className={"fa fa-star" + (!mail.isStarred ? "-o" : "")} onClick={ starMail.bind(this, mail) }></i>
                                     </td>
                                     <td className="name">{ mail.name }</td>
                                     <td className="subject">{ mail.subject }</td>
                                     <td className="message">
                                         { mail.message.length > MAX_MESSAGE_LENGTH ? mail.message.slice(0,MAX_MESSAGE_LENGTH)+".." : mail.message }
                                     </td>
-                                    <td className="star">
-                                        <i className="fa fa-star"></i>
+                                    <td className="date">
+                                        { mail.date }
                                     </td>
                                 </tr>
                             ))}
                             </tbody>
                         </Table>
+                        <div className="" align="right">
+                            <span className="m-l-10">
+                                <H4 style={{
+                                    display: 'inherit'
+                                }}>10 from 120</H4>
+                            </span>
+                            <Button 
+                                className="m-l-10"
+                                size="small"
+                                icon="fa fa-chevron-left" 
+                                disabled={true}/>
+                            <Button 
+                                className="m-l-10"
+                                size="small"
+                                icon="fa fa-chevron-right" 
+                                disabled={false}/>
+                        </div>
                     </Col>
                 </Row>
             </Container>

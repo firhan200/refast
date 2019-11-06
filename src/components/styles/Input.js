@@ -65,6 +65,7 @@ const Input = (props) => {
 
             {/* input element */}
             <input 
+                style={props.style}
                 className={'form-control ' + isValid + customClassName}
                 type={type}
                 name={inputName}
@@ -74,6 +75,8 @@ const Input = (props) => {
                 placeholder={props.placeholder}
                 autoComplete={(autoComplete ? "on" : "off")}
                 onChange={props.handleChange}
+                onKeyPress={props.handleKeyPress}
+                onKeyDown={props.handleKeyDown}
                 onKeyUp={(e) => {
                     // custom handle change
                     if(maxLength!==9999){
@@ -104,6 +107,7 @@ const Input = (props) => {
 
 //prop types initialize
 Input.propTypes = {
+    style : PropTypes.object,
     className : PropTypes.string,
     value : PropTypes.any,
     type : PropTypes.string,
@@ -115,6 +119,8 @@ Input.propTypes = {
     pattern : PropTypes.string,
     placeholder : PropTypes.string,
     handleChange : PropTypes.func,
+    handleKeyPress : PropTypes.func,
+    handleKeyDown : PropTypes.func,
     isValid : PropTypes.bool,
     message : PropTypes.string,
     icon : PropTypes.string,

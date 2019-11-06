@@ -26,7 +26,7 @@ const Box = (props) => {
 
     return(
         <div className={'custom-col col-box'+ xs + xsOffset + sm + smOffset + md + mdOffset + lg + lgOffset }>
-            <div className={"box" + isTransparent+ " "+customClassName}>
+            <div style={props.style} className={"box" + isTransparent+ " "+customClassName}>
                 { props.children }
             </div>
         </div>
@@ -35,6 +35,7 @@ const Box = (props) => {
 
 //prop types initialize
 Box.propTypes = {
+    style : PropTypes.object,
     className: PropTypes.string,
     xs: PropTypes.number,
     xsOffset: PropTypes.number,

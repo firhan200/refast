@@ -8,7 +8,7 @@ const Container = (props) => {
     const customClassName = typeof props.className !== 'undefined' ? props.className : '';
 
     return(
-        <div className={"container custom-container " + customClassName}>
+        <div style={props.style} className={"container custom-container " + customClassName}>
             { props.children }
         </div>
     );
@@ -16,6 +16,7 @@ const Container = (props) => {
 
 //prop types initialize
 Container.propTypes = {
+    style : PropTypes.object,
     className: PropTypes.string
 }
 

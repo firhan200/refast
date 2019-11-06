@@ -4,6 +4,7 @@
 @import './_dekstop.scss';
 @import './_tablet.scss';
 @import './_mobile.scss';
+@import './_menu.scss';
 
 //theming bootstrap color
 $theme-colors: (
@@ -64,6 +65,18 @@ body{
 
 .m-t-10{
     margin-top: 10px !important;
+}
+
+.m-l-10{
+    margin-left: 10px !important;
+}
+
+.m-t-5{
+    margin-top: 5px !important;
+}
+
+.m-b-5{
+    margin-bottom: 5px !important;
 }
 
 .m-r-5{
@@ -197,76 +210,6 @@ body{
                 text-align: right;
                 font-size:$small-font-size;
                 font-weight: 300;
-            }
-        }
-    }
-}
-
-/* Menu navigation styling */
-.menu-navbar{
-    background-color: $white !important;
-    border-bottom: 0.5px solid darken($gray,10%);
-}
-
-//styling for horizontal scrollable menu
-.horizontal-menu{
-    overflow: scroll;
-    overflow-y: hidden;
-    padding-bottom: 0px !important;
-
-    .title{
-        font-size:$default-font-size;
-        padding: 10px 32px 0px 32px;
-        color:darken($gray, 30%);
-        font-weight: 500;
-        margin-bottom: -10px;
-    }
-
-    ul{
-        flex-direction: unset;
-        list-style: none;
-
-        li{
-            float: left !important;
-            margin: 0px 7px 0px 7px;
-            border-radius: 25px;
-
-            .nav-link{
-                border-radius: 15px;
-                padding:5px 15px 5px 15px;
-                color:$black !important;
-                text-align: center;
-
-                &:hover, &:active, &:focus{
-                    background-color:$default-color;
-                    color:$white !important;
-                }
-            }
-
-            a{
-                font-size: $default-font-size;
-            }
-        }
-    }
-}
-
-.horizontal-menu::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
-}
-
-//sub menu navigation styling
-.submenu{
-    background-color:darken($white, 1%) !important;
-    border: 1px solid $gray;
-
-    ul{
-        padding: 10px 0px 10px 25px;
-
-        li{
-            a{
-                color : $dark-gray;
-                font-size: $small-font-size;
             }
         }
     }
@@ -1305,9 +1248,17 @@ h1, h2, h3, h4, h5 {
 .mail-table{
     tr{
         cursor: pointer;
+
+        &.read{
+            background-color: $gray;
+        }
     }
     .checkbox{
-        width:30px;
+        width:20px !important;
+
+        .checkbox-custom {
+            margin-top:2px;
+        }
     }
     .name{
         width:100px;
@@ -1323,6 +1274,15 @@ h1, h2, h3, h4, h5 {
     }
     .star{
         width:20px;
+
+        i{
+            color: darken($warning, 10%);
+        }
+    }
+    .date{
+        width:50px;
+        font-size: $default-font-size - 2;
+        text-align: right;
     }
 }
 /*======================= Page ============================ */

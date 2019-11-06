@@ -3,144 +3,147 @@ import React from 'react';
 //libs
 import { Link } from 'react-router-dom';
 
-const Menubar = () => {
+const HorizontalMenubar = () => {
     return(
-        <div id="main-menu">
-            {/* Level 1 main menu navigation start */}
-            <nav className="horizontal-menu menu-navbar navbar navbar-expand-lg navbar-light bg-light">
-                <div id="menubar">
-                    <ul className="navbar-nav mr-auto">
-                        <li className="nav-item">
-                            <a className="nav-link" data-toggle="collapse" href="#submenu-dashboard" role="button" aria-expanded="false" aria-controls="submenu-dashboard">
-                                <i className="fa fa-dashboard"></i>
-                                &nbsp;
-                                Dashboard
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" data-toggle="collapse" href="#submenu-pages" role="button" aria-expanded="false" aria-controls="submenu-pages">
-                                <i className="fa fa-file-o"></i>
-                                    &nbsp;
-                                Pages
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" data-toggle="collapse" href="#submenu-components" role="button" aria-expanded="false" aria-controls="submenu-components">
-                                <i className="fa fa-star-o"></i>
-                                &nbsp;
-                                Components
-                            </a>
+        <nav id="menu">
+            <label htmlFor="tm" id="toggle-menu">Navigation <span className="drop-icon">▾</span></label>
+            <input type="checkbox" id="tm" />
+            <ul className="main-menu clearfix">
+                <li>
+                    <a href="#!">
+                        Dashboard
+                        <label title="Toggle Drop-down" className="drop-icon" htmlFor="menu-dashboard">▾</label>
+                    </a>
+                    <input type="checkbox" id="menu-dashboard" />
+                    <ul className="sub-menu">
+                        <li>
+                            <Link to="/">E-Commerce</Link>
                         </li>
                     </ul>
-                </div>
-            </nav>
-            {/* Level 1 main menu navigation end */}
-
-            {/* Level 2 sub main menu navigation start */}
-            <div className="submenu">
-                <div className="collapse" data-parent="#main-menu" id="submenu-dashboard">
-                    <div className="horizontal-menu">
-                        <ul>
-                            <li>
-                                <Link to="/">E-Commerce</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="collapse" data-parent="#main-menu" id="submenu-pages">
-                    <div className="horizontal-menu">
-                        <div className="title">
-                            Authorization
-                        </div>
-                        <ul>
-                            <li>
-                                <Link to="/page/login">Login</Link>
-                            </li>
-                            <li>
-                                <Link to="/page/signup">Sign up</Link>
-                            </li>
-                            <li>
-                                <Link to="/page/forgot-password">Forgot Password</Link>
-                            </li>
-                            <li>
-                                <Link to="/page/reset-password">Reset Password</Link>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="horizontal-menu pull">
-                        <div className="title">
-                            Misc
-                        </div>
-                        <ul>
-                            <li>
-                                <Link to="/page/faq">FAQ</Link>
-                            </li>
-                            <li>
-                                <Link to="/page/404">404</Link>
-                            </li>
-                            <li>
-                                <Link to="/page/search">Search</Link>
-                            </li>
-                            <li>
-                                <Link to="/page/mailing">Mailing</Link>
-                            </li>
-                            <li>
-                                <Link to="/page/pricing">Pricing</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="collapse" data-parent="#main-menu" id="submenu-components">
-                    <div className="horizontal-menu">
-                        <ul>
-                            <li>
-                                <Link to="/components/box">Box</Link>
-                            </li>
-                            <li>
-                                <Link to="/components/alert">Alert</Link>
-                            </li>
-                            <li>
-                                <Link to="/components/badges">Badges</Link>
-                            </li>
-                            <li>
-                                <Link to="/components/buttons">Buttons</Link>
-                            </li>
-                            <li>
-                                <Link to="/components/forms">Forms</Link>
-                            </li>
-                            <li>
-                                <Link to="/components/cards">Cards</Link>
-                            </li>
-                            <li>
-                                <Link to="/components/breadcrumbs">Breadcrumbs</Link>
-                            </li>
-                            <li>
-                                <Link to="/components/carousel">Carousel</Link>
-                            </li>
-                            <li>
-                                <Link to="/components/charts">Charts</Link>
-                            </li>
-                            <li>
-                                <Link to="/components/collapse">Collapse</Link>
-                            </li>
-                            <li>
-                                <Link to="/components/dropdowns">Dropdowns</Link>
-                            </li>
-                            <li>
-                                <Link to="/components/tables">Tables</Link>
-                            </li>
-                            <li>
-                                <Link to="/components/progressbar">Progress Bar</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            {/* Level 2 sub main menu navigation end */}
-        </div>
+                </li>
+                <li>
+                    <a href="#!">
+                        Pages
+                        <label title="Toggle Drop-down" className="drop-icon" htmlFor="menu-pages">▾</label>
+                    </a>
+                    <input type="checkbox" id="menu-pages"/>
+                    <ul className="sub-menu">
+                        <li>
+                            <a href="#!">
+                                Authorization
+                                <label title="Toggle Drop-down" className="drop-icon" htmlFor="menu-authorization">▾</label>
+                            </a>
+                            <input type="checkbox" id="menu-authorization"/>
+                            <ul className="sub-menu">
+                                <li>
+                                    <Link to="/page/login">Login</Link>
+                                </li>
+                                <li>
+                                    <Link to="/page/signup">Sign up</Link>
+                                </li>
+                                <li>
+                                    <Link to="/page/forgot-password">Forgot Password</Link>
+                                </li>
+                                <li>
+                                    <Link to="/page/reset-password">Reset Password</Link>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#!">
+                                Misc
+                                <label title="Toggle Drop-down" className="drop-icon" htmlFor="menu-misc">▾</label>
+                            </a>
+                            <input type="checkbox" id="menu-misc"/>
+                            <ul className="sub-menu">
+                                <li>
+                                    <Link to="/page/faq">FAQ</Link>
+                                </li>
+                                <li>
+                                    <Link to="/page/404">404</Link>
+                                </li>
+                                <li>
+                                    <Link to="/page/search">Search</Link>
+                                </li>
+                                <li>
+                                    <Link to="/page/mailing">Mailing</Link>
+                                </li>
+                                <li>
+                                    <Link to="/page/pricing">Pricing</Link>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#!">
+                        Components
+                        <label title="Toggle Drop-down" className="drop-icon" htmlFor="menu-components">▾</label>
+                    </a>
+                    <input type="checkbox" id="menu-components"/>
+                    <ul className="sub-menu">
+                        <li>
+                            <a href="#!">
+                                User Interface
+                                <label title="Toggle Drop-down" className="drop-icon" htmlFor="menu-user-interface">▾</label>
+                            </a>
+                            <input type="checkbox" id="menu-user-interface"/>
+                            <ul className="sub-menu">
+                                <li>
+                                    <Link to="/components/box">Box</Link>
+                                </li>
+                                <li>
+                                    <Link to="/components/forms">Forms &amp; Inputs</Link>
+                                </li>
+                                <li>
+                                    <Link to="/components/cards">Cards</Link>
+                                </li>
+                                <li>
+                                    <Link to="/components/alert">Alert</Link>
+                                </li>
+                                <li>
+                                    <Link to="/components/badges">Badges</Link>
+                                </li>
+                                <li>
+                                    <Link to="/components/buttons">Buttons</Link>
+                                </li>
+                                <li>
+                                    <Link to="/components/breadcrumbs">Breadcrumbs</Link>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#!">
+                                Widgets
+                                <label title="Toggle Drop-down" className="drop-icon" htmlFor="menu-widgets">▾</label>
+                            </a>
+                            <input type="checkbox" id="menu-widgets"/>
+                            <ul className="sub-menu">
+                                <li>
+                                    <Link to="/components/carousel">Carousel</Link>
+                                </li>
+                                <li>
+                                    <Link to="/components/charts">Charts</Link>
+                                </li>
+                                <li>
+                                    <Link to="/components/collapse">Collapse</Link>
+                                </li>
+                                <li>
+                                    <Link to="/components/dropdowns">Dropdowns</Link>
+                                </li>
+                                <li>
+                                    <Link to="/components/tables">Tables</Link>
+                                </li>
+                                <li>
+                                    <Link to="/components/progressbar">Progress Bar</Link>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
     );
 }
 
-export default Menubar;
+export default HorizontalMenubar;

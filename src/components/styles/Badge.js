@@ -46,6 +46,7 @@ const Badge = (props) => {
 
 //prop types initialize
 Badge.propTypes = {
+    style : PropTypes.object,
     className: PropTypes.string,
     message: PropTypes.any,
     type: PropTypes.string,

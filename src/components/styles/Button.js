@@ -93,6 +93,10 @@ const Button = (props) => {
             backgroundColor: anotherColor
         }
     }
+    //add custom style from attr
+    if(props.style !== 'undefined'){
+        customStyle = Object.assign({}, customStyle, props.style);
+    }
 
     //custom attr
     let attrs = {};
@@ -121,6 +125,7 @@ const Button = (props) => {
 
 //prop types initialize
 Button.propTypes = {
+    style : PropTypes.object,
     className: PropTypes.string,
     id: PropTypes.string,
     icon: PropTypes.string,

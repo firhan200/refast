@@ -55,6 +55,7 @@ const Alert = (props) => {
 
 //prop types initialize
 Alert.propTypes = {
+    style : PropTypes.object,
     className: PropTypes.string,
     message: PropTypes.string,
     type: PropTypes.string,

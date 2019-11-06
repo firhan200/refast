@@ -8,7 +8,7 @@ const Form = (props) => {
     const customClassName = typeof props.className !== 'undefined' ? props.className : '';
 
     return(
-        <form onSubmit={props.handleSubmit} className={customClassName}>
+        <form style={props.style} onSubmit={props.handleSubmit} className={customClassName}>
             { props.children }
         </form>
     );
@@ -16,6 +16,7 @@ const Form = (props) => {
 
 //prop types initialize
 Form.propTypes = {
+    style : PropTypes.object,
     className : PropTypes.string,
     handleSubmit : PropTypes.func,
 }

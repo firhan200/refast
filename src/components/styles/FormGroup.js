@@ -8,7 +8,7 @@ const FormGroup = (props) => {
     const isRow = typeof props.isRow !== 'undefined' ? props.isRow : false;
 
     return(
-        <div className={'form-group'+ (isRow ? ' row' : '')}>
+        <div style={props.style} className={'form-group'+ (isRow ? ' row' : '')}>
             { props.children }
         </div>
     );
@@ -16,6 +16,7 @@ const FormGroup = (props) => {
 
 //prop types initialize
 FormGroup.propTypes = {
+    style : PropTypes.object,
     isRow : PropTypes.bool
 }
 
