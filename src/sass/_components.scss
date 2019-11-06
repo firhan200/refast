@@ -1,0 +1,835 @@
+/*======================= Components ============================ */
+.green{
+    color : $success;
+}
+
+.red{
+    color : $danger;
+}
+
+.left{
+    text-align: left;
+}
+
+.right{
+    text-align: right;
+}
+
+.center{
+    text-align: center;
+}
+
+h1{
+    font-size:$h1;
+}
+
+h2{
+    font-size:$h2;
+}
+
+h3{
+    font-size:$h3;
+}
+
+h4{
+    font-size:$h4;
+}
+
+h5{
+    font-size:$h5;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 300;
+    margin-bottom:15px;
+}
+
+.center{
+    text-align: center;
+}
+
+.click-available{
+    cursor: pointer;
+}
+
+.box{
+    padding:20px;
+    background-color: $white;
+    box-shadow: $shadow;
+    margin-bottom:20px;
+
+    &.transparent{
+        background-color: transparent;
+        border:0px;
+        box-shadow: none;
+    }
+
+    .box-title-container{
+        margin-bottom: 10px;
+
+        .box-title{
+            font-size: $default-font-size + 2;
+            color: $black;
+    
+            i{
+                font-size: inherit;
+                margin-right:10px;
+                color:lighten($black, 20%);
+            }
+        }
+    
+        .box-subtitle{
+            font-size: $small-font-size;
+            color:lighten($black, 30%);
+        }
+    }
+}
+
+.custom-container{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+
+    .custom-row{
+        margin-bottom:5px;
+    }
+}
+
+.custom-alert{
+    padding:0px;
+    border:0px;
+    box-shadow: $shadow;
+    
+    .alert-icon{
+        width:40px;
+        text-align: center;
+        padding: 10px;
+        float: left;
+        height:100%;
+        border-right: 2px solid $white;
+        margin-right: 10px;
+        margin-top:-2px;
+    }
+    .alert-message{
+        padding:10px;
+        font-size:$default-font-size;
+    }
+}
+
+.custom-badge{
+    cursor: pointer;
+    padding:8px 12px 8px 12px;
+    box-shadow: $shadow;
+    font-weight: 100;
+
+    &.small{
+        padding:4px 6px 4px 6px;
+        font-size: $small-font-size;
+    }
+    &.medium{
+        font-size: $default-font-size;
+    }
+    &.large{
+        padding:12px 16px 12px 16px;
+        font-size: $large-font-size;
+    }
+
+    .icon{
+        margin-right:10px;
+    }
+
+    .image{
+        background-color: black;
+        float: left;
+        margin:-8px 5px -8px -13px;
+        width:$badge-image-size;
+        height:$badge-image-size;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        box-shadow: 0.3px 0.3px 1.7px $dark-gray;
+        img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width:$badge-image-size;
+        }
+    }
+
+    &:hover{
+        .icon{
+            -webkit-animation:shake 1s linear infinite;
+            -moz-animation:shake 1s linear infinite;
+            animation:shake 1s linear infinite;
+        }
+    }
+}
+
+.custom-button{
+    border-radius: 4px;
+    box-shadow: $shadow;
+
+    &.full{
+        width:100% !important;
+    }
+
+    &.btn-sm{
+        font-size:6pt;   
+    }
+    &.btn-md{
+        font-size:9pt;   
+    }
+    &.btn-lg{
+        font-size:12pt;   
+    }
+
+    &.rounded{
+        border-radius: 25px !important;
+    }
+
+    .icon{
+        &.pad{
+            margin-right:10px;
+        }
+    }
+}
+
+.custom-form-control{
+    &.iconed{
+        .input-icon{
+            position: absolute;
+            margin-top:15px;
+            margin-left:15px;
+            color:lighten($black, 40%);
+        }
+
+        .form-control{
+            padding-left:35px;
+        }
+    }
+
+    &.textarea{
+        textarea{
+            height:100px;
+        }
+    }
+
+    .message{
+        font-size:$small-font-size;
+        color:darken($gray, 70%);
+
+        &.invalid{
+            color:darken($red, 20%);
+        }
+
+        &.valid{
+            color:darken($green, 30%);
+        }
+    }
+
+    .form-control{
+        height: $form-height;
+        font-size: $default-font-size;
+        color:lighten($black, 30%);
+        background-color: $form-bg;
+        border: 1px solid darken($form-bg, 10%);
+        border-radius: 0px;
+
+        &:focus{
+            color:$black;
+        }
+
+        &.invalid{
+            border:1px solid $red;
+        }
+
+        &.valid{
+            border:1px solid $green;
+        }
+    }
+
+    .icon{
+        cursor: pointer;
+        color:lighten($dark-gray, 20%);
+        position: absolute;
+        margin-top: -35px;
+        right:0px;
+        margin-right : 50px;
+    }
+
+    .right-help{
+        float:right;
+        font-size: $small-font-size;
+        color:$dark-gray;
+        margin-bottom: 10px;
+    }
+}
+
+.custom-icon-card{
+    background-color: $white;
+    padding:0px;
+    box-shadow: $shadow;
+    border-radius: 5px;
+    color:$dark-gray;
+    overflow: hidden;
+
+    text-align: center;
+
+    &.left{
+        text-align:left;
+    }
+
+    &.right{
+        text-align:right;
+    }
+
+    .icon-card-body{
+        padding:0px 20px 0px 20px;
+        //margin-bottom: 10px;
+
+        .icon{
+            padding-top:5px;
+            font-size:$large-font-size + 10;
+            color: darken($default-color, 5%);
+            margin-bottom:-20px;
+        }
+        .label{
+            padding-top:20px;
+            font-size:$small-font-size - 1;
+        }
+        .number{
+            margin-top:0px;
+            padding-bottom:10px;
+            font-size:$large-font-size;
+            font-weight: 400;
+        }
+
+        &.wavy{
+            margin-bottom: -3em;
+        }
+    }
+
+    svg{
+        left:0;
+        bottom:0;
+
+        path{
+            fill : $default-color !important;
+        }
+    }
+}
+
+.custom-user-card{
+    $user-card-image: 100px;
+    margin-bottom:10px;
+
+    &.vertical{
+        text-align: center;
+        padding:0px 0px 20px 0px;
+
+        .top-bg{
+            height:100px;
+            background-color: $default-color;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img{
+                margin:0 auto;
+                width:100%;
+            }
+        }
+
+        .frame{
+            width:$user-card-image;
+            height:$user-card-image;
+            margin:0 auto;
+            margin-bottom: 20px;
+            margin-top:-50px;
+
+            img{
+                max-width:$user-card-image + 50;
+                max-height:$user-card-image + 50;
+            }
+        }
+
+        .user-card-title{
+            font-size: $large-font-size;
+        }
+    
+        .user-card-sub-title{
+            margin-top:5px;
+            font-size: $default-font-size;
+        }
+    }
+
+    &.horizontal{
+        text-align: left;
+        padding:10px 10px 10px 10px;
+
+        .frame{
+            float: left;
+            margin-top:-10px;
+            margin-right:10px;
+            width:$user-card-image - 30;
+            height:$user-card-image - 30;
+            img{
+                max-width:$user-card-image + 20;
+                max-height:$user-card-image + 20;
+            }
+        }
+
+        .user-card-left{
+            margin-left:10px;
+            margin-top:10px;
+        }
+
+        .user-card-title{
+            font-size: $default-font-size + 3;
+        }
+    
+        .user-card-sub-title{
+            margin-top:0px;
+            font-size: $small-font-size;
+        }
+    }
+
+    background-color: $white;
+    box-shadow: $shadow;
+    border-radius: 5px;
+    color:$dark-gray;
+    overflow: hidden;
+
+    .frame{
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img{
+            margin: 0 auto; 
+        }
+    }
+
+    .user-card-child{
+        margin-top:10px;
+    }
+}
+
+.custom-image-card{
+    &.overlay{
+        background-color: rgba(0,0,0,0.9); /* Black background with opacity */
+
+        .card-body{
+            position: absolute;
+            .card-title{
+                color:$white;
+            }
+            .card-subtitle{
+                color:$white;
+            }
+            .card-text{
+                color:$white;
+            }
+        }
+
+        &:hover{
+            .card-img-top{
+                opacity: 1;
+            }
+        }
+    }
+
+    .card-img-top{
+        transition: 0.5s;
+        opacity: 0.9;
+        &:hover{
+            opacity:1;
+        }
+    }
+    .card-body{
+        .card-title{
+            font-size: $default-font-size;
+        }
+        .card-subtitle{
+            font-size: $small-font-size;
+            font-weight: 300;
+            margin-top:-10px;
+        }
+        .card-text{
+            margin-top:7px;
+            font-size: $small-font-size;
+        }
+    }
+}
+
+.custom-product-card{
+    background-color: $white;
+    padding:20px;
+    box-shadow: $shadow;
+    border-radius: 5px;
+    color:$black;
+    overflow: hidden;
+    margin-bottom:10px;
+
+    .product-card-name{
+        cursor: pointer;
+        font-size: $default-font-size;
+        font-weight: 400;
+    }
+
+    .product-card-category{
+        cursor: pointer;
+        font-size:$small-font-size - 1;
+        font-weight: 200;
+        color:lighten($dark-gray, 20%);
+    }
+
+    .product-card-image{
+        padding:5px 10px 5px 10px;
+        height:200px;
+        img{
+            max-height:180px;
+        }
+    }
+
+    .product-card-price{
+        text-align: right;
+
+        .discount{
+            text-decoration: line-through;
+            font-size:$small-font-size;
+        }
+
+        .discount-price{
+            margin-top:-2px;
+        }
+    }
+
+    .product-card-description{
+        font-size:$default-font-size - 2;
+    }
+}
+
+.custom-breadcrumb{
+    background-color: transparent;
+    margin-bottom: 0px;
+    padding:5px 0px 5px 0px;
+
+    .breadcrumb-item + .breadcrumb-item::before{
+        content: ">";
+    }
+
+    li{
+        font-size:$default-font-size;
+    }
+}
+
+.custom-carousel{
+    cursor: pointer;
+    .carousel-control-next{
+        background-image: linear-gradient(to right,transparent, $black);
+    }
+    .carousel-control-prev{
+        background-image: linear-gradient(to left,transparent, $black);
+    }
+}
+
+.custom-checkbox{
+    .label{
+        top:-($checkbox-size / 3) + 2;
+        margin-left:5px;
+        position: relative;
+        color:$dark-gray;
+        font-size:$default-font-size;
+    }
+
+    /* Styling Checkbox Starts */
+    .checkbox-label {
+        position: relative;
+        margin: auto;
+        cursor: pointer;
+        font-size: 22px;
+        line-height: $checkbox-size;
+        height: $checkbox-size;
+        width: $checkbox-size;
+        clear: both;
+    }
+
+    .checkbox-label input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .checkbox-label .checkbox-custom {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: $checkbox-size;
+        width: $checkbox-size;
+        background-color: transparent;
+        border-radius: 2px;
+        transition: all 0.3s ease-out;
+        -webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+        -ms-transition: all 0.3s ease-out;
+        -o-transition: all 0.3s ease-out;
+        border: 1px solid darken($form-border, 10%);
+    }
+
+
+    .checkbox-label input:checked ~ .checkbox-custom {
+        background-color: #FFFFFF;
+        -webkit-transform: rotate(0deg) scale(1);
+        -ms-transform: rotate(0deg) scale(1);
+        transform: rotate(0deg) scale(1);
+        opacity:1;
+        border: 1px solid darken($form-border, 20%);
+    }
+
+
+    .checkbox-label .checkbox-custom::after {
+        position: absolute;
+        content: "";
+        left: $checkbox-size / 2;
+        top: $checkbox-size / 2;
+        height: 0px;
+        width: 0px;
+        border-radius: 5px;
+        border: solid darken($form-border, 20%);
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(0deg) scale(0);
+        -ms-transform: rotate(0deg) scale(0);
+        transform: rotate(0deg) scale(0);
+        opacity:1;
+        transition: all 0.3s ease-out;
+        -webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+        -ms-transition: all 0.3s ease-out;
+        -o-transition: all 0.3s ease-out;
+    }
+
+
+    .checkbox-label input:checked ~ .checkbox-custom::after {
+        -webkit-transform: rotate(45deg) scale(1);
+        -ms-transform: rotate(45deg) scale(1);
+        transform: rotate(45deg) scale(1);
+        opacity:1;
+        left: $checkbox-size / 3;
+        top: $checkbox-size / 8;
+        width: $checkbox-size / 4;
+        height: $checkbox-size / 2;
+        border: solid darken($form-border, 20%);
+        border-width: 0 2px 2px 0;
+        background-color: transparent;
+        border-radius: 0;
+    }
+
+    /* For Ripple Effect */
+    .checkbox-label .checkbox-custom::before {
+        position: absolute;
+        content: "";
+        left: 10px;
+        top: 10px;
+        width: 0px;
+        height: 0px;
+        border-radius: 5px;
+        border: 2px solid darken($form-border, 20%);
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);    
+    }
+
+    .checkbox-label input:checked ~ .checkbox-custom::before {
+        left: -3px;
+        top: -3px;
+        width: $checkbox-size;
+        height: $checkbox-size;
+        border-radius: 5px;
+        -webkit-transform: scale(3);
+        -ms-transform: scale(3);
+        transform: scale(3);
+        opacity:0;
+        z-index: 999;
+        transition: all 0.3s ease-out;
+        -webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+        -ms-transition: all 0.3s ease-out;
+        -o-transition: all 0.3s ease-out;
+    }
+
+    /* Style for Circular Checkbox */
+    .checkbox-label .checkbox-custom.circular {
+        border-radius: 50%;
+        border: 1px solid darken($form-border, 20%);
+    }
+
+    .checkbox-label input:checked ~ .checkbox-custom.circular {
+        background-color: #FFFFFF;
+        border-radius: 50%;
+        border: 1px solid darken($form-border, 20%);
+    }
+    .checkbox-label input:checked ~ .checkbox-custom.circular::after {
+        border: solid darken($form-border, 20%);
+        border-width: 0 2px 2px 0;
+    }
+    .checkbox-label .checkbox-custom.circular::after {
+        border-radius: 50%;
+    }
+
+    .checkbox-label .checkbox-custom.circular::before {
+        border-radius: 50%;
+        border: 1px solid darken($form-border, 20%);
+    }
+
+    .checkbox-label input:checked ~ .checkbox-custom.circular::before {
+        border-radius: 50%;
+    }
+}
+
+.custom-collapse{
+    &.show{
+        transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+}
+
+.custom-accordion{
+    .card{
+        .card-header{
+            border-radius: 0px;
+            padding:10px;
+            background-color: darken($white, 1%);
+
+            .btn-link{
+                font-size:$default-font-size;
+                color :$black;
+            }
+            
+            .accordion-icon{
+                text-align:right;
+                font-size:$small-font-size;
+                font-weight: lighter;
+                margin-top:10px;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+.custom-table{
+    &.small{
+        th,td{
+            font-size : $small-font-size - 2;
+        }
+    }
+    &.medium{
+        th,td{
+            font-size : $default-font-size;
+        }
+    }
+    &.large{
+        th,td{
+            font-size : $large-font-size;
+        }
+    }
+
+    &.table-hover{
+        tbody{
+            tr:hover{
+                background-color:rgba(146, 141, 141, 0.075);
+                margin-top:-10px;
+            }
+        }
+    }
+}
+
+.custom-dropdown{
+    .label-icon{
+        margin-right:10px;
+    }
+
+    &.small{
+        .dropdown-item{
+            font-size:$small-font-size;
+        }
+    }
+
+    &.medium{
+        .dropdown-item{
+            font-size:$default-font-size;
+        }
+    }
+
+    &.large{
+        .dropdown-item{
+            font-size:$large-font-size;
+        }
+    }
+}
+
+.custom-progress-bar-container{
+    &.small{
+        .custom-progress-bar{
+            height:10px;
+        }
+
+        .progress-bar-value{
+            font-size:$small-font-size - 2;
+        }
+    }
+    &.medium{
+        .custom-progress-bar{
+            height:20px;
+        }
+        
+        .progress-bar-value{
+            font-size:$default-font-size;
+        }
+    }
+    &.large{
+        .custom-progress-bar{
+            height:30px;
+        }
+        
+        .progress-bar-value{
+            font-size:$large-font-size - 2;
+        }
+    }
+
+    .custom-progress-bar{
+        position: relative;
+        width:100%;
+        border-radius: 20px;
+        background-color: darken($gray,5%);
+    
+        .progress-bar-fill{
+            height:100%;
+            border-radius: inherit;
+            transition: width .2s ease-in;
+    
+            &.progress-bar-primary{
+                background : $primary;
+            }
+            &.progress-bar-danger{
+                background : $danger;
+            }
+            &.progress-bar-success{
+                background : $success;
+            }
+            &.progress-bar-info{
+                background : $info;
+            }
+            &.progress-bar-warning{
+                background : $warning;
+            }
+        }
+    }
+}
+
+/*======================= Components ============================ */

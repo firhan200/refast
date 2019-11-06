@@ -40,7 +40,7 @@ const Alert = (props) => {
     const customClassName = typeof props.className !== 'undefined' ? props.className : '';
 
     return(
-        <div className={"custom-alert alert alert-"+alertType+" " + customClassName} role="alert">
+        <div style={props.style} className={"custom-alert alert alert-"+alertType+" " + customClassName} role="alert">
             { withIcon ? (
                 <div className="alert-icon">
                     <i className={alertIcon}></i>

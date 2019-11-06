@@ -2,6 +2,10 @@
 
 /* Styles */
 
+//Menu
+import Menu from './Menu';
+import MenuLink from './MenuLink';
+
 //text
 import H1 from './H1';
 import H2 from './H2';
@@ -81,6 +85,9 @@ import ProgressBar from './ProgressBar';
 
 //multiple export
 export {
+    Menu,
+    MenuLink,
+
     H1,
     H2,
     H3,

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 //libs
 import { Link } from 'react-router-dom';
+import { Menu, MenuLink } from '../styles';
 
 const HorizontalMenubar = () => {
     return(
@@ -9,18 +10,25 @@ const HorizontalMenubar = () => {
             <label htmlFor="tm" id="toggle-menu">Navigation <span className="drop-icon">▾</span></label>
             <input type="checkbox" id="tm" />
             <ul className="main-menu clearfix">
-                <li>
+                <Menu>
+                    <MenuLink>
+                        Dashboard
+                    </MenuLink>
+                </Menu>
+                {/* <li onClick={(e) => {
+                    setOpenSubmenu(!openSubmenu)
+                }}>
                     <a href="#!">
                         Dashboard
                         <label title="Toggle Drop-down" className="drop-icon" htmlFor="menu-dashboard">▾</label>
                     </a>
-                    <input type="checkbox" id="menu-dashboard" />
+                    <input type="checkbox" id="menu-dashboard" checked={openSubmenu} onChange={(e) => setOpenSubmenu(e.checked)}/>
                     <ul className="sub-menu">
                         <li>
                             <Link to="/">E-Commerce</Link>
                         </li>
                     </ul>
-                </li>
+                </li> */}
                 <li>
                     <a href="#!">
                         Pages
