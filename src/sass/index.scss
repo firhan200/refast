@@ -121,7 +121,6 @@ body{
     font-size: $default-font-size;
     padding: 0px 30px 0px 30px;
     border-bottom: 0.5px solid darken($gray,10%);
-    margin-bottom:20px !important;
 
     .navbar-nav{
         li{
@@ -207,7 +206,6 @@ body{
 .menu-navbar{
     background-color: $white !important;
     border-bottom: 0.5px solid darken($gray,10%);
-    margin-top:46.5px;
 }
 
 //styling for horizontal scrollable menu
@@ -282,15 +280,15 @@ body{
 .sidenav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
+    right: 0;
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
-    left: 0;
     background-color: $side-nav;
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* transition effect to slide in the sidenav */
-    border-right:1px solid darken($gray, 10%);
+    border-left:1px solid darken($gray, 10%);
 
     .sidenav-title{
         position: absolute;

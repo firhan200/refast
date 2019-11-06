@@ -11,6 +11,13 @@ const NotificationContainer = (props) => {
     const isOpen = typeof props.isOpen !== 'undefined' ? props.isOpen : false;
     let navWidthResult = isOpen ? '320px' : '0px';
 
+    //slide left nav
+    if(isOpen){
+        //document.getElementById("root").style.marginLeft = "320px";
+    }else{
+        //document.getElementById("root").style.marginLeft = "0px";
+    }
+
     /* Set the width of the side navigation to 0 */
     const closeNav = () => {
         props.setOpenNotification(false);

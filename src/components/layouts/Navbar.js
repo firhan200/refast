@@ -26,7 +26,7 @@ const Navbar = (props) => {
     const [openMessage, setOpenMessage] = useState(false);
 
     return(
-        <nav className="top-navbar navbar fixed-top navbar-expand navbar-light bg-light">
+        <nav className="top-navbar navbar sticky-top navbar-expand navbar-light bg-light">
             <Link to="/" className="navbar-brand">
                 <img src="/iconname.png" alt="Logo" className="logo"/>
             </Link>
