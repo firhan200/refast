@@ -24,8 +24,8 @@ import {
     ProgressBar,
     BreadcrumbItem,
     Breadcrumb,
-    ChartBar,
-    Alert} from '../styles';
+    ChartBar
+    } from '../styles';
 
 const DashboardECommercePage = () => {
     const favoriteProducts = [
@@ -250,6 +250,40 @@ const DashboardECommercePage = () => {
                 <Row>
                     <Col md={6} lg={6}>
                         <Container>
+                        <Row>
+                            <Box sm={12} md={6}>
+                                <BoxTitle icon="fa fa-inbox" label="Disk Storage"/>
+                                <ProgressBar 
+                                    color="success"
+                                    label="25GB / 100GB"
+                                    showLabel={true}
+                                    percentage={25}/>
+                            </Box>
+                            <Box sm={12} md={6}>
+                                <BoxTitle icon="fa fa-database" label="Database" subLabel="*warning disk almost full"/>
+                                <ProgressBar 
+                                    color="danger"
+                                    label="484MB / 512MB"
+                                    showLabel={true}
+                                    percentage={96}/>
+                            </Box>
+                            <Box sm={12} md={6}>
+                                <BoxTitle icon="fa fa-server" label="Bandwidth"/>
+                                <ProgressBar 
+                                    color="primary"
+                                    label="40GB / 80GB"
+                                    showLabel={true}
+                                    percentage={50}/>
+                            </Box>
+                            <Box sm={12} md={6}>
+                                <BoxTitle icon="fa fa-signal" label="Latency"/>
+                                <ProgressBar 
+                                    color="primary"
+                                    label="70/ms"
+                                    showLabel={true}
+                                    percentage={70}/>
+                            </Box>
+                        </Row>
                             <Row>
                                 <Box md={12}>
                                     <BoxTitle label="Recent Orders" subLabel="recent order receive from 5 store location."/>
@@ -338,41 +372,7 @@ const DashboardECommercePage = () => {
                         </Container>
                     </Col>
                 </Row>
-                <Row>
-                    <Box sm={12} md={6} lg={3}>
-                        <BoxTitle icon="fa fa-inbox" label="Disk Storage"/>
-                        <ProgressBar 
-                            color="success"
-                            label="25GB / 100GB"
-                            showLabel={true}
-                            percentage={25}/>
-                    </Box>
-                    <Box sm={12} md={6} lg={3}>
-                        <BoxTitle icon="fa fa-database" label="Database"/>
-                        <Alert type="warning" icon={true} message="disk almost full" />
-                        <ProgressBar 
-                            color="danger"
-                            label="484MB / 512MB"
-                            showLabel={true}
-                            percentage={96}/>
-                    </Box>
-                    <Box sm={12} md={6} lg={3}>
-                        <BoxTitle icon="fa fa-server" label="Bandwidth"/>
-                        <ProgressBar 
-                            color="primary"
-                            label="40GB / 80GB"
-                            showLabel={true}
-                            percentage={50}/>
-                    </Box>
-                    <Box sm={12} md={6} lg={3}>
-                        <BoxTitle icon="fa fa-signal" label="Latency"/>
-                        <ProgressBar 
-                            color="primary"
-                            label="70/ms"
-                            showLabel={true}
-                            percentage={70}/>
-                    </Box>
-                </Row>
+                
             </Container>
         </Fragment>
     );
