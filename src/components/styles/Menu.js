@@ -32,24 +32,32 @@ const Menu = (props) => {
         <Fragment>
             { isSubmenu ? (
                 //submenu
-                <li onClick={(e) => {
-                    setOpenSubmenu(!openSubmenu)
-                }}>
-                    <a href="#!">
+                <li className={customClassName}>
+                    <a href="#!" onClick={(e) => {
+                        setOpenSubmenu(!openSubmenu)
+                    }}>
                         {/* show label */}
                         { label }
         
+                        {/* show arrow icon  */}
                         { children!=='' ? (
-                            <label title="Toggle Drop-down" className="drop-icon" htmlFor="menu-dashboard">▾</label>
+                            <label title="Toggle Drop-down" className="drop-icon" onClick={(e) => {
+                                setOpenSubmenu(!openSubmenu)
+                            }}>
+                                <i className={"fa fa-chevron-" + (openSubmenu ? 'down' : 'right')}></i>
+                            </label>
                         ) : '' }
                     </a>
+                    {/* checkbox to show submenu or hide */}
                     <input type="checkbox" { ...attrs } checked={openSubmenu} onChange={(e) => setOpenSubmenu(e.checked)}/>
+
+                    {/* submenu area */}
                     <ul className="sub-menu">
                         { children }
                     </ul>
                 </li>
             ) : (
-                //normal menu
+                //normal menu, only show link
                 children
             ) }
         </Fragment>

@@ -37,14 +37,14 @@ $border_text_color: transparent;
 	li {
 		border-style: solid;
 		border-color: $border_text_color;
-		border-width: 0 0 1px;
+		border-width: 0 0 0px;
 		position: relative;
 		display: block;
 		color: $text_color;
 		label.drop-icon {
 			position: absolute;
 			right: 1.5em;
-			top: 1.25em;
+			top: 1.0em;
 		}
 	}
 	.sub-menu {
@@ -78,8 +78,8 @@ $border_text_color: transparent;
 	background-color: $background_menu_color;
 	label.drop-icon {
 		border-radius: 50%;
-		width: 1em;
-		height: 1em;
+		width: 1.2em;
+		height: 1.2em;
 		text-align: center;
 		background-color: $background_drop_icon_color;
 		text-shadow: 0 0 0 transparent;
@@ -87,6 +87,10 @@ $border_text_color: transparent;
 	}
 	.drop-icon {
 		line-height: 1;
+
+		i{
+			font-size:7pt;
+		}
 	}
 }
 #tm {
@@ -109,12 +113,12 @@ $border_text_color: transparent;
 	.drop-icon {
 		position: absolute;
 		right: 1.5em;
-		top: 1.25em;
+		top: 1em;
 	}
 	span.drop-icon {
 		border-radius: 50%;
-		width: 1em;
-		height: 1em;
+		width: 1.2em;
+		height: 1.2em;
 		text-align: center;
 		background-color: $background_drop_icon_color;
 		text-shadow: 0 0 0 transparent;

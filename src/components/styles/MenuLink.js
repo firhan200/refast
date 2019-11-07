@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 //libs
 import PropTypes from 'prop-types'; // prop types
@@ -8,7 +8,7 @@ const MenuLink = (props) => {
     const customClassName = typeof props.className !== 'undefined' ? props.className : '';
 
     return(
-        <li style={props.style}>
+        <li className={customClassName} style={props.style}>
             { props.children }
         </li>
     );
