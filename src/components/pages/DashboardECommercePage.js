@@ -23,7 +23,9 @@ import {
     ProductCardDescription, 
     ProgressBar,
     BreadcrumbItem,
-    Breadcrumb} from '../styles';
+    Breadcrumb,
+    ChartBar,
+    Alert} from '../styles';
 
 const DashboardECommercePage = () => {
     const favoriteProducts = [
@@ -79,6 +81,22 @@ const DashboardECommercePage = () => {
                 label: '2019',
                 color:'#9B89E0',
                 data: [500, 600, 700, 750, 700]
+            }
+        ]
+    };
+
+    const realTimeSales = {
+        labels : ['6AM', '8AM', '10AM', '12AM', '2PM'],
+        data: [
+            {
+                label: 'Today',
+                color:'#5742A7',
+                data: [20, 30, 45, 15, 30]
+            },
+            {
+                label: 'Yesterday',
+                color:'#9B89E0',
+                data: [18, 15, 35, 25, 20]
             }
         ]
     };
@@ -234,7 +252,7 @@ const DashboardECommercePage = () => {
                         <Container>
                             <Row>
                                 <Box md={12}>
-                                    <BoxTitle label="Recent Orders"/>
+                                    <BoxTitle label="Recent Orders" subLabel="recent order receive from 5 store location."/>
                                     <Table isResponsive={true}>
                                         <thead>
                                             <tr>
@@ -261,6 +279,9 @@ const DashboardECommercePage = () => {
                                             )) }
                                         </tbody>
                                     </Table>
+                                    <div align="right">
+                                        <a href="#!" className="link">view all orders&nbsp;<i className="fa fa-caret-right"></i></a>
+                                    </div>
                                 </Box>
                             </Row>
                             <Row>
@@ -289,7 +310,7 @@ const DashboardECommercePage = () => {
                                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                                             </ProductCardDescription>
                                             <ProductCardPrice price={1299} afterDiscountPrice={999} currency="$"/>
-                                            <Button label="View Products" isFull={true} size="small" handleClick={() => { alert('view products: '+recentProduct.name) }}/>
+                                            <Button label="View Products" isFull={true} size="medium" handleClick={() => { alert('view products: '+recentProduct.name) }}/>
                                         </ProductCard> 
                                     )) }
                                 </Col>
@@ -310,12 +331,15 @@ const DashboardECommercePage = () => {
                                 <Box md={12}>
                                     <ChartLine legend="bottom" title="Sales" items={sales}/>
                                 </Box>
+                                <Box md={12}>
+                                    <ChartBar legend="bottom" title="Real-Time Sales" items={realTimeSales}/>
+                                </Box>
                             </Row>
                         </Container>
                     </Col>
                 </Row>
                 <Row>
-                    <Box sm={6} md={3}>
+                    <Box sm={12} md={6} lg={3}>
                         <BoxTitle icon="fa fa-inbox" label="Disk Storage"/>
                         <ProgressBar 
                             color="success"
@@ -323,15 +347,16 @@ const DashboardECommercePage = () => {
                             showLabel={true}
                             percentage={25}/>
                     </Box>
-                    <Box sm={6} md={3}>
+                    <Box sm={12} md={6} lg={3}>
                         <BoxTitle icon="fa fa-database" label="Database"/>
+                        <Alert type="warning" icon={true} message="disk almost full" />
                         <ProgressBar 
                             color="danger"
                             label="484MB / 512MB"
                             showLabel={true}
                             percentage={96}/>
                     </Box>
-                    <Box sm={6} md={3}>
+                    <Box sm={12} md={6} lg={3}>
                         <BoxTitle icon="fa fa-server" label="Bandwidth"/>
                         <ProgressBar 
                             color="primary"
@@ -339,7 +364,7 @@ const DashboardECommercePage = () => {
                             showLabel={true}
                             percentage={50}/>
                     </Box>
-                    <Box sm={6} md={3}>
+                    <Box sm={12} md={6} lg={3}>
                         <BoxTitle icon="fa fa-signal" label="Latency"/>
                         <ProgressBar 
                             color="primary"

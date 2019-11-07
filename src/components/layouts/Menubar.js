@@ -14,6 +14,12 @@ const HorizontalMenubar = () => {
                     <MenuLink>
                         <Link to="/">E-Commerce</Link>
                     </MenuLink>
+                    <MenuLink>
+                        <Link to="/dashboard/blog">Blog Analytics</Link>
+                    </MenuLink>
+                    <MenuLink>
+                        <Link to="/dashboard/cs">Customer Service</Link>
+                    </MenuLink>
                 </Menu>
                 <Menu isSubmenu={true} label="Pages">
                     <Menu isSubmenu={true} label="Authorization">
@@ -30,12 +36,17 @@ const HorizontalMenubar = () => {
                             <Link to="/page/reset-password">Reset Password</Link>
                         </MenuLink>
                     </Menu>
+                    <Menu isSubmenu={true} label="Error">
+                        <MenuLink>
+                            <Link to="/page/404">Not Found</Link>
+                        </MenuLink>
+                        <MenuLink>
+                            <Link to="/page/500">Internal Server Error</Link>
+                        </MenuLink>
+                    </Menu>
                     <Menu isSubmenu={true} label="Misc">
                         <MenuLink>
                             <Link to="/page/faq">FAQ</Link>
-                        </MenuLink>
-                        <MenuLink>
-                            <Link to="/page/404">404</Link>
                         </MenuLink>
                         <MenuLink>
                             <Link to="/page/search">Search</Link>

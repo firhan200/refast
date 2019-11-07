@@ -323,7 +323,7 @@ const SearchPage = () => {
                     </Col>
                     <Col sm={12} md={12} lg={9}>
                         <Row className="m-b-20">
-                            <Col md={6} lg={8}>
+                            <Col md={6} lg={8} className="m-b-10">
                                 <H4>Keyword Search:</H4>
                                 <Input placeholder="search name..."/>
                             </Col>
@@ -340,7 +340,7 @@ const SearchPage = () => {
                         {/* product list */}
                         <Row>
                             { products.map((product, index) => (
-                                <Col key={index} xs={12} sm={12} md={6} lg={4}>
+                                <Col key={index} xs={12} sm={12} md={6} lg={4} className="m-b-10">
                                     <ProductCard>
                                         <ProductCardName>{ product.name }</ProductCardName>
                                         <ProductCardCategory>{ product.category.label }</ProductCardCategory>
