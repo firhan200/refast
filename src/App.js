@@ -31,6 +31,10 @@ import SignupPage from './components/pages/SignupPage';
 import ForgotPasswordPage from './components/pages/ForgotPasswordPage';
 import ResetPasswordPage from './components/pages/ResetPasswordPage';
 
+//error
+import Page404 from './components/pages/Page404';
+import Page500 from './components/pages/Page500';
+
 import FAQPage from './components/pages/FAQPage';
 import SearchPage from './components/pages/SearchPage.js';
 import MailingPage from './components/pages/MailingPage';
@@ -75,7 +79,7 @@ const App = (props) => {
         } />
     )
   
-      /* use this element to create route that only guest can access */
+    /* use this element to create route that only guest can access */
     const UnauthorizedRoute = ({ component: Component, ...rest }) => (
         <Route {...rest} render={(componentProps) => (
             !props.isAuthenticated
@@ -86,7 +90,7 @@ const App = (props) => {
                     <Component {...componentProps} />
                 </BlankLayout>
             )
-            : <Redirect to='/' />
+            : <Redirect to='/dashboard/ecommerce' />
         )} />
     )
 
@@ -107,6 +111,10 @@ const App = (props) => {
                     <UnauthorizedRoute path="/signup" component={SignupPage} />
                     <PrivateRoute path="/page/forgot-password" component={ForgotPasswordPage} />
                     <PrivateRoute path="/page/reset-password" component={ResetPasswordPage} />
+
+                    <Route path="/page/404" component={Page404} />
+                    <Route path="/page/500" component={Page500} />
+
                     <PrivateRoute path="/page/faq" component={FAQPage} />
                     <PrivateRoute path="/page/search" component={SearchPage} />
                     <PrivateRoute path="/page/mailing" component={MailingPage} />
@@ -131,8 +139,8 @@ const App = (props) => {
                     <PrivateRoute path="/components/tables" component={TablePage} />
                     <PrivateRoute path="/components/progressbar" component={ProgressBarPage} />
 
-                    {/* Default index page */}
-                    <PrivateRoute path="/" component={ECommercePage}/>
+                    {/* not found page */}
+                    <Route path="/" component={Page404}/>
                 </Switch>
 
             </Router>

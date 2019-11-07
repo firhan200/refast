@@ -20,7 +20,7 @@ const LoginPage = (props) => {
         props.login('jwt_token_here', () => {
             toast("Welcome...");
 
-            props.history.push('/');
+            props.history.push('/dashboard/ecommerce');
         });
     }
 
