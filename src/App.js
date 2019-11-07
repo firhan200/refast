@@ -20,12 +20,16 @@ import Adminlayout from './components/layouts/AdminLayout.js';
 import BlankLayout from './components/layouts/BlankLayout';
 /* layouts */
 
+/* dashboards */
+import ECommercePage from './components/pages/dashboards/ECommercePage';
+import BlogPage from './components/pages/dashboards/BlogPage.js';
+/* dashboards */
+
 /* pages sample */
 import LoginPage from './components/pages/LoginPage';
 import SignupPage from './components/pages/SignupPage';
 import ForgotPasswordPage from './components/pages/ForgotPasswordPage';
 import ResetPasswordPage from './components/pages/ResetPasswordPage';
-import DashboardECommercePage from './components/pages/DashboardECommercePage';
 
 import FAQPage from './components/pages/FAQPage';
 import SearchPage from './components/pages/SearchPage.js';
@@ -94,6 +98,10 @@ const App = (props) => {
                 {/* A <Switch> looks through its children <Route>s and
                 renders the first one that matches the current URL. */}
                 <Switch>
+                    {/* dashboards */}
+                    <PrivateRoute path="/dashboard/ecommerce" component={ECommercePage}/>
+                    <PrivateRoute path="/dashboard/blog" component={BlogPage}/>
+
                     {/* Pages Sample */}
                     <UnauthorizedRoute path="/login" component={LoginPage} />
                     <UnauthorizedRoute path="/signup" component={SignupPage} />
@@ -124,7 +132,7 @@ const App = (props) => {
                     <PrivateRoute path="/components/progressbar" component={ProgressBarPage} />
 
                     {/* Default index page */}
-                    <PrivateRoute path="/" component={DashboardECommercePage}/>
+                    <PrivateRoute path="/" component={ECommercePage}/>
                 </Switch>
 
             </Router>

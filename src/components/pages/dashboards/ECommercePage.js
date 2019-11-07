@@ -25,9 +25,9 @@ import {
     BreadcrumbItem,
     Breadcrumb,
     ChartBar
-    } from '../styles';
+    } from './../../styles';
 
-const DashboardECommercePage = () => {
+const ECommercePage = () => {
     const favoriteProducts = [
         {
             label: 'Laptops',
@@ -378,4 +378,4 @@ const DashboardECommercePage = () => {
     );
 }
 
-export default DashboardECommercePage;
+export default ECommercePage;

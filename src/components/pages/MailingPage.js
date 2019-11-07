@@ -1,6 +1,25 @@
 import React, { useState } from 'react';
-import { Breadcrumb, BreadcrumbItem, Container, Row, Col, Button, Box, Badge, Form, Input, Table, Checkbox, H4 } from '../styles';
+
+//libs
 import { toast } from 'react-toastify';
+
+//helper
+import stringHelper from './../../helpers/stringHelper.js';
+
+//styles
+import { 
+    Breadcrumb, 
+    BreadcrumbItem, 
+    Container, 
+    Row, 
+    Col, 
+    Button, 
+    Box, 
+    Badge, 
+    Form, 
+    Input, 
+    Table, 
+    Checkbox, H4 } from '../styles';
 
 const MailingPage = () => {
     //variables
@@ -286,7 +305,7 @@ const MailingPage = () => {
                                     <td className="name">{ mail.name }</td>
                                     <td className="subject">{ mail.subject }</td>
                                     <td className="message">
-                                        { mail.message.length > MAX_MESSAGE_LENGTH ? mail.message.slice(0,MAX_MESSAGE_LENGTH)+".." : mail.message }
+                                        { stringHelper.cutString(mail.message, MAX_MESSAGE_LENGTH) }
                                     </td>
                                     <td className="date">
                                         { mail.date }

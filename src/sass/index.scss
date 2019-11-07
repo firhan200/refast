@@ -456,4 +456,45 @@ body{
         text-align: right;
     }
 }
+
+.article{
+    cursor: pointer;
+    padding-top:10px !important;
+    padding-bottom:10px !important;
+
+    &:hover{
+        background-color: $gray;
+    }
+
+    .article-body{
+        padding:0px 5px 0px 5px !important;
+    }
+
+    .article-title{
+        font-size: $default-font-size;
+        font-weight: 550;
+    }
+    .article-slug{
+        font-size: $small-font-size;
+        color:$dark-gray;
+    }
+    .article-date{
+        text-align: right;
+        color:lighten($dark-gray, 20%);
+        font-size: $small-font-size - 1;
+    }
+
+    .info{
+        list-style: none;
+        padding:0px;
+        li{
+            float: left;
+            font-size:$small-font-size;
+            margin-right:10px;
+            .icon{
+                margin-right:3px;
+            }
+        }
+    }
+}
 /*======================= Page ============================ */
