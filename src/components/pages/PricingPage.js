@@ -65,6 +65,66 @@ const PricingPage = () => {
             </div>
             <br/>
             <Container>
+                {/* Table based pricing information */}
+                <Row>
+                    <Box md={12}>
+                        <BoxTitle label="Table Pricing" subLabel="Show pricing using responsive table to make user easy to get price information included."/>
+                        <Table isResponsive={true} >
+                            <thead>
+                                <tr align="center">
+                                    <th></th>
+                                    <th>
+                                        <div className="m-2">
+                                            Premium
+                                        </div>
+                                        <Button size="small" label="BUY PACKAGE"/>
+                                    </th>
+                                    <th>
+                                        <div className="m-2">
+                                            Gold
+                                        </div>
+                                        <Button size="small" label="BUY PACKAGE"/>
+                                    </th>
+                                    <th>
+                                        <div className="m-2">
+                                            Silver
+                                        </div>
+                                        <Button size="small" label="BUY PACKAGE"/>
+                                    </th>
+                                    <th>
+                                        <div className="m-2">
+                                            Bronze
+                                        </div>
+                                        <Button size="small" label="BUY PACKAGE"/>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                { pricings.map((pricing, index) => (
+                                    <tr key={index}>
+                                        <td>{ pricing.label }</td>
+                                        <td align="center">{ renderIncluded(pricing.premium) }</td>
+                                        <td align="center">{ renderIncluded(pricing.gold) }</td>
+                                        <td align="center">{ renderIncluded(pricing.silver) }</td>
+                                        <td align="center">{ renderIncluded(pricing.bronze) }</td>
+                                    </tr>
+                                )) }
+                            </tbody>
+                            <tfoot>
+                                <tr align="center">
+                                    <th></th>
+                                    <th>$ 599</th>
+                                    <th>$ 499</th>
+                                    <th>$ 299</th>
+                                    <th>$ 99</th>
+                                </tr>
+                            </tfoot>
+                        </Table>
+                        <H4 align="right">*All package is including free website builder.</H4>
+                    </Box>
+                </Row>
+
+                {/* Grid based pricing information */}
                 <Row>
                     <Box sm={12} md={3} className="pricing">
                         <div className="pricing-icon">
@@ -133,64 +193,6 @@ const PricingPage = () => {
                         <div className="pricing-cost">
                             $ 99
                         </div>
-                    </Box>
-                </Row>
-            
-                <Row>
-                    <Box md={12}>
-                        <BoxTitle label="Table Pricing" subLabel="Show pricing using responsive table to make user easy to get price information included."/>
-                        <Table isResponsive={true} >
-                            <thead>
-                                <tr align="center">
-                                    <th></th>
-                                    <th>
-                                        <div className="m-2">
-                                            Premium
-                                        </div>
-                                        <Button size="small" label="BUY PACKAGE"/>
-                                    </th>
-                                    <th>
-                                        <div className="m-2">
-                                            Gold
-                                        </div>
-                                        <Button size="small" label="BUY PACKAGE"/>
-                                    </th>
-                                    <th>
-                                        <div className="m-2">
-                                            Silver
-                                        </div>
-                                        <Button size="small" label="BUY PACKAGE"/>
-                                    </th>
-                                    <th>
-                                        <div className="m-2">
-                                            Bronze
-                                        </div>
-                                        <Button size="small" label="BUY PACKAGE"/>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                { pricings.map((pricing, index) => (
-                                    <tr key={index}>
-                                        <td>{ pricing.label }</td>
-                                        <td align="center">{ renderIncluded(pricing.premium) }</td>
-                                        <td align="center">{ renderIncluded(pricing.gold) }</td>
-                                        <td align="center">{ renderIncluded(pricing.silver) }</td>
-                                        <td align="center">{ renderIncluded(pricing.bronze) }</td>
-                                    </tr>
-                                )) }
-                            </tbody>
-                            <tfoot>
-                                <tr align="center">
-                                    <th></th>
-                                    <th>$ 599</th>
-                                    <th>$ 499</th>
-                                    <th>$ 299</th>
-                                    <th>$ 99</th>
-                                </tr>
-                            </tfoot>
-                        </Table>
-                        <H4 align="right">*All package is including free website builder.</H4>
                     </Box>
                 </Row>
             </Container>

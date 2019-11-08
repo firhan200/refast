@@ -322,6 +322,22 @@ body{
     }
 }
 
+//float animation
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}
+
 /*======================= Page ============================ */
 .pricing{
     text-align: center;
@@ -495,6 +511,29 @@ body{
                 margin-right:3px;
             }
         }
+    }
+}
+
+.error-page{
+    text-align: center;
+    margin-top:50px;
+    margin-bottom:50px;
+
+    .error-icon{
+        width: 50px;
+        height: 50px;
+        box-sizing: border-box;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto;
+        background-color: $default-color;
+        color:$white;
+        font-size:20pt;
+        box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+        transform: translatey(0px);
+        animation: float 4s ease-in-out infinite;
+        padding-top:3px;
+        margin-bottom: 20px;
     }
 }
 /*======================= Page ============================ */

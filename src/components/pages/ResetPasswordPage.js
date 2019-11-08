@@ -3,10 +3,20 @@ import { Link } from 'react-router-dom';
 import { Box, BoxTitle, Form, FormGroup, Input, Button, H4 } from '../styles';
 
 const ResetPasswordPage = () => {
+    /* hooks */
     const [newPassword, setNewPassword] = useState('');
 
     return(
         <div>
+            {/* logo and header information */}
+            <div className="header-logo-container" align="center">
+                <img src="/iconname.png" alt="logo" className="header-logo"/>
+                <div className="header-logo-text">
+                    REACT ADMIN TEMPLATE
+                </div>
+            </div>
+
+            {/* content form */}
             <Box xs={12} sm={12} md={6} mdOffset={3} lg={4} lgOffset={4}>
                 <BoxTitle label="Reset Password" subLabel="please enter your new password." align="center"/>
                 <Form handleSubmit={(e) => { 

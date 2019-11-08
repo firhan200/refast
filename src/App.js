@@ -140,7 +140,7 @@ const App = (props) => {
                     <PrivateRoute path="/components/progressbar" component={ProgressBarPage} />
 
                     {/* not found page */}
-                    <Route path="/" component={Page404}/>
+                    <PrivateRoute path="/" component={ECommercePage}/>
                 </Switch>
 
             </Router>

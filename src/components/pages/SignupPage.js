@@ -11,12 +11,15 @@ const SignupPage = () => {
 
     return(
         <div>
+            {/* logo and header information */}
             <div className="header-logo-container" align="center">
                 <img src="/iconname.png" alt="logo" className="header-logo"/>
                 <div className="header-logo-text">
                     REACT ADMIN TEMPLATE
                 </div>
             </div>
+
+            {/* content form */}
             <Box xs={12} sm={12} md={8} mdOffset={2} lg={6} lgOffset={3}>
                 <BoxTitle label="Register" subLabel="signup and be a member of community." align="left"/>
                 <Form handleSubmit={(e) => { 

@@ -203,8 +203,11 @@ const MailingPage = () => {
 
     return(
         <div>
+            {/* page title */}
             <div className="title">
                 Mailing
+
+                {/* breadcrumb info */}
                 <Breadcrumb>
                     <BreadcrumbItem>
                         <a href="#!">Page</a>

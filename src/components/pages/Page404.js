@@ -6,33 +6,26 @@ import {
     Container, 
     Row, 
     Box, 
-    Col, 
     Form,
     FormGroup,
-    Input,
-    Button} from '../styles';
+    Input} from '../styles';
 
 const Page404 = (props) => {
     return(
         <Fragment>
             <Container className="content">
                 <Row>
-                    <Box sm={12}>
-                        <h1>404</h1>
+                    <Box className="error-page" isTransparent={true} sm={12} md={6} mdOffset={3}>
+                        <div className="error-icon">
+                            <i className="fa fa-exclamation"></i>
+                        </div>
+                        <h1><b>404</b></h1>
                         <h2>Page Not Found</h2>
+                        <h2>Sorry, we can't find the page you are looking for</h2>
                         <Form>
-                            <Row>
-                                <Col xs={10}>
-                                    <FormGroup>
-                                        <Input placeholder="Search"/>
-                                    </FormGroup>    
-                                </Col>
-                                <Col xs={2}>
-                                    <FormGroup>
-                                        <Button label="Search" size="large" icon="fa fa-search" isFull={true}/>
-                                    </FormGroup>
-                                </Col>
-                            </Row>
+                            <FormGroup>
+                                <Input icon="fa fa-search" placeholder="Search"/>
+                            </FormGroup>    
                         </Form>
                         <Link to='/dashboard/ecommerce'>Go Back Home</Link>
                     </Box>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Container, Row, Accordion, Col } from '../styles';
 
 const FAQPage = () => {
+    /* array of faq */
     const faq = [
         {
             key : 'What is REFAST template?',
@@ -29,8 +30,11 @@ const FAQPage = () => {
 
     return(
         <div>
+            {/* page title */}
             <div className="title">
                 Frequently Asked Questions
+
+                {/* breadcrumb info */}
                 <Breadcrumb>
                     <BreadcrumbItem>
                         <a href="#!">Page</a>

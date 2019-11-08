@@ -12,26 +12,33 @@ import { login } from './../../redux/actions/authAction';
 import { Box, BoxTitle, Form, FormGroup, Input, Button, Checkbox, H4 } from '../styles';
 
 const LoginPage = (props) => {
+    /* hooks */
     const [email, setEmail] = useState('admin@gmail.com');
     const [password, setPassword] = useState('123456');
     const [rememberMe, setRememberMe] = useState(false);
 
+    /* login method call redux actions */
     const login = () => {
         props.login('jwt_token_here', () => {
+            //show toast
             toast("Welcome...");
 
-            props.history.push('/dashboard/ecommerce');
+            //push to dashboard view
+            props.history.push('/');
         });
     }
 
     return(
         <div>
+            {/* logo and header information */}
             <div className="header-logo-container" align="center">
                 <img src="/iconname.png" alt="logo" className="header-logo"/>
                 <div className="header-logo-text">
                     REACT ADMIN TEMPLATE
                 </div>
             </div>
+
+            {/* content form */}
             <Box xs={12} sm={12} md={6} mdOffset={3} lg={4} lgOffset={4}>
                 <BoxTitle label="Authentication" subLabel="welcome to refast admin template." align="center"/>
                 <Form handleSubmit={(e) => { 
