@@ -17,9 +17,11 @@ import {
     ChartPie,
     IconCard,
     ChartBar,
+    Avatar,
     } from './../../styles';
 
 const BlogPage = () => {
+    //recent articles
     const recentArticles = [
         {
             cover: '/images/slider1.jpg',
@@ -44,6 +46,26 @@ const BlogPage = () => {
             postedDate : 'Yesterday',
             comments : 294,
             views: 1002
+        }
+    ];
+
+    //recent comments
+    const recentComments = [
+        {
+            avatar: '/images/avatar.png',
+            name: 'John Doe',
+            text : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris',
+            postedDate : '10:30',
+            replies : 20,
+            likes: 103
+        },
+        {
+            avatar: '/images/slider1.jpg',
+            name: 'Sarah Johnson',
+            text : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris',
+            postedDate : 'Yesterday',
+            replies : 5,
+            likes: 75
         }
     ];
 
@@ -100,6 +122,7 @@ const BlogPage = () => {
 
     return(
         <Fragment>
+            {/* page title */}
             <div className="title">
                 Blog Analytics Dashboard
                 <Breadcrumb>
@@ -112,49 +135,99 @@ const BlogPage = () => {
                 </Breadcrumb>
             </div>
             <br/>
+
+            {/* content */}
             <Container>
                 <Row>
-                    <Box sm={12} md={6} lg={5}>
-                        <BoxTitle label="Recent Articles"/>
-                        { recentArticles.map((recentArticle, index) => (
-                            <Row key={index} className="article">
-                                <Col xs={12} sm={4}>
-                                    <img alt={recentArticle.title} src={recentArticle.cover} className="img-fluid"/>
-                                </Col>
-                                <Col className="article-body" xs={12} sm={8}>
-                                    <div className="article-title">
-                                        { stringHelper.cutString(recentArticle.title, 30) }
-                                    </div>
-                                    <div className="article-slug">
-                                        { stringHelper.cutString(recentArticle.slug, 50) }
-                                    </div>
-                                    <div className="article-date">
-                                        { recentArticle.postedDate }
-                                    </div>
-                                    <ul className="info">
-                                        <li>
-                                            <span>
-                                                <i className="icon fa fa-comments-o"></i>
-                                                <span className="value">20</span>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <i className="icon fa fa-eye"></i>
-                                                <span className="value">5</span>
-                                            </span>
-                                        </li>
-                                    </ul>
-                                </Col>
-                            </Row>
-                        )) }
-                    </Box>
+                    {/* left side - recent objects */}
+                    <Col sm={12} md={6} lg={5}>
+                        <Row>
+                            {/* recent articles */}
+                            <Box sm={12} md={12}>
+                                <BoxTitle label="Recent Articles"/>
+                                { recentArticles.map((recentArticle, index) => (
+                                    <Row key={index} className="article">
+                                        <Col xs={12} sm={4}>
+                                            <img alt={recentArticle.title} src={recentArticle.cover} className="img-fluid"/>
+                                        </Col>
+                                        <Col className="article-body" xs={12} sm={8}>
+                                            <div className="article-title">
+                                                { stringHelper.cutString(recentArticle.title, 30) }
+                                            </div>
+                                            <div className="article-slug">
+                                                { stringHelper.cutString(recentArticle.slug, 50) }
+                                            </div>
+                                            <div className="article-date">
+                                                { recentArticle.postedDate }
+                                            </div>
+                                            <ul className="info">
+                                                <li>
+                                                    <span>
+                                                        <i className="icon fa fa-comments-o"></i>
+                                                            <span className="value">{ recentArticle.comments }</span>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span>
+                                                        <i className="icon fa fa-eye"></i>
+                                                        <span className="value">{ recentArticle.views }</span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </Col>
+                                    </Row>
+                                )) }
+                            </Box>
+
+                            {/* recent comments */}
+                            <Box sm={12} md={12}>
+                                <BoxTitle label="Recent Comments"/>
+                                { recentComments.map((comment, index) => (
+                                    <Row key={index} className="comment">
+                                        <Col xs={4} sm={2}>
+                                            <Avatar alt={comment.name} size="medium" src={comment.avatar}/>
+                                        </Col>
+                                        <Col className="comment-body" xs={8} sm={10}>
+                                            <div className="article-name">
+                                                { stringHelper.cutString(comment.name, 30) }
+                                            </div>
+                                            <div className="comment-text">
+                                                { stringHelper.cutString(comment.text, 50) }
+                                            </div>
+                                            <div className="comment-date">
+                                                { comment.postedDate }
+                                            </div>
+                                            <ul className="info">
+                                                <li>
+                                                    <span>
+                                                        <i className="icon fa fa-reply"></i>
+                                                            <span className="value">{ comment.replies }</span>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span>
+                                                        <i className="icon fa fa-thumbs-o-up"></i>
+                                                        <span className="value">{ comment.likes }</span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </Col>
+                                    </Row>
+                                )) }
+                            </Box>
+                        </Row>
+                    </Col>
+
+                    {/* right side chart and statistics */}
                     <Col sm={12} md={6} lg={7}>
                         <Row>
+                            {/* trending category pie chart */}
                             <Box sm={12} md={12} lg={6}>
                                 <BoxTitle label="Trending Category"/>
                                 <ChartPie legend="bottom" items={trendingCategory}/>
                             </Box>
+
+                            {/* total views & ads click */}
                             <Col sm={12} md={12} lg={6}>
                                 <IconCard 
                                     className="m-b-20" 
@@ -171,6 +244,7 @@ const BlogPage = () => {
                             </Col>
                         </Row>
                         <Row>
+                            {/* bar chart third party click */}
                             <Box sm={12}>
                                 <ChartBar legend="top" title="Third Party Click" items={thirdPartyClicks}/>
                             </Box>

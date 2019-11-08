@@ -10,6 +10,7 @@ import { logout } from './../../redux/actions/authAction';
 /* components */
 import NotificationContainer from './NotificationContainer.js'
 import MessageContainer from './MessageContainer.js'
+import { Avatar } from '../styles';
 /* components */
 
 const Navbar = (props) => {
@@ -36,7 +37,7 @@ const Navbar = (props) => {
 
             <div className="collapse navbar-collapse" id="navbar">
                 <ul className="navbar-nav ml-auto">
-                    <li  className="nav-item notification">
+                    <li  className="nav-item notification no-arrow">
                         <span onClick={() => 
                             { 
                                 //open notification & close message
@@ -51,7 +52,7 @@ const Navbar = (props) => {
                         </span>
                         <NotificationContainer setOpenNotification={setOpenNotification} isOpen={openNotification}/>
                     </li>
-                    <li className="nav-item notification">
+                    <li className="nav-item notification no-arrow">
                         <span onClick={() => 
                             { 
                                 //close notification & open message
@@ -65,9 +66,9 @@ const Navbar = (props) => {
                         </span>
                         <MessageContainer setOpenMessage={setOpenMessage} isOpen={openMessage}/>
                     </li>
-                    <li className="nav-item dropdown">
+                    <li className="nav-item dropdown no-arrow">
                         <a className="nav-link dropdown-toggle" href="#!" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="/images/avatar.png" alt="avatar" className="avatar rounded"/>
+                            <Avatar size="small" src="/images/avatar.png"/>
                         </a>
                         <div className="dropdown-menu dropdown-menu-right message-section" aria-labelledby="profileDropdown">
                             <Link className="dropdown-item" to="/profile">Profile</Link>

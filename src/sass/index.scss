@@ -127,11 +127,50 @@ body{
 
 //avatar
 .avatar{
-    width: 30px;
-    height: 30px;
+    $small-size : 30px;
+    $medium-size : 50px;
+    $large-size : 70px;
 
-    &.rounded{
-        border-radius: 25px !important;
+    width:$small-size;
+    height:$small-size;
+    border-radius: 50%;
+    overflow: hidden;
+    margin:0 auto;
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img{
+        max-width:$small-size + 10;
+        max-height:$small-size + 10;
+    }
+
+    &.small{
+        width:$small-size;
+        height:$small-size;
+        img{
+            max-width:$small-size + 10;
+            max-height:$small-size + 10;
+        }
+    }
+
+    &.medium{
+        width:$medium-size;
+        height:$medium-size;
+        img{
+            max-width:$medium-size + 20;
+            max-height:$medium-size + 20;
+        }
+    }
+
+    &.large{
+        width:$large-size;
+        height:$large-size;
+        img{
+            max-width:$large-size + 30;
+            max-height:$large-size + 30;
+        }
     }
 }
 
@@ -149,7 +188,7 @@ body{
         }
     }
 
-    .notification{
+    .no-arrow{
         .dropdown-toggle:after{
             content: none !important;
         }
@@ -495,6 +534,47 @@ body{
         color:$dark-gray;
     }
     .article-date{
+        text-align: right;
+        color:lighten($dark-gray, 20%);
+        font-size: $small-font-size - 1;
+    }
+
+    .info{
+        list-style: none;
+        padding:0px;
+        li{
+            float: left;
+            font-size:$small-font-size;
+            margin-right:10px;
+            .icon{
+                margin-right:3px;
+            }
+        }
+    }
+}
+
+.comment{
+    cursor: pointer;
+    padding-top:10px !important;
+    padding-bottom:10px !important;
+
+    &:hover{
+        background-color: $gray;
+    }
+
+    .comment-body{
+        padding:0px 5px 0px 5px !important;
+    }
+
+    .comment-name{
+        font-size: $default-font-size;
+        font-weight: 550;
+    }
+    .comment-text{
+        font-size: $small-font-size;
+        color:$dark-gray;
+    }
+    .comment-date{
         text-align: right;
         color:lighten($dark-gray, 20%);
         font-size: $small-font-size - 1;

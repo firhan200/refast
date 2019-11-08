@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Box, BoxTitle, Form, FormGroup, Input, Button, Checkbox, H4, Textarea } from '../styles';
 
 const SignupPage = () => {
+    /* hooks */
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
