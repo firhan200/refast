@@ -16,13 +16,13 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 /* libs */
 
 /* layouts */
-import Adminlayout from './components/layouts/AdminLayout.js';
+import Adminlayout from './components/layouts/AdminLayout';
 import BlankLayout from './components/layouts/BlankLayout';
 /* layouts */
 
 /* dashboards */
 import ECommercePage from './components/pages/dashboards/ECommercePage';
-import BlogPage from './components/pages/dashboards/BlogPage.js';
+import BlogPage from './components/pages/dashboards/BlogPage';
 /* dashboards */
 
 /* pages sample */
@@ -36,18 +36,22 @@ import Page404 from './components/pages/Page404';
 import Page500 from './components/pages/Page500';
 
 import FAQPage from './components/pages/FAQPage';
-import SearchPage from './components/pages/SearchPage.js';
+import SearchPage from './components/pages/SearchPage';
 import MailingPage from './components/pages/MailingPage';
 import PricingPage from './components/pages/PricingPage';
 /* pages sample */
 
+/* Apps */
+import Todo from './components/apps/Todo';
+/* Apps */
+
 /* pages components */
-import BoxPage from './components/pages/components/BoxPage.js';
-import AlertPage from './components/pages/components/AlertPage.js';
-import BadgePage from './components/pages/components/BadgePage.js';
-import ButtonPage from './components/pages/components/ButtonPage.js';
+import BoxPage from './components/pages/components/BoxPage';
+import AlertPage from './components/pages/components/AlertPage';
+import BadgePage from './components/pages/components/BadgePage';
+import ButtonPage from './components/pages/components/ButtonPage';
 import FormsPage from './components/pages/components/FormsPage';
-import CardPage from './components/pages/components/CardPage.js';
+import CardPage from './components/pages/components/CardPage';
 import BreadcrumbsPage from './components/pages/components/BreadcrumbsPage';
 import CarouselPage from './components/pages/components/CarouselPage';
 import ChartsPage from './components/pages/components/ChartsPage';
@@ -123,6 +127,9 @@ const App = (props) => {
                     {/* Unautorized sample page */}
                     <PrivateRoute path="/page/login" component={LoginPage} />
                     <PrivateRoute path="/page/signup" component={SignupPage} />
+
+                    {/* Pages Sample */}
+                    <PrivateRoute path='/app/todo' component={Todo}/>
 
                     {/* Components */}
                     <PrivateRoute path="/components/box" component={BoxPage} />

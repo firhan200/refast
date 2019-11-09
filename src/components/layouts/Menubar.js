@@ -17,9 +17,6 @@ const HorizontalMenubar = () => {
                     <MenuLink>
                         <Link to="/dashboard/blog">Blog Analytics</Link>
                     </MenuLink>
-                    <MenuLink>
-                        <Link to="/dashboard/cs">Customer Service</Link>
-                    </MenuLink>
                 </Menu>
                 <Menu isSubmenu={true} label="Pages">
                     <Menu isSubmenu={true} label="Authorization">
@@ -58,6 +55,11 @@ const HorizontalMenubar = () => {
                             <Link to="/page/pricing">Pricing</Link>
                         </MenuLink>
                     </Menu>
+                </Menu>
+                <Menu isSubmenu={true} label="App">
+                    <MenuLink>
+                        <Link to="/app/todo">Todo</Link>
+                    </MenuLink>
                 </Menu>
                 <Menu isSubmenu={true} label="Components">
                     <Menu isSubmenu={true} label="User Interface">

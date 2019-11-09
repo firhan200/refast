@@ -6,7 +6,7 @@ import { Box, Row, Container, Col, Table, BoxTitle, Checkbox, Badge, Button, Dro
 
 const TablePage = () => {
     //variables
-    const originalUsers = [
+    const originalUsers = () => ( [
         {
             id: 0,
             name: 'John Doe',
@@ -28,10 +28,10 @@ const TablePage = () => {
             active: true,
             isSelected : false
         },
-    ]
+    ])
 
     /* Hooks */
-    const [users, setUsers] = useState(originalUsers);
+    const [users, setUsers] = useState(originalUsers());
     const [selectAll, setSelectAll] = useState(false);
     const [selectedActionsDisabled, setSelectedActionsDisabled] = useState(true);
     const [showCollapse, setShowCollapse] = useState(false);
@@ -42,7 +42,7 @@ const TablePage = () => {
         //filter users function
         const filterUser = () => {
             //filter users
-            let filteredUsers = [...originalUsers].filter(user => (
+            let filteredUsers = [...originalUsers()].filter(user => (
                 //status filter
                 (filterStatus !== "all" ? (user.active === filterStatus) : true)
                 &&
@@ -146,7 +146,7 @@ const TablePage = () => {
                                                     <BoxTitle label="Filter by status"/>
                                                     <Select 
                                                         value={filterStatus} 
-                                                        handleChange={(e) => { setFilterStatus(e.target.value === '' ? null : (e.target.value==='true' ? true : false))} } 
+                                                        handleChange={(e) => { setFilterStatus(e.target.value === 'all' ? 'all' : (e.target.value==='true' ? true : false))} } 
                                                         >
 
                                                         <option value="all">All</option>

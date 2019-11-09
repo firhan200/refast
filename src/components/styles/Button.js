@@ -105,9 +105,21 @@ const Button = (props) => {
     }
     attrs['disabled'] = disabled;
 
+    //get custom data attributes
+    let dataAttributes = {};
+    Object.keys(props).map(propKey => {
+        //check if attribute key contains data-
+        if(propKey.includes('data-')){
+            //return
+            dataAttributes[propKey] = props[propKey];
+        }
+
+        return true
+    });
+
     return(
         <button 
-            { ...attrs } 
+            { ...dataAttributes } 
             style={customStyle} 
             type={buttonBehaviorType} 
             onClick={props.handleClick} 

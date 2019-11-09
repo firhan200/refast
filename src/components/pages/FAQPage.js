@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* components */
 import { Breadcrumb, BreadcrumbItem, Container, Row, Accordion, Col } from '../styles';
 
 const FAQPage = () => {
