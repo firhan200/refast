@@ -636,4 +636,31 @@ body{
         }
     }
 }
+
+.todo-item{
+    cursor: pointer;
+    margin-bottom: 0px;
+
+    .todo-title{
+        margin-top:-15px;
+        font-size: $default-font-size;
+    }
+
+    .todo-description{
+        font-size: $small-font-size;
+    }
+
+    .dragable-icon{
+        margin-top:-10px;
+        text-align:right;
+    }
+}
+ 
+.dragged {
+    opacity: 1;
+}
+ 
+.placeholder {
+  opacity: 0.5;
+}
 /*======================= Page ============================ */

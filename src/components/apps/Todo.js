@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+//libs
+import DragSortableList from 'react-drag-sortable';
+import stringHelper from './../../helpers/stringHelper.js';
 
 /* components */
 import { 
@@ -13,14 +17,77 @@ import {
     FormGroup,
     Input,
     Textarea,
-    Alert} from './../styles';
+    Alert,
+    Col} from './../styles';
 import { toast } from 'react-toastify';
 
+
+
 const Todo = () => {
+     //render todo item
+     const TodoItem = ({ todo }) => {
+        return (
+            <div>
+                <Box className="todo-item">
+                    <div className="dragable-icon">
+                        <i className="fa fa-ellipsis-v"></i>
+                    </div>
+                    <div className="todo-title">
+                        { todo.title }
+                    </div>
+                    <div className="todo-description">
+                        { stringHelper.cutString(todo.description, 100) }
+                    </div>
+                    <i onClick={() => {
+                        const newTodos = todos.filter(todoObj => (todoObj.title !== todo.title));
+                        console.log(todo);
+                        console.log(newTodos);
+                        setTodos(newTodos)
+                    }} className="fa fa-star"></i>
+                </Box>
+                <br/>
+            </div>
+        )
+    }
+
+    const defaultTodos = [
+        {
+            content: (
+                <TodoItem todo={{
+                    title: 'Deploy App to Server',
+                    description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+                }}/>
+            ),
+            isPinned : false,
+            isDone : false,
+        },
+        {
+            content: (
+                <TodoItem todo={{
+                    title: 'Apply new design to website.',
+                    description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+                }}/>
+            ),
+            isPinned : true,
+            isDone : false,
+        },
+        {
+            content: (
+                <TodoItem todo={{
+                    title: 'fix bug: 2135.',
+                    description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+                }}/>
+            ),
+            isPinned : false,
+            isDone : false,
+        }
+    ];
+
     /* hooks */
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState(defaultTodos.filter(todo => (!todo.isPinned)));
+    const [pinnedTodos, setPinnedTodos] = useState(defaultTodos.filter(todo => (todo.isPinned)));
     const [formErrors, setFormErrors] = useState([]);
     /* hooks */
 
@@ -38,8 +105,13 @@ const Todo = () => {
             //no error, add todo
             //save to array
             setTodos([...todos, {
-                title: title,
-                description: description,
+                content: (
+                    <TodoItem todo={{
+                        title: title,
+                        description : description
+                    }}/>
+                ),
+                isDone : false
             }]);
 
             //reset form
@@ -57,6 +129,7 @@ const Todo = () => {
         }
     }
 
+    //validating inputs
     const validation = () => {
         let errorMessages = [];
         //check title
@@ -78,12 +151,23 @@ const Todo = () => {
         return errorMessages;
     }
 
+    //show errors
     const showErrors = () => {
         const errors = formErrors.map(error => (
             <Alert type="danger" icon={true} message={error.message}/>
         ));
 
         return errors;
+    }
+
+    //on sort dragable
+    const onSortTodos = (sortedList, dropEvent) => {
+        setTodos(sortedList);
+    }
+
+    //on pinned sort dragable
+    const onSortPinnedTodos = (sortedList, dropEvent) => {
+        setPinnedTodos(sortedList);
     }
     /* methods */
 
@@ -116,14 +200,22 @@ const Todo = () => {
                             <li>Creative</li>
                         </ul>
                     </Box>
-                    <Box sm={12} md={8} lg={9}>                   
-                        <BoxTitle icon="fa fa-star-o" label="My Todo List"/>
-                        { todos.map(todo => (
-                            <div>
-                                { todo.title }
-                            </div>
-                        )) }
-                    </Box>
+                    <Col sm={12} md={8} lg={9}>        
+                        <BoxTitle icon="fa fa-map-pin" label=" Pinned List"/>
+                        <br/>
+                        <DragSortableList 
+                            onSort={onSortPinnedTodos}
+                            moveTransitionDuration={0.5}
+                            type="vertical"
+                            items={pinnedTodos}/>           
+                        <BoxTitle icon="fa fa-star-o" label=" My Todo List"/>
+                        <br/>
+                        <DragSortableList 
+                            onSort={onSortTodos}
+                            moveTransitionDuration={0.5}
+                            type="vertical"
+                            items={todos}/>
+                    </Col>
                 </Row>
             </Container>
 
@@ -152,7 +244,7 @@ const Todo = () => {
                                         value={description} 
                                         handleChange={(e) => setDescription(e.target.value)}
                                         placeholder="Description" 
-                                        maxLength={100}/>
+                                        maxLength={150}/>
                                 </FormGroup>
             
                                 <Button type="submit" className="m-r-10" label="Submit"/>
