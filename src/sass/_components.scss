@@ -755,6 +755,18 @@
         margin-right:10px;
     }
 
+    &.remove-icon{
+        .custom-button{
+            &:after,
+            &:before{
+                content: none;
+            }
+        }
+        .label-icon{
+            margin-right:0px;
+        }
+    }
+
     &.small{
         .dropdown-item{
             font-size:$small-font-size;

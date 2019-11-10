@@ -640,9 +640,9 @@ body{
 .todo-item{
     cursor: pointer;
     margin-bottom: 0px;
+    padding: 15px 20px 15px 20px !important;
 
     .todo-title{
-        margin-top:-15px;
         font-size: $default-font-size;
     }
 
@@ -650,17 +650,26 @@ body{
         font-size: $small-font-size;
     }
 
-    .dragable-icon{
-        margin-top:-10px;
-        text-align:right;
+    .complete{
+        .label{
+            color:$success !important;
+            font-size:$small-font-size;
+        }
     }
-}
- 
-.dragged {
-    opacity: 1;
-}
- 
-.placeholder {
-  opacity: 0.5;
+
+    .todo-actions{
+        list-style: none;
+        padding:0px;
+
+        li{
+            color:darken($gray, 40%);
+            float:right;
+            margin-left:10px;
+
+            &:hover{
+                color:darken($gray, 50%);
+            }
+        }
+    }
 }
 /*======================= Page ============================ */

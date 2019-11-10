@@ -80,6 +80,9 @@ const Dropdown = (props) => {
     //get button enable
     const disabled = typeof props.disabled !== 'undefined' ? (props.disabled ? ' disabled ' : ' ') : ' ';
 
+    //get has arrow icon
+    const arrowIcon = typeof props.hasArrowIcon !== 'undefined' ? (props.hasArrowIcon ? ' ' : ' remove-icon ') : ' ';
+
     let customStyle = {};
     if(useAnotherColor){
         customStyle = {
@@ -88,7 +91,7 @@ const Dropdown = (props) => {
     }
 
     return(
-        <div className={"custom-dropdown dropdown"+ position + ' ' + inputButtonSize + ' ' + customClassName}>
+        <div className={"custom-dropdown dropdown"+ arrowIcon + position + ' ' + inputButtonSize + ' ' + customClassName}>
             <button style={customStyle} className={"custom-button btn dropdown-toggle" + disabled + buttonType + buttonSize} type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {/* show button icon */}
                 {buttonIcon !== '' ? (
@@ -113,6 +116,7 @@ Dropdown.propTypes = {
     size: PropTypes.string,
     icon: PropTypes.string,
     disabled: PropTypes.bool,
+    hasArrowIcon: PropTypes.bool,
     position: PropTypes.oneOf(["top", "bottom", "left", "right"]),
 }
 

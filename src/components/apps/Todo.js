@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 //libs
-import DragSortableList from 'react-drag-sortable';
 import stringHelper from './../../helpers/stringHelper.js';
 
 /* components */
@@ -18,66 +17,75 @@ import {
     Input,
     Textarea,
     Alert,
-    Col} from './../styles';
+    Col,
+    Checkbox,
+    H4} from './../styles';
 import { toast } from 'react-toastify';
-
-
 
 const Todo = () => {
      //render todo item
      const TodoItem = ({ todo }) => {
         return (
-            <div>
-                <Box className="todo-item">
-                    <div className="dragable-icon">
-                        <i className="fa fa-ellipsis-v"></i>
-                    </div>
-                    <div className="todo-title">
-                        { todo.title }
-                    </div>
-                    <div className="todo-description">
-                        { stringHelper.cutString(todo.description, 100) }
-                    </div>
-                    <i onClick={() => {
-                        const newTodos = todos.filter(todoObj => (todoObj.title !== todo.title));
-                        console.log(todo);
-                        console.log(newTodos);
-                        setTodos(newTodos)
-                    }} className="fa fa-star"></i>
-                </Box>
-                <br/>
-            </div>
+            <Box className="todo-item">
+                <div className="todo-title">
+                    {/* star pin icon */}
+                    <i style={{
+                        color: '#F1C40F'
+                    }} 
+                    onClick={ pin.bind(this, todo) } 
+                    className={"fa fa-star" + (!todo.isPinned ? '-o' : '')} />&nbsp;
+
+                    {/* todo title */}
+                    { todo.title }
+                </div>
+                <div className="todo-description">
+                    { stringHelper.cutString(todo.description, 100) }
+                </div>
+
+                {/* todo actions list */}
+                <Row>
+                    <Col xs={6}>
+                        <Checkbox 
+                        className="complete"
+                        label="completed"
+                        isChecked={ todo.isDone }
+                        handleChange={ setTodoCompleted.bind(this, todo) }
+                        isCircular={true}
+                        />
+                    </Col>
+                    <Col xs={6}>
+                        <ul className="todo-actions right">
+                            <li onClick={ deleteTodo.bind(this, todo) }>
+                                <i className="fa fa-trash"></i>
+                            </li>
+                            <li onClick={ editTodo.bind(this, todo) }>
+                                <i className="fa fa-cog"></i>
+                            </li>
+                        </ul>
+                    </Col>
+                </Row>
+                
+            </Box>
         )
     }
 
-    const defaultTodos = [
+    //dummy todo for display
+    let defaultTodos = [
         {
-            content: (
-                <TodoItem todo={{
-                    title: 'Deploy App to Server',
-                    description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-                }}/>
-            ),
-            isPinned : false,
-            isDone : false,
-        },
-        {
-            content: (
-                <TodoItem todo={{
-                    title: 'Apply new design to website.',
-                    description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-                }}/>
-            ),
+            title: 'Deploy App to Server',
+            description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
             isPinned : true,
             isDone : false,
         },
         {
-            content: (
-                <TodoItem todo={{
-                    title: 'fix bug: 2135.',
-                    description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-                }}/>
-            ),
+            title: 'Apply new design to website.',
+            description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            isPinned : false,
+            isDone : false,
+        },
+        {
+            title: 'fix bug: 2135.',
+            description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
             isPinned : false,
             isDone : false,
         }
@@ -86,8 +94,10 @@ const Todo = () => {
     /* hooks */
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [todos, setTodos] = useState(defaultTodos.filter(todo => (!todo.isPinned)));
-    const [pinnedTodos, setPinnedTodos] = useState(defaultTodos.filter(todo => (todo.isPinned)));
+    const [pinned, setPinned] = useState(false);
+    //list todo
+    const [todos, setTodos] = useState(defaultTodos);
+    //list error
     const [formErrors, setFormErrors] = useState([]);
     /* hooks */
 
@@ -105,18 +115,16 @@ const Todo = () => {
             //no error, add todo
             //save to array
             setTodos([...todos, {
-                content: (
-                    <TodoItem todo={{
-                        title: title,
-                        description : description
-                    }}/>
-                ),
+                title: title,
+                description: description,
+                isPinned : pinned,
                 isDone : false
             }]);
 
             //reset form
             setTitle('');
             setDescription('');
+            setPinned(false);
 
             //dismiss modal
             document.getElementById('dismissAddTodoModal').click();
@@ -160,14 +168,51 @@ const Todo = () => {
         return errors;
     }
 
-    //on sort dragable
-    const onSortTodos = (sortedList, dropEvent) => {
-        setTodos(sortedList);
+    //change pin status on todo
+    const pin = (currentTodo) => {
+        //find todo
+        let todoList = todos.filter(todo => (todo === currentTodo));
+        if(todoList.length > 0){
+            let newTodo = todoList[0];
+            //set pin
+            newTodo.isPinned = !newTodo.isPinned;
+            setTodos(
+                Object.assign([], todos, newTodo)
+            );
+        }
     }
 
-    //on pinned sort dragable
-    const onSortPinnedTodos = (sortedList, dropEvent) => {
-        setPinnedTodos(sortedList);
+    //edit todo
+    const editTodo = (currentTodo) => {
+        //show modal
+        document.getElementById("")
+    }
+
+    //delete todo
+    const deleteTodo = (currentTodo) => {
+        //set new list without selected todo
+        setTodos(todos.filter(todo => (todo !== currentTodo)))
+        //show toast
+        toast(stringHelper.cutString(currentTodo.title, 50) + " deleted.");
+    }
+
+    const setTodoCompleted = (currentTodo) => {
+        //find todo
+        let todoList = todos.filter(todo => (todo === currentTodo));
+        if(todoList.length > 0){
+            let newTodo = todoList[0];
+            //set pin
+            newTodo.isDone = !newTodo.isDone;
+            setTodos(
+                Object.assign([], todos, newTodo)
+            );
+        }
+    }
+
+    const Empty = () => {
+        return(
+            <H4 align="center">no data.</H4>
+        )
     }
     /* methods */
 
@@ -201,20 +246,26 @@ const Todo = () => {
                         </ul>
                     </Box>
                     <Col sm={12} md={8} lg={9}>        
-                        <BoxTitle icon="fa fa-map-pin" label=" Pinned List"/>
+                        {/* Pinned List */}
+                        <BoxTitle icon="fa fa-map-pin" label={" Pinned List (" + (todos.filter(todo => (todo.isPinned)).length) + ")"}/>
                         <br/>
-                        <DragSortableList 
-                            onSort={onSortPinnedTodos}
-                            moveTransitionDuration={0.5}
-                            type="vertical"
-                            items={pinnedTodos}/>           
-                        <BoxTitle icon="fa fa-star-o" label=" My Todo List"/>
+                        { todos.filter(todo => (todo.isPinned)).length > 0 ? (
+                            todos.filter(todo => (todo.isPinned)).map((todo, index) => (
+                                <TodoItem key={index} todo={ todo }/>
+                            ))
+                        ) : <Empty /> }
+                        <br/> 
+                        {/* Pinned List */}
+                        
+                        {/* Unpinned List */}
+                        <BoxTitle icon="fa fa-map-pin" label={" Todo List (" + (todos.filter(todo => (!todo.isPinned)).length) + ")"}/>
                         <br/>
-                        <DragSortableList 
-                            onSort={onSortTodos}
-                            moveTransitionDuration={0.5}
-                            type="vertical"
-                            items={todos}/>
+                        { todos.filter(todo => (!todo.isPinned)).length > 0 ? (
+                            todos.filter(todo => (!todo.isPinned)).map((todo, index) => (
+                                <TodoItem key={index} todo={ todo }/>
+                            )) 
+                        ) : <Empty /> }
+                        {/* Unpinned List */}
                     </Col>
                 </Row>
             </Container>
@@ -245,6 +296,12 @@ const Todo = () => {
                                         handleChange={(e) => setDescription(e.target.value)}
                                         placeholder="Description" 
                                         maxLength={150}/>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Checkbox
+                                        isChecked={ pinned }
+                                        handleChange={() => setPinned(!pinned)}
+                                        label="Pinned"/>
                                 </FormGroup>
             
                                 <Button type="submit" className="m-r-10" label="Submit"/>
