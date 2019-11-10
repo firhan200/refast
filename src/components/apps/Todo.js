@@ -142,9 +142,7 @@ const Todo = () => {
             }
 
             //reset form
-            setTitle('');
-            setDescription('');
-            setPinned(false);
+            resetForm();
 
             //dismiss modal
             document.getElementById('dismissAddTodoModal').click();
@@ -155,6 +153,14 @@ const Todo = () => {
             //show error
             setFormErrors(errorMessages);
         }
+    }
+
+    //reset form
+    const resetForm = () => {
+        setTitle('');
+        setDescription('');
+        setPinned(false);
+        setEditedTodo(null);
     }
 
     //validating inputs
@@ -307,7 +313,7 @@ const Todo = () => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="addTodoModal">Todo</h5>
-                            <button type="button" id="dismissAddTodoModal" className="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" onClick={ resetForm } id="dismissAddTodoModal" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -336,7 +342,7 @@ const Todo = () => {
                                 </FormGroup>
             
                                 <Button type="submit" className="m-r-10" label="Submit"/>
-                                <Button type="button" color="danger" data-dismiss="modal" label="Close"/>
+                                <Button handleClick={ resetForm } type="button" color="danger" data-dismiss="modal" label="Close"/>
                             </Form>
                         </div>
                     </div>
