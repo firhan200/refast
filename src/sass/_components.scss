@@ -197,6 +197,11 @@
 .custom-form-control{
     text-align: left !important;
     &.iconed{
+        &.textarea{
+            .input-icon{
+                margin-top:10px;
+            }
+        }
         .input-icon{
             position: absolute;
             margin-top:15px;
@@ -540,7 +545,7 @@
 }
 
 .custom-checkbox{
-    .label{
+    .text-label{
         top:-($checkbox-size / 3) + 2;
         margin-left:5px;
         position: relative;

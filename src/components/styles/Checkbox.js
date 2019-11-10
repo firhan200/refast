@@ -25,7 +25,7 @@ const Checkbox = (props) => {
                     />
                 <span className={"checkbox-custom " + (isCircular ? 'circular' : 'rectangular')}></span>
             </label>
-            <span className="label">
+            <span className="text-label">
                 { label }
             </span>
         </span>

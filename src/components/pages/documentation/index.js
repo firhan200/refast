@@ -15,6 +15,8 @@ import {
 
 /*pages*/
 import Header from './components/Header';
+import BoxDocumentation from './components/Box';
+import FormsInputs from './components/FormsInputs';
 /*pages*/
 
 const Documentation = () => {
@@ -60,6 +62,8 @@ const Documentation = () => {
                         renders the first one that matches the current URL. */}
                         <Switch>
                             <Route path={`/${documentationPrefix}/header`} component={ Header }/>
+                            <Route path={`/${documentationPrefix}/box`} component={ BoxDocumentation }/>
+                            <Route path={`/${documentationPrefix}/forms`} component={ FormsInputs }/>
 
                             {/* not found page */}
                             <Route path="/">

@@ -38,6 +38,9 @@ const Textarea = (props) => {
     //get message
     let message = typeof props.message !== 'undefined' ? props.message : '';
 
+    //get icon
+    let icon = typeof props.icon !== 'undefined' ? props.icon : '';
+
     //custom attr
     let attrs = {};
     if(pattern !== ''){
@@ -49,12 +52,18 @@ const Textarea = (props) => {
     attrs['required'] = isRequired;
 
     return(
-        <div className="custom-form-control textarea">
+        <div className={"custom-form-control textarea " + (icon!=='' ? ' iconed' : '')}>
             { message !== '' ? (
                 <div className={"message " + isValid}>
                     { message }
                 </div>
             ) : '' }
+
+            {/* check icon */}
+            { icon !== '' ? (
+                <i className={"input-icon " + icon}></i>
+            ) : '' }
+
             <textarea 
                 style={props.style}
                 className={'form-control ' + isValid + customClassName}
