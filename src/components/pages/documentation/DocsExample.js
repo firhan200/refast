@@ -1,5 +1,5 @@
 import React from 'react';
-import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { darcula as myStyle } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const DocsExample = (props) => {
