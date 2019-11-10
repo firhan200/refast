@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 //libs
 import PropTypes from 'prop-types'; // prop types
@@ -16,6 +16,12 @@ const Textarea = (props) => {
     //get maxLength
     const maxLength = typeof props.maxLength !== 'undefined' ? props.maxLength : 9999;
     const [currentLength, setCurrentLength] = useState(0);
+    useEffect(() => {
+        setCurrentLength(() => {
+            //check if value already set
+            return typeof props.value !== 'undefined' ? props.value.length : 0
+        });
+    }, [props.value]);
 
     //get pattern
     let pattern = typeof props.pattern !== 'undefined' ? props.pattern : '';

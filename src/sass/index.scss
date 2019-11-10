@@ -642,6 +642,29 @@ body{
     margin-bottom: 0px;
     padding: 15px 20px 15px 20px !important;
 
+    &.done{
+        background-color: $default-color;
+        color:$white;
+
+        .complete{
+            .label{
+                color:$white;
+            }
+        }
+
+        .todo-actions{
+            li{
+                color:darken($gray, 5%);
+                float:right;
+                margin-left:10px;
+    
+                &:hover{
+                    color:darken($gray, 0%);
+                }
+            }
+        }
+    }
+
     .todo-title{
         font-size: $default-font-size;
     }
@@ -652,7 +675,7 @@ body{
 
     .complete{
         .label{
-            color:$success !important;
+            color:$success;
             font-size:$small-font-size;
         }
     }

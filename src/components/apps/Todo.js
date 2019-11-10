@@ -26,7 +26,7 @@ const Todo = () => {
      //render todo item
      const TodoItem = ({ todo }) => {
         return (
-            <Box className="todo-item">
+            <Box className={"todo-item "+ (todo.isDone ? 'done' : '')}>
                 <div className="todo-title">
                     {/* star pin icon */}
                     <i style={{
@@ -58,7 +58,7 @@ const Todo = () => {
                             <li onClick={ deleteTodo.bind(this, todo) }>
                                 <i className="fa fa-trash"></i>
                             </li>
-                            <li onClick={ editTodo.bind(this, todo) }>
+                            <li data-toggle="modal" data-target="#addTodoModal" onClick={ editTodo.bind(this, todo) }>
                                 <i className="fa fa-cog"></i>
                             </li>
                         </ul>
@@ -95,6 +95,7 @@ const Todo = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [pinned, setPinned] = useState(false);
+    const [editedTodo, setEditedTodo] = useState(null);
     //list todo
     const [todos, setTodos] = useState(defaultTodos);
     //list error
@@ -112,14 +113,33 @@ const Todo = () => {
         //validating inputs
         const errorMessages = validation();
         if(errorMessages.length < 1){
-            //no error, add todo
-            //save to array
-            setTodos([...todos, {
-                title: title,
-                description: description,
-                isPinned : pinned,
-                isDone : false
-            }]);
+            //no error, check if edit or add todo
+            if(editedTodo !== null){
+                ///edit
+                //get edited todo
+                let todoList = todos.filter(todo => (todo === editedTodo));
+                if(todoList.length > 0){
+                    //found, set data to new inputs
+                    let newTodo = todoList[0];
+                    newTodo.title = title;
+                    newTodo.description = description;
+                    newTodo.isPinned = pinned;
+
+                    //save to state
+                    setTodos(
+                        Object.assign([], todos, newTodo)
+                    );
+                }
+            }else{
+                //add
+                //save to array
+                setTodos([...todos, {
+                    title: title,
+                    description: description,
+                    isPinned : pinned,
+                    isDone : false
+                }]);
+            }
 
             //reset form
             setTitle('');
@@ -130,7 +150,7 @@ const Todo = () => {
             document.getElementById('dismissAddTodoModal').click();
 
             //show toast
-            toast("Todo successfully created.")
+            toast("Todo successfully saved.")
         }else{
             //show error
             setFormErrors(errorMessages);
@@ -184,8 +204,13 @@ const Todo = () => {
 
     //edit todo
     const editTodo = (currentTodo) => {
-        //show modal
-        document.getElementById("")
+        //set inputs
+        setTitle(currentTodo.title);
+        setDescription(currentTodo.description);
+        setPinned(currentTodo.isPinned);
+
+        //set edited todo
+        setEditedTodo(currentTodo);
     }
 
     //delete todo
@@ -203,9 +228,16 @@ const Todo = () => {
             let newTodo = todoList[0];
             //set pin
             newTodo.isDone = !newTodo.isDone;
+
+            //save state
             setTodos(
                 Object.assign([], todos, newTodo)
             );
+
+            //show toast
+            if(newTodo.isDone){
+                toast(currentTodo.title + ' is completed');
+            }
         }
     }
 
@@ -240,9 +272,8 @@ const Todo = () => {
                         <hr/>
                         <BoxTitle icon="fa fa-tags" label="Labels"/>
                         <ul className="todo-labels">
-                            <li>Tech</li>
-                            <li>Design</li>
-                            <li>Creative</li>
+                            <li>Task ({ todos.filter(todo => (!todo.isDone)).length })</li>
+                            <li>Completed ({ todos.filter(todo => (todo.isDone)).length })</li>
                         </ul>
                     </Box>
                     <Col sm={12} md={8} lg={9}>        
@@ -288,14 +319,14 @@ const Todo = () => {
                                         value={title}
                                         handleChange={(e) => setTitle(e.target.value)}
                                         placeholder="Title" 
-                                        maxLength={20}/>
+                                        maxLength={40}/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Textarea 
                                         value={description} 
                                         handleChange={(e) => setDescription(e.target.value)}
                                         placeholder="Description" 
-                                        maxLength={150}/>
+                                        maxLength={250}/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Checkbox
