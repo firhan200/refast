@@ -24,7 +24,6 @@ const Header = () => {
                 )}
                 code={(
 `import React from 'react';
-import { Alert } from 'reactstrap';
 import { H1, H2, H3, H4, H5 } from './styles';
 
 const Header = () => {
@@ -61,7 +60,6 @@ export default Header;
                 )}
                 code={(
 `import React from 'react';
-import { Alert } from 'reactstrap';
 import { H1, H2, H3 } from './styles';
 
 const Header = () => {
