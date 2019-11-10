@@ -129,55 +129,6 @@ body{
     text-align: center !important;
 }
 
-//avatar
-.avatar{
-    $small-size : 30px;
-    $medium-size : 50px;
-    $large-size : 70px;
-
-    width:$small-size;
-    height:$small-size;
-    border-radius: 50%;
-    overflow: hidden;
-    margin:0 auto;
-    justify-content: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    img{
-        max-width:$small-size + 10;
-        max-height:$small-size + 10;
-    }
-
-    &.small{
-        width:$small-size;
-        height:$small-size;
-        img{
-            max-width:$small-size + 10;
-            max-height:$small-size + 10;
-        }
-    }
-
-    &.medium{
-        width:$medium-size;
-        height:$medium-size;
-        img{
-            max-width:$medium-size + 20;
-            max-height:$medium-size + 20;
-        }
-    }
-
-    &.large{
-        width:$large-size;
-        height:$large-size;
-        img{
-            max-width:$large-size + 30;
-            max-height:$large-size + 30;
-        }
-    }
-}
-
 /* Top navigation bar styling, notification ,messages search & profile */
 .top-navbar{
     background-color: $navbar-color !important;
@@ -696,3 +647,63 @@ body{
     }
 }
 /*======================= Page ============================ */
+
+/*===================== Documentation ======================*/
+.documentation-navigations{
+    list-style: none;
+    padding: 0px;
+
+    li{
+        a{
+            transition: 0.2s;
+            display:block;
+            align-items: stretch;
+            font-size: $default-font-size;
+            border-radius: 3px;
+            padding:5px 10px 5px 10px;
+            color:$black;
+
+            &:hover, &:active,&:focus{
+                text-decoration: none;
+                background-color: $primary;
+                color:$white;
+            }
+        }
+    }
+}
+
+.example{
+    $bg-color:#3e363f;
+    margin-bottom:50px;
+    .label{
+        font-size:$large-font-size;
+        margin-bottom:10px;
+    }
+
+    .preview{
+        border:1px solid darken($gray, 5%);
+
+        .result{
+            padding:20px;
+        }
+    
+        .code{
+            padding:10px;
+            background-color:$bg-color !important;
+            pre{
+                background-color:$bg-color !important;
+                margin-bottom: 0px;
+            }
+        }
+    }
+
+    .properties{
+        margin-top:10px;
+        pre{
+            padding:10px !important;
+            background-color:$bg-color !important;
+            margin-bottom: 0px;
+        }
+    }
+}
+/*===================== Documentation ======================*/

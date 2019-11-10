@@ -46,6 +46,7 @@ import Todo from './components/apps/Todo';
 /* Apps */
 
 /* pages components */
+import HeaderPage from './components/pages/components/HeaderPage';
 import BoxPage from './components/pages/components/BoxPage';
 import AlertPage from './components/pages/components/AlertPage';
 import BadgePage from './components/pages/components/BadgePage';
@@ -55,11 +56,16 @@ import CardPage from './components/pages/components/CardPage';
 import BreadcrumbsPage from './components/pages/components/BreadcrumbsPage';
 import CarouselPage from './components/pages/components/CarouselPage';
 import ChartsPage from './components/pages/components/ChartsPage';
+import AvatarPage from './components/pages/components/AvatarPage';
 import CollapsePage from './components/pages/components/CollapsePage';
 import DropdownsPage from './components/pages/components/DropdownsPage';
 import TablePage from './components/pages/components/TablePage';
 import ProgressBarPage from './components/pages/components/ProgressBarPage';
 /* pages components */
+
+/* documentation */
+import Documentation from './components/pages/documentation';
+/* documentation */
 
 // Call it once in your app. At the root of your app is the best place
 toast.configure();
@@ -132,6 +138,7 @@ const App = (props) => {
                     <PrivateRoute path='/app/todo' component={Todo}/>
 
                     {/* Components */}
+                    <PrivateRoute path="/components/header" component={HeaderPage} />
                     <PrivateRoute path="/components/box" component={BoxPage} />
                     <PrivateRoute path="/components/alert" component={AlertPage} />
                     <PrivateRoute path="/components/badges" component={BadgePage} />
@@ -141,10 +148,14 @@ const App = (props) => {
                     <PrivateRoute path="/components/breadcrumbs" component={BreadcrumbsPage} />
                     <PrivateRoute path="/components/carousel" component={CarouselPage} />
                     <PrivateRoute path="/components/charts" component={ChartsPage} />
+                    <PrivateRoute path="/components/avatar" component={AvatarPage} />
                     <PrivateRoute path="/components/collapse" component={CollapsePage} />
                     <PrivateRoute path="/components/dropdowns" component={DropdownsPage} />
                     <PrivateRoute path="/components/tables" component={TablePage} />
                     <PrivateRoute path="/components/progressbar" component={ProgressBarPage} />
+
+                    {/* Documentation */}
+                    <PrivateRoute path="/documentation" component={Documentation} />
 
                     {/* not found page */}
                     <PrivateRoute path="/" component={ECommercePage}/>

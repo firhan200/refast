@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 import { 
     Container, 
     Row, 
-    Box} from '../styles';
+    Box,
+    H1,
+    H2} from '../styles';
 
 const Page500 = (props) => {
     return(
@@ -16,9 +18,9 @@ const Page500 = (props) => {
                         <div className="error-icon">
                             <i className="fa fa-server"></i>
                         </div>
-                        <h1><b>500</b></h1>
-                        <h2>Internal Server Error</h2>
-                        <h2>Sorry, something went wrong. Please try again later.</h2>
+                        <H1 align="center"><b>500</b></H1>
+                        <H2 align="center">Internal Server Error</H2>
+                        <H2 align="center">Sorry, something went wrong. Please try again later.</H2>
                         <Link to='/dashboard/ecommerce'>Reload</Link>
                     </Box>
                 </Row>

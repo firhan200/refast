@@ -19,7 +19,7 @@ const H2 = (props) => {
 H2.propTypes = {
     style : PropTypes.object,
     className : PropTypes.string,
-    align : PropTypes.string
+    align : PropTypes.oneOf(['left', 'center', 'right'])
 }
 
 export default H2;

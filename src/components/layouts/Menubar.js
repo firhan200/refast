@@ -64,6 +64,9 @@ const HorizontalMenubar = () => {
                 <Menu isSubmenu={true} label="Components">
                     <Menu isSubmenu={true} label="User Interface">
                         <MenuLink>
+                            <Link to="/components/header">Header</Link>
+                        </MenuLink>
+                        <MenuLink>
                             <Link to="/components/box">Box</Link>
                         </MenuLink>
                         <MenuLink>
@@ -93,6 +96,9 @@ const HorizontalMenubar = () => {
                             <Link to="/components/charts">Charts</Link>
                         </MenuLink>
                         <MenuLink>
+                            <Link to="/components/avatar">Avatar</Link>
+                        </MenuLink>
+                        <MenuLink>
                             <Link to="/components/collapse">Collapse</Link>
                         </MenuLink>
                         <MenuLink>
@@ -105,6 +111,11 @@ const HorizontalMenubar = () => {
                             <Link to="/components/progressbar">Progress Bar</Link>
                         </MenuLink>
                     </Menu>
+                </Menu>
+                <Menu>
+                    <MenuLink>
+                        <Link to="/documentation">Documentation</Link>
+                    </MenuLink>
                 </Menu>
             </ul>
         </nav>

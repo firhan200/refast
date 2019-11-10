@@ -2,6 +2,8 @@ import React from 'react';
 
 //libs
 import PropTypes from 'prop-types'; // prop types
+import H2 from './H2';
+import H4 from './H4';
 
 const Carousel = (props) => {
     //get custom class
@@ -37,8 +39,8 @@ const Carousel = (props) => {
                         <img src={item.image} className="d-block w-100" alt={""} />
                         { item.useCaption ? (
                             <div className="carousel-caption d-none d-md-block">
-                                <h2 style={{color: item.captionColor}}>{ item.title }</h2>
-                                <h4 style={{color: item.captionColor}}>{ item.subTitle }</h4>
+                                <H2 style={{color: item.captionColor}}>{ item.title }</H2>
+                                <H4 style={{color: item.captionColor}}>{ item.subTitle }</H4>
                             </div>
                         ) : '' }
                     </div>

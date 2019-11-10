@@ -845,4 +845,51 @@
     }
 }
 
+//avatar
+.avatar{
+    $small-size : 30px;
+    $medium-size : 50px;
+    $large-size : 70px;
+    width:$small-size;
+    height:$small-size;
+    border-radius: 50%;
+    overflow: hidden;
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img{
+        max-width:$small-size + 10;
+        max-height:$small-size + 10;
+    }
+
+    &.small{
+        width:$small-size;
+        height:$small-size;
+        img{
+            max-width:$small-size + 10;
+            max-height:$small-size + 10;
+        }
+    }
+
+    &.medium{
+        width:$medium-size;
+        height:$medium-size;
+        img{
+            max-width:$medium-size + 20;
+            max-height:$medium-size + 20;
+        }
+    }
+
+    &.large{
+        width:$large-size;
+        height:$large-size;
+        img{
+            max-width:$large-size + 30;
+            max-height:$large-size + 30;
+        }
+    }
+}
+
 /*======================= Components ============================ */

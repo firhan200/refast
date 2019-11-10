@@ -8,7 +8,9 @@ import {
     Box, 
     Form,
     FormGroup,
-    Input} from '../styles';
+    Input,
+    H1,
+    H2} from '../styles';
 
 const Page404 = (props) => {
     return(
@@ -19,9 +21,9 @@ const Page404 = (props) => {
                         <div className="error-icon">
                             <i className="fa fa-exclamation"></i>
                         </div>
-                        <h1><b>404</b></h1>
-                        <h2>Page Not Found</h2>
-                        <h2>Sorry, we can't find the page you are looking for</h2>
+                        <H1 align="center"><b>404</b></H1>
+                        <H2 align="center">Page Not Found</H2>
+                        <H2 align="center">Sorry, we can't find the page you are looking for</H2>
                         <Form>
                             <FormGroup>
                                 <Input icon="fa fa-search" placeholder="Search"/>
