@@ -214,7 +214,7 @@ const ECommercePage = () => {
             <br/>
             <Container>
                 <Row>
-                    <Col xs={12} md={3} className="m-b-20">
+                    <Col xs={12} md={3}>
                         <IconCard 
                             isWavy={true} 
                             statisticValue={-12} 
@@ -223,7 +223,7 @@ const ECommercePage = () => {
                             label="Orders" 
                             icon="fa fa-shopping-cart"/>
                     </Col>
-                    <Col xs={12} md={3} className="m-b-20">
+                    <Col xs={12} md={3}>
                         <IconCard 
                             isWavy={true} 
                             number={12506} 
@@ -232,7 +232,7 @@ const ECommercePage = () => {
                             label="Earnings" 
                             icon="fa fa-dollar"/>
                     </Col>
-                    <Col xs={12} md={3} className="m-b-20">
+                    <Col xs={12} md={3}>
                         <IconCard 
                             isWavy={true} 
                             number={203} 

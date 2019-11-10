@@ -106,7 +106,7 @@ const FormsInputs = () => {
 `import React from 'react';
 import { Form, FormGroup, Input, Checkbox, Textarea, Select } from './styles';
 
-const Header = () => {
+const Forms = () => {
     //checkbox hooks
     const [squareCb, setSquareCb] = useState(false);
     const [circularCb, setCircularCb] = useState(false);
@@ -175,7 +175,7 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default Forms;
 `
                 )}
                 properties={(
@@ -262,7 +262,7 @@ Checkbox.propTypes = {
 `import React from 'react';
 import { Form, FormGroup, Input, Textarea } from './styles';
 
-const Header = () => {
+const Forms = () => {
     return(
         <Form>
             <FormGroup>
@@ -278,7 +278,7 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default Forms;
 `
                 )}
             />
@@ -368,7 +368,7 @@ export default Header;
 `import React from 'react';
 import { Form, FormGroup, Input, Textarea, Select } from './styles';
 
-const Header = () => {
+const Forms = () => {
     // error validation
     const [firstNameValidation, setFirstNameValidation] = useState({
         text : '',
@@ -472,7 +472,7 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default Forms;
 `
                 )}
             />
@@ -493,7 +493,7 @@ export default Header;
 `import React from 'react';
 import { Form, FormGroup, Input, Textarea } from './styles';
 
-const Header = () => {
+const Forms = () => {
     return(
         <Form>
             <FormGroup>
@@ -506,7 +506,7 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default Forms;
 `
                 )}
             />

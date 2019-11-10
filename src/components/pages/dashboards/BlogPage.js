@@ -230,14 +230,13 @@ const BlogPage = () => {
                             {/* total views & ads click */}
                             <Col sm={12} md={12} lg={6}>
                                 <IconCard 
-                                    className="m-b-20" 
                                     statisticValue={-3}
                                     statisticPostfix="% (from last month)"
                                     label="Total Views" 
                                     number={10523} 
                                     icon="fa fa-desktop"/> 
                                 <IconCard 
-                                    className="m-b-20" 
+                                    style={{ marginTop : '40px' }}
                                     label="Ads Click" 
                                     number={7546} 
                                     icon="fa fa-line-chart"/> 

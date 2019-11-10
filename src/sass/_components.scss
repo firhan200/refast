@@ -277,9 +277,9 @@
     box-shadow: $shadow;
     border-radius: 0px;
     color:$dark-gray;
-    overflow: hidden;
-
-    text-align: center;
+    text-align: right;
+    margin-bottom:20px;
+    margin-top:20px;
 
     &.left{
         text-align:left;
@@ -290,37 +290,29 @@
     }
 
     .icon-card-body{
-        padding:0px 20px 0px 20px;
-        //margin-bottom: 10px;
+        padding:0px 20px 20px 20px;
 
         .icon{
-            padding-top:5px;
-            font-size:$large-font-size + 10;
-            color: darken($default-color, 5%);
-            margin-bottom:-20px;
+            width:50px;
+            height:50px;
+            text-align: center !important;
+            margin-top:-20px;
+            padding-top:7px;
+            position: absolute;
+            font-size:$large-font-size;
+            background-color: $primary;
+            border-radius: 5px;
+            color: $white;
+            box-shadow: 1px 3px 4px lighten($dark-gray, 30%);
         }
-        .label{
-            padding-top:20px;
+        .icon-card-label{
+            padding-top:30px;
             font-size:$small-font-size - 1;
         }
         .number{
             margin-top:0px;
-            padding-bottom:10px;
             font-size:$large-font-size;
             font-weight: 400;
-        }
-
-        &.wavy{
-            margin-bottom: -3em;
-        }
-    }
-
-    svg{
-        left:0;
-        bottom:0;
-
-        path{
-            fill : $default-color !important;
         }
     }
 }

@@ -21,22 +21,16 @@ const CardPage = () => {
                 <Container>
                     <Row>
                         <Col xs={6} sm={6} md={3}>
-                            <IconCard label="iOS Downloads" isWavy={true} number={5207} icon="fa fa-apple"/>  
+                            <IconCard label="iOS Downloads" number={5207} icon="fa fa-apple"/>  
                         </Col>  
                         <Col xs={6} sm={6} md={3}> 
-                            <IconCard label="Android Downloads" number={10523} icon="fa fa-android"/> 
+                            <IconCard label="Android Downloads" statisticPostfix='%' statisticValue={-17} number={10523} icon="fa fa-android"/> 
                         </Col>
                         <Col xs={6} sm={6} md={3}>
-                            <div className="help">
-                                *no icon with wavy style
-                            </div>
-                            <IconCard label="Windows Phone Downloads" isWavy={true} number={602} />
+                            <IconCard label="Windows Phone Downloads" number={602} />
                         </Col>  
                         <Col xs={6} sm={6} md={3}> 
-                            <div className="help">
-                                *no icon with blank style
-                            </div>
-                            <IconCard label="Web Access" number={9020321} /> 
+                            <IconCard label="Web Access" statisticPostfix='%' statisticValue={20} number={9020321} /> 
                         </Col>             
                     </Row>
                     <Row>

@@ -40,7 +40,7 @@ const BoxDocumentation = () => {
                 )}
                 code={(
 `import React from 'react';
-import { Box } from './styles';
+import { Row, Box } from './styles';
 
 const Box = () => {
     return(
@@ -113,7 +113,7 @@ export default Box;
                 )}
                 code={(
 `import React from 'react';
-import { Box } from './styles';
+import { Row, Box } from './styles';
 
 const Box = () => {
     return(

@@ -1,21 +1,5 @@
 @media (min-width: $mobile) and (max-width: $tablet) {
-    .menu-navbar{
-    }
-
     /* components */
-    
-    .custom-icon-card{
-        .icon-card-body{
-            padding-bottom:20px !important;
-        }
-        .label, .number{
-            font-size:$small-font-size !important;
-        }
-
-        .icon{
-            font-size: $small-font-size + 10;
-        }
-    }
 
     /* components */
 
