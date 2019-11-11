@@ -169,6 +169,12 @@
     border-radius: 4px;
     box-shadow: $shadow;
 
+    &.custom-color{
+        &:focus{
+            box-shadow: none;
+        }
+    }
+
     &.full{
         width:100% !important;
     }

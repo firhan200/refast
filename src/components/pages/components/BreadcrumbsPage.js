@@ -24,7 +24,6 @@ const BreadcrumbsPage = () => {
                                 </BreadcrumbItem>
                             </Breadcrumb>
                         </Box>
-                        &nbsp;
                         <Box sm={12} md={12} lg={12}>
                             <Breadcrumb>
                                 <BreadcrumbItem>
@@ -35,7 +34,6 @@ const BreadcrumbsPage = () => {
                                 </BreadcrumbItem>
                             </Breadcrumb>
                         </Box>
-                        &nbsp;
                         <Box sm={12} md={12} lg={12}>
                             <Breadcrumb>
                                 <BreadcrumbItem>

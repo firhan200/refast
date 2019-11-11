@@ -90,7 +90,8 @@ const Button = (props) => {
     let customStyle = {};
     if(useAnotherColor){
         customStyle = {
-            backgroundColor: anotherColor
+            backgroundColor: anotherColor,
+            borderColor : anotherColor
         }
     }
     //add custom style from attr
@@ -123,7 +124,7 @@ const Button = (props) => {
             style={customStyle} 
             type={buttonBehaviorType} 
             onClick={props.handleClick} 
-            className={"custom-button btn"+ buttonType + buttonSize + isButtonRounded + (isFull ? " full" : "") + " " + customClassName}>
+            className={"custom-button btn"+ (useAnotherColor ? ' custom-color' : '') + buttonType + buttonSize + isButtonRounded + (isFull ? " full" : "") + " " + customClassName}>
 
             {/* check if use icon */}
             { buttonIcon !== '' ? (<i className={(isLabelExist ? 'pad ' : '')+'icon '+ buttonIcon}></i>) : '' }
@@ -141,9 +142,9 @@ Button.propTypes = {
     className: PropTypes.string,
     id: PropTypes.string,
     icon: PropTypes.string,
-    type: PropTypes.string,
+    type: PropTypes.oneOf(['button', 'submit']),
     color: PropTypes.string,
-    size: PropTypes.string,
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
     label: PropTypes.string,
     disabled: PropTypes.bool,
     isOutlined: PropTypes.bool,

@@ -20,6 +20,8 @@ import FormsInputs from './components/FormsInputs';
 import Cards from './components/Cards';
 import Alerts from './components/Alerts';
 import Badges from './components/Badges';
+import Buttons from './components/Buttons';
+import Breadcrumbs from './components/Breadcrumbs';
 /*pages*/
 
 const Documentation = () => {
@@ -91,6 +93,8 @@ const Documentation = () => {
                                 <Route path={`/${documentationPrefix}/cards`} component={ Cards }/>
                                 <Route path={`/${documentationPrefix}/alerts`} component={ Alerts }/>
                                 <Route path={`/${documentationPrefix}/badges`} component={ Badges }/>
+                                <Route path={`/${documentationPrefix}/buttons`} component={ Buttons }/>
+                                <Route path={`/${documentationPrefix}/breadcrumbs`} component={ Breadcrumbs }/>
 
                                 {/* not found page */}
                                 <Route path="/">
