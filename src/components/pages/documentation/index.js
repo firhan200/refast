@@ -18,6 +18,8 @@ import Header from './components/Header';
 import BoxDocumentation from './components/Box';
 import FormsInputs from './components/FormsInputs';
 import Cards from './components/Cards';
+import Alerts from './components/Alerts';
+import Badges from './components/Badges';
 /*pages*/
 
 const Documentation = () => {
@@ -64,6 +66,18 @@ const Documentation = () => {
                             <li>
                                 <Link onClick={ linkClick } to={`/${documentationPrefix}/cards`}>Cards</Link>
                             </li>
+                            <li>
+                                <Link onClick={ linkClick } to={`/${documentationPrefix}/alerts`}>Alerts</Link>
+                            </li>
+                            <li>
+                                <Link onClick={ linkClick } to={`/${documentationPrefix}/badges`}>Badges</Link>
+                            </li>
+                            <li>
+                                <Link onClick={ linkClick } to={`/${documentationPrefix}/buttons`}>Buttons</Link>
+                            </li>
+                            <li>
+                                <Link onClick={ linkClick } to={`/${documentationPrefix}/breadcrumbs`}>Breadcrumbs</Link>
+                            </li>
                         </ul>
                     </Box>
                     <Col md={9}>
@@ -75,6 +89,8 @@ const Documentation = () => {
                                 <Route path={`/${documentationPrefix}/box`} component={ BoxDocumentation }/>
                                 <Route path={`/${documentationPrefix}/forms`} component={ FormsInputs }/>
                                 <Route path={`/${documentationPrefix}/cards`} component={ Cards }/>
+                                <Route path={`/${documentationPrefix}/alerts`} component={ Alerts }/>
+                                <Route path={`/${documentationPrefix}/badges`} component={ Badges }/>
 
                                 {/* not found page */}
                                 <Route path="/">
