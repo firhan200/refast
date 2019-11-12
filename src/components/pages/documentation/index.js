@@ -22,6 +22,10 @@ import Alerts from './components/Alerts';
 import Badges from './components/Badges';
 import Buttons from './components/Buttons';
 import Breadcrumbs from './components/Breadcrumbs';
+import Carousels from './components/Carousels';
+import Charts from './components/Charts';
+import Avatar from './components/Avatar';
+import Collapses from './components/Collapses';
 /*pages*/
 
 const Documentation = () => {
@@ -80,6 +84,27 @@ const Documentation = () => {
                             <li>
                                 <Link onClick={ linkClick } to={`/${documentationPrefix}/breadcrumbs`}>Breadcrumbs</Link>
                             </li>
+                            <li>
+                                <Link onClick={ linkClick } to={`/${documentationPrefix}/carousel`}>Carousel</Link>
+                            </li>
+                            <li>
+                                <Link onClick={ linkClick } to={`/${documentationPrefix}/charts`}>Charts</Link>
+                            </li>
+                            <li>
+                                <Link onClick={ linkClick } to={`/${documentationPrefix}/avatar`}>Avatar</Link>
+                            </li>
+                            <li>
+                                <Link onClick={ linkClick } to={`/${documentationPrefix}/collapse`}>Collapse</Link>
+                            </li>
+                            <li>
+                                <Link onClick={ linkClick } to={`/${documentationPrefix}/dropdowns`}>Dropdowns</Link>
+                            </li>
+                            <li>
+                                <Link onClick={ linkClick } to={`/${documentationPrefix}/tables`}>Tables</Link>
+                            </li>
+                            <li>
+                                <Link onClick={ linkClick } to={`/${documentationPrefix}/progressbar`}>Progress Bar</Link>
+                            </li>
                         </ul>
                     </Box>
                     <Col md={9}>
@@ -95,11 +120,13 @@ const Documentation = () => {
                                 <Route path={`/${documentationPrefix}/badges`} component={ Badges }/>
                                 <Route path={`/${documentationPrefix}/buttons`} component={ Buttons }/>
                                 <Route path={`/${documentationPrefix}/breadcrumbs`} component={ Breadcrumbs }/>
+                                <Route path={`/${documentationPrefix}/carousel`} component={ Carousels }/>
+                                <Route path={`/${documentationPrefix}/charts`} component={ Charts }/>
+                                <Route path={`/${documentationPrefix}/avatar`} component={ Avatar }/>
+                                <Route path={`/${documentationPrefix}/collapse`} component={ Collapses }/>
 
                                 {/* not found page */}
-                                <Route path="/">
-                                    
-                                </Route>
+                                <Route path={`/${documentationPrefix}/`} component={ Header }/>
                             </Switch>
                         </div>
                     </Col>

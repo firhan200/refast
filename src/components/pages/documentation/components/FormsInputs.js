@@ -103,7 +103,7 @@ const FormsInputs = () => {
                     </Form>
                 )}
                 code={(
-`import React from 'react';
+`import React, { useState } from 'react';
 import { Form, FormGroup, Input, Checkbox, Textarea, Select } from './styles';
 
 const Forms = () => {
@@ -365,7 +365,7 @@ export default Forms;
                     </Form>
                 )}
                 code={(
-`import React from 'react';
+`import React, { useState } from 'react';
 import { Form, FormGroup, Input, Textarea, Select } from './styles';
 
 const Forms = () => {

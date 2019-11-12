@@ -15,8 +15,10 @@ const Collapse = (props) => {
     const {getCollapseProps} = useCollapse({ isOpen });
 
     return(
-        <div {...getCollapseProps()} className={'custom-collapse ' + customClassName}>
-            { props.children }
+        <div {...getCollapseProps()}>
+            <div style={ props.style } className={'custom-collapse ' + customClassName}>
+                { props.children }
+            </div>
         </div>
     );
 }
@@ -24,6 +26,7 @@ const Collapse = (props) => {
 //prop types initialize
 Collapse.propTypes = {
     className : PropTypes.string,
+    style : PropTypes.object,
     isOpen : PropTypes.bool,
 }
 
