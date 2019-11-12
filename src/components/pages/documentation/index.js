@@ -118,7 +118,7 @@ const Documentation = () => {
             <br/>
             <Container>
                 <Row>
-                    <Col md={12} lg={3} >
+                    <Col md={12} lg={3} style={{ marginBottom: '20px' }}>
                         <Accordion items={ menus }/>
                     </Col>
                     <Col md={12} lg={9}>
