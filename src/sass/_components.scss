@@ -710,18 +710,30 @@
             padding:10px;
             background-color: darken($white, 1%);
 
-            .btn-link{
-                font-size:$default-font-size;
-                color :$black;
+            .accordion-button{
+                float: left;
+                .btn-link{
+                    font-size:$default-font-size;
+                    color :$black;
+    
+                    &:hover, &:focus{
+                        text-decoration: none;
+                    }
+                }
             }
             
             .accordion-icon{
                 text-align:right;
                 font-size:$small-font-size;
                 font-weight: lighter;
-                margin-top:10px;
                 margin-right: 10px;
+                margin-top: 10px;
+                float: right;
             }
+        }
+
+        .card-body{
+            padding:10px;
         }
     }
 }

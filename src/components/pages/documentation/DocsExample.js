@@ -21,7 +21,7 @@ const DocsExample = (props) => {
                 {/* render code */}
                 { typeof props.code !== 'undefined' ? (
                     <div className="code">
-                        <SyntaxHighlighter showLineNumbers={true} language="jsx" style={myStyle}>
+                        <SyntaxHighlighter showLineNumbers={( typeof props.showLine !== 'undefined' ? props.showLine : true )} language="jsx" style={myStyle}>
                             { props.code }
                         </SyntaxHighlighter>
                     </div>

@@ -46,24 +46,15 @@ const Accordion = (props) => {
             { items.map((item, index) => (
                 <div className="card" key={index}>
                     <div className="card-header" onClick={handleHeaderClick.bind(this, index)} id={id+"_heading_"+index} data-toggle="collapse" data-target={"#"+id+"_collapse_"+index} aria-expanded="true" aria-controls={id+"_collapse_"+index}>
-                        <h2 className="mb-0">
-                            <div className="container-fluid">
-                                <div className="row">
-                                    <div className="col-11">
-                                        <div className="accordion-button">
-                                            <button className={"btn btn-link" + (index!==0 ? ' collapsed' : '')} type="button">
-                                            { item.key }
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div className="col-1">
-                                        <div className="accordion-icon">
-                                            <i className={"fa fa-chevron-" + (item.isOpen ? 'down' : 'right')}></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </h2>
+                        <div className="accordion-button">
+                            <button className={"btn btn-link" + (index!==0 ? ' collapsed' : '')} type="button">
+                            { item.key }
+                            </button>
+                        </div>
+                
+                        <div className="accordion-icon">
+                            <i className={"fa fa-chevron-" + (item.isOpen ? 'down' : 'right')}></i>
+                        </div>
                     </div>
                     <div id={id+"_collapse_"+index} className={"collapse" + (index===0 ? ' show' : '')} aria-labelledby={"#"+id+"_heading_"+index} data-parent={"#"+id}>
                         <div className="card-body">

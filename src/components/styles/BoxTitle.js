@@ -10,8 +10,11 @@ const BoxTitle = (props) => {
     //get icon
     const icon = typeof props.icon !== 'undefined' ? props.icon : '';
 
+    //get custom class
+    const customClassName = typeof props.className !== 'undefined' ? props.className : '';
+
     return(
-        <div style={props.style} className={align + " box-title-container"}>
+        <div style={props.style} className={align + " box-title-container " + customClassName}>
             <div className="box-title">
                 { icon !== '' ? (
                     <i className={props.icon}></i>
@@ -27,6 +30,7 @@ const BoxTitle = (props) => {
 
 //prop types initialize
 BoxTitle.propTypes = {
+    className : PropTypes.string,
     style : PropTypes.object,
     label: PropTypes.string,
     subLabel: PropTypes.string,

@@ -221,6 +221,10 @@ body{
     margin-top:-20px;
 }
 
+.clickable{
+    cursor: pointer;
+}
+
 /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */
@@ -652,6 +656,7 @@ body{
 .documentation-navigations{
     list-style: none;
     padding: 0px;
+    margin-bottom: 0px;
 
     li{
         a{
