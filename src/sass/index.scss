@@ -6,6 +6,9 @@
 @import './_mobile.scss';
 @import './_menu.scss';
 
+//react big calendar styling
+@import 'react-big-calendar/lib/sass/styles';
+
 //theming bootstrap color
 $theme-colors: (
   primary: $primary,

@@ -60,6 +60,9 @@ const HorizontalMenubar = () => {
                     <MenuLink>
                         <Link to="/app/todo">Todo</Link>
                     </MenuLink>
+                    <MenuLink>
+                        <Link to="/app/calendar">Calendar</Link>
+                    </MenuLink>
                 </Menu>
                 <Menu isSubmenu={true} label="Components">
                     <Menu isSubmenu={true} label="User Interface">

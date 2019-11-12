@@ -43,6 +43,7 @@ import PricingPage from './components/pages/PricingPage';
 
 /* Apps */
 import Todo from './components/apps/Todo';
+import Calendar from './components/apps/Calendar';
 /* Apps */
 
 /* pages components */
@@ -134,8 +135,9 @@ const App = (props) => {
                     <PrivateRoute path="/page/login" component={LoginPage} />
                     <PrivateRoute path="/page/signup" component={SignupPage} />
 
-                    {/* Pages Sample */}
+                    {/* App Sample */}
                     <PrivateRoute path='/app/todo' component={Todo}/>
+                    <PrivateRoute path='/app/calendar' component={Calendar}/>
 
                     {/* Components */}
                     <PrivateRoute path="/components/header" component={HeaderPage} />
