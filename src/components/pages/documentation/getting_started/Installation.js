@@ -75,6 +75,7 @@ Copied local address to clipboard!`}
         reducers/ /* all reducers */
         store.js /* redux create store */
     sass/
+        _calendar.scss /* big calendar and datetime picker styles */
         _colors.scss /* all colors in 1 file make it easy to change */
         _components.scss /* all styles use in components */
         _desktop.scss /* desktop resolution styles */
