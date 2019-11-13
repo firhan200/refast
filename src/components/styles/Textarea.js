@@ -33,7 +33,7 @@ const Textarea = (props) => {
     const isRequired = typeof props.required !== 'undefined' ? props.required : false;
 
     //get is valid
-    const isValid = typeof props.isValid !== 'undefined' ? (props.isValid ? 'valid ' : 'invalid ') : ' ';
+    const isValid = typeof props.isValid !== 'undefined' ? (props.isValid == null ? '' : (props.isValid ? 'valid ' : 'invalid ')) : ' ';
 
     //get message
     let message = typeof props.message !== 'undefined' ? props.message : '';

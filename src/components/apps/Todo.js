@@ -19,6 +19,7 @@ import {
     Alert,
     Col,
     Checkbox,
+    Modal,
     H4} from './../styles';
 import { toast } from 'react-toastify';
 
@@ -96,6 +97,7 @@ const Todo = () => {
     const [description, setDescription] = useState('');
     const [pinned, setPinned] = useState(false);
     const [editedTodo, setEditedTodo] = useState(null);
+    const [showTodoModal, setShowTodoModal] = useState(false);
     //list todo
     const [todos, setTodos] = useState(defaultTodos);
     //list error
@@ -145,7 +147,7 @@ const Todo = () => {
             resetForm();
 
             //dismiss modal
-            document.getElementById('dismissAddTodoModal').click();
+            setShowTodoModal(false);
 
             //show toast
             toast("Todo successfully saved.")
@@ -217,6 +219,9 @@ const Todo = () => {
 
         //set edited todo
         setEditedTodo(currentTodo);
+
+        //show modal
+        setShowTodoModal(true);
     }
 
     //delete todo
@@ -274,7 +279,7 @@ const Todo = () => {
             <Container>
                 <Row>
                     <Box sm={12} md={4} lg={3}>
-                        <Button label="CREATE" isFull={true} data-toggle="modal" data-target="#addTodoModal"/>
+                        <Button label="CREATE" isFull={true} handleClick={ () => setShowTodoModal(true) }/>
                         <hr/>
                         <BoxTitle icon="fa fa-tags" label="Labels"/>
                         <ul className="todo-labels">
@@ -308,46 +313,42 @@ const Todo = () => {
             </Container>
 
             {/* Add Todo Modal */}
-            <div className="modal fade" id="addTodoModal" tabIndex="-1" role="dialog" aria-labelledby="addTodoModal" aria-hidden="true">
-                <div className="modal-dialog" role="document">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="addTodoModal">Todo</h5>
-                            <button type="button" onClick={ resetForm } id="dismissAddTodoModal" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div className="modal-body">
-                            { showErrors() }
-                            <Form handleSubmit={ saveTodo }>
-                                <FormGroup>
-                                    <Input 
-                                        value={title}
-                                        handleChange={(e) => setTitle(e.target.value)}
-                                        placeholder="Title" 
-                                        maxLength={40}/>
-                                </FormGroup>
-                                <FormGroup>
-                                    <Textarea 
-                                        value={description} 
-                                        handleChange={(e) => setDescription(e.target.value)}
-                                        placeholder="Description" 
-                                        maxLength={250}/>
-                                </FormGroup>
-                                <FormGroup>
-                                    <Checkbox
-                                        isChecked={ pinned }
-                                        handleChange={() => setPinned(!pinned)}
-                                        label="Pinned"/>
-                                </FormGroup>
-            
-                                <Button type="submit" className="m-r-10" label="Submit"/>
-                                <Button handleClick={ resetForm } type="button" color="danger" data-dismiss="modal" label="Close"/>
-                            </Form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Modal 
+                title="Todo" 
+                handleButtonCloseClick={() => {
+                    resetForm();
+                    setShowTodoModal(false);
+                }}
+                isShow={showTodoModal}>
+                
+                { showErrors() }
+                <Form handleSubmit={ saveTodo }>
+                    <FormGroup>
+                        <Input 
+                            value={title}
+                            handleChange={(e) => setTitle(e.target.value)}
+                            placeholder="Title" 
+                            maxLength={40}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Textarea 
+                            value={description} 
+                            handleChange={(e) => setDescription(e.target.value)}
+                            placeholder="Description" 
+                            maxLength={250}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Checkbox
+                            isChecked={ pinned }
+                            handleChange={() => setPinned(!pinned)}
+                            label="Pinned"/>
+                    </FormGroup>
+
+                    <Button type="submit" className="m-r-10" label="Submit"/>
+                    <Button handleClick={ resetForm } type="button" color="danger" data-dismiss="modal" label="Close"/>
+                </Form>
+
+            </Modal>
             {/* Add Todo Modal */}
         </div>
     )

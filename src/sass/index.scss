@@ -9,6 +9,8 @@
 //react big calendar styling
 @import 'react-big-calendar/lib/sass/styles';
 
+@import './_calendar.scss';
+
 //theming bootstrap color
 $theme-colors: (
   primary: $primary,
@@ -653,6 +655,7 @@ body{
         }
     }
 }
+
 /*======================= Page ============================ */
 
 /*===================== Documentation ======================*/

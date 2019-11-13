@@ -768,6 +768,11 @@
 .custom-modal{
     .modal-header{
         border-bottom: 0px;
+        padding-bottom:0px;
+    }
+
+    .modal-body{
+        padding-top:5px;
     }
 }
 

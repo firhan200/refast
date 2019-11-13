@@ -1,0 +1,349 @@
+//datetime
+
+/*===================== Big Calendar ===============================*/
+.event-detail{
+    .event-title{
+        font-size:$default-font-size + 1;
+    }
+    .event-description{
+        margin-top:10px;
+        background-color:$gray;
+        padding:10px;
+        font-size:$default-font-size;
+    }
+
+    .event-date{
+        margin-top:10px;
+        font-size:$default-font-size;
+        margin-bottom: 10px;
+    }
+}
+
+.rbc-calendar{
+    .rbc-btn-group{
+        .rbc-active{
+            background-color: darken($default-color,30%);
+        }
+        button{
+            background-color: $default-color;
+            color:$gray;
+            box-shadow: none;
+            border-color:$white;
+            font-size:$default-font-size;
+            transition: 0.5s;
+
+            &:focus, &:hover{
+                background-color: darken($default-color,30%);
+                color:$white;
+            }
+        }
+    }
+    .rbc-today{
+        background-color: lighten($default-color, 25%);
+    }
+    .rbc-event{
+        background-color: $default-color;
+        font-size:$small-font-size;
+        border-radius: 2px;
+        box-shadow: 1px 2px 4px $dark-gray;
+        margin-left:5px;
+        width:90%;
+    }
+}
+/*===================== Big Calendar ===============================*/
+
+/*===================== datetimepicker ===============================*/
+$color_1: #999999;
+$color_2: #fff;
+$background_color_1: #428bca;
+$background_color_2: #eee;
+$border_top_color_1: rgba(0, 0, 0, 0.2);
+$border_bottom_color_1: #fff;
+
+.rdt {
+    position: relative;
+    
+    .form-control{
+        height: $form-height;
+        font-size: $default-font-size;
+        color:lighten($black, 30%);
+        background-color: $form-bg;
+        border: 1px solid darken($form-bg, 10%);
+        border-radius: 0px;
+
+        &:focus{
+            color:$black;
+        }
+
+        &.invalid{
+            border:1px solid $red;
+        }
+
+        &.valid{
+            border:1px solid $green;
+        }
+    }
+}
+.rdtPicker {
+	display: none;
+	position: absolute;
+	width: 250px;
+	padding: 4px;
+	margin-top: 1px;
+	z-index: 99999 !important;
+	background: #fff;
+	box-shadow: 0 1px 3px rgba(0,0,0,.1);
+	border: 1px solid #f9f9f9;
+	.rdtTimeToggle {
+		text-align: center;
+		&:hover {
+			background: #eeeeee;
+			cursor: pointer;
+		}
+	}
+	table {
+		width: 100%;
+		margin: 0;
+	}
+	td {
+		text-align: center;
+		height: 28px;
+		cursor: pointer;
+		span.rdtOld {
+			color: $color_1;
+		}
+		span.rdtDisabled {
+			background: none;
+			color: $color_1;
+			cursor: not-allowed;
+			&:hover {
+				background: none;
+				color: $color_1;
+				cursor: not-allowed;
+			}
+		}
+	}
+	th {
+		text-align: center;
+		height: 28px;
+		border-bottom: 1px solid #f9f9f9;
+	}
+	td.rdtDay {
+		&:hover {
+			background: #eeeeee;
+			cursor: pointer;
+		}
+	}
+	td.rdtHour {
+		&:hover {
+			background: #eeeeee;
+			cursor: pointer;
+		}
+	}
+	td.rdtMinute {
+		&:hover {
+			background: #eeeeee;
+			cursor: pointer;
+		}
+	}
+	td.rdtSecond {
+		&:hover {
+			background: #eeeeee;
+			cursor: pointer;
+		}
+	}
+	td.rdtOld {
+		color: $color_1;
+	}
+	td.rdtNew {
+		color: $color_1;
+	}
+	td.rdtToday {
+		position: relative;
+		&:before {
+			content: '';
+			display: inline-block;
+			border-left: 7px solid transparent;
+			border-bottom: 7px solid #428bca;
+			border-top-color: $border_top_color_1;
+			position: absolute;
+			bottom: 4px;
+			right: 4px;
+		}
+	}
+	td.rdtActive {
+		background-color: $background_color_1;
+		color: $color_2;
+		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+		&:hover {
+			background-color: $background_color_1;
+			color: $color_2;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+		}
+	}
+	td.rdtActive.rdtToday {
+		&:before {
+			border-bottom-color: $border_bottom_color_1;
+		}
+	}
+	td.rdtDisabled {
+		background: none;
+		color: $color_1;
+		cursor: not-allowed;
+		&:hover {
+			background: none;
+			color: $color_1;
+			cursor: not-allowed;
+		}
+	}
+	.dow {
+		width: 14.2857%;
+		border-bottom: none;
+		cursor: default;
+	}
+	th.rdtSwitch {
+		width: 100px;
+	}
+	th.rdtNext {
+		font-size: 21px;
+		vertical-align: top;
+	}
+	th.rdtPrev {
+		font-size: 21px;
+		vertical-align: top;
+	}
+	th.rdtDisabled {
+		background: none;
+		color: $color_1;
+		cursor: not-allowed;
+		&:hover {
+			background: none;
+			color: $color_1;
+			cursor: not-allowed;
+		}
+	}
+	thead {
+		tr {
+			&:first-child {
+				th {
+					cursor: pointer;
+					&:hover {
+						background: #eeeeee;
+					}
+				}
+			}
+		}
+		button {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	tfoot {
+		border-top: 1px solid #f9f9f9;
+	}
+	button {
+		border: none;
+		background: none;
+		cursor: pointer;
+		&:hover {
+			background-color: $background_color_2;
+		}
+	}
+}
+.rdtOpen {
+	.rdtPicker {
+		display: block;
+	}
+}
+.rdtStatic {
+	.rdtPicker {
+		box-shadow: none;
+		position: static;
+	}
+}
+.rdtPrev {
+	span {
+		display: block;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+}
+.rdtNext {
+	span {
+		display: block;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+}
+td.rdtMonth {
+	height: 50px;
+	width: 25%;
+	cursor: pointer;
+	&:hover {
+		background: #eee;
+	}
+}
+td.rdtYear {
+	height: 50px;
+	width: 25%;
+	cursor: pointer;
+	&:hover {
+		background: #eee;
+	}
+}
+.rdtCounters {
+	display: inline-block;
+	>div {
+		float: left;
+	}
+}
+.rdtCounter {
+	height: 100px;
+	width: 40px;
+	.rdtBtn {
+		height: 40%;
+		line-height: 40px;
+		cursor: pointer;
+		display: block;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		&:hover {
+			background: #eee;
+		}
+	}
+	.rdtCount {
+		height: 20%;
+		font-size: 1.2em;
+	}
+}
+.rdtCounterSeparator {
+	line-height: 100px;
+}
+.rdtMilli {
+	vertical-align: middle;
+	padding-left: 8px;
+	width: 48px;
+	input {
+		width: 100%;
+		font-size: 1.2em;
+		margin-top: 37px;
+	}
+}
+.rdtTime {
+	td {
+		cursor: default;
+	}
+}
+/*===================== datetimepicker ===============================*/
