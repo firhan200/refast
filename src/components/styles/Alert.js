@@ -57,7 +57,7 @@ const Alert = (props) => {
 Alert.propTypes = {
     style : PropTypes.object,
     className: PropTypes.string,
-    message: PropTypes.string,
+    message: PropTypes.any,
     type: PropTypes.oneOf(['primary', 'success', 'danger', 'warning', 'info']),
     icon: PropTypes.bool
 }

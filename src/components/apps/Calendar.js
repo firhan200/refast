@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 //libs
 import { Calendar as MyCalendar, momentLocalizer } from 'react-big-calendar';
@@ -28,7 +28,11 @@ const Calendar = () => {
         }
     ]
 
+    //hooks
+    const [showEventModal, setShowEventModal] = useState(false);
+
     return(
+        
         <div>
             {/* page title */}
             <div className="title">
@@ -53,6 +57,9 @@ const Calendar = () => {
                         events={myEventsList}
                         startAccessor="start"
                         endAccessor="end"
+                        onSelectEvent={(e) => {
+                            setShowEventModal(true);
+                        }}
                         popup={true}
                         style={{height: 600}}
                         />
@@ -60,7 +67,12 @@ const Calendar = () => {
                 </Row>
             </Container>
 
-            <Modal isShow={true}>
+            <Modal 
+                title={(
+                    <span><i className="fa fa-calendar"></i>&nbsp; Event</span>
+                )} 
+                handleButtonCloseClick={() => setShowEventModal(false)}
+                isShow={showEventModal}>
                 Testing Modal
             </Modal>
         </div>
