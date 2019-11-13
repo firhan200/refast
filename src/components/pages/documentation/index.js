@@ -31,6 +31,7 @@ import Collapses from './components/Collapses';
 import Dropdowns from './components/Dropdowns';
 import Tables from './components/Tables';
 import ProgressBars from './components/ProgressBars';
+import Modals from './components/Modals';
 /*pages*/
 
 const Documentation = () => {
@@ -104,6 +105,9 @@ const Documentation = () => {
                     <li>
                         <Link onClick={ linkClick } to={`/${documentationPrefix}/progressbar`}>Progress Bar</Link>
                     </li>
+                    <li>
+                        <Link onClick={ linkClick } to={`/${documentationPrefix}/modals`}>Modals</Link>
+                    </li>
                 </ul>
             )
         }
@@ -145,6 +149,7 @@ const Documentation = () => {
                                 <Route path={`/${documentationPrefix}/dropdowns`} component={ Dropdowns }/>
                                 <Route path={`/${documentationPrefix}/tables`} component={ Tables }/>
                                 <Route path={`/${documentationPrefix}/progressbar`} component={ ProgressBars }/>
+                                <Route path={`/${documentationPrefix}/modals`} component={ Modals }/>
 
                                 {/* not found page */}
                                 <Route path={`/${documentationPrefix}/`} component={ Installation }/>
