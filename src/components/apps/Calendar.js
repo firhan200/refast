@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 //libs
 import { Calendar as MyCalendar, momentLocalizer } from 'react-big-calendar';
@@ -10,8 +10,8 @@ import {
     BreadcrumbItem, 
     Container, 
     Row,
+    Modal,
     Col} from './../styles';
-import { toast } from 'react-toastify';
 
 //localizer
 const localizer = momentLocalizer(moment)
@@ -59,6 +59,10 @@ const Calendar = () => {
                     </Col>
                 </Row>
             </Container>
+
+            <Modal isShow={true}>
+                Testing Modal
+            </Modal>
         </div>
     )
 }

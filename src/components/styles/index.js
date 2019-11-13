@@ -74,6 +74,9 @@ import ChartBar from './ChartBar';
 import Collapse from './Collapse';
 import Accordion from './Accordion';
 
+//modal
+import Modal from './Modal';
+
 //dropdown
 import Dropdown from './Dropdown';
 import DropdownItem from './DropdownItem';
@@ -132,6 +135,7 @@ export {
     ChartBar,
     Collapse,
     Accordion,
+    Modal,
     Dropdown,
     DropdownItem,
     Table,
