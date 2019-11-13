@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 
 //libs
 import { Calendar as MyCalendar, momentLocalizer } from 'react-big-calendar';
-import moment from 'moment';
+import moment, { isMoment } from 'moment';
 import Datetime from 'react-datetime';
 
 /* components */
@@ -112,8 +112,8 @@ const Calendar = () => {
             setEvents([...events, {
                 id : events.length + 1,
                 title : title.value,
-                start: startDate,
-                end: endDate,
+                start: isMoment(startDate) ? startDate._d : startDate,
+                end:  isMoment(endDate) ? endDate._d : endDate,
                 allDay : false,
                 resource : {
                     description: description.value

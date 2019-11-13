@@ -10,7 +10,7 @@ const Adminlayout = (props) => {
         <Fragment>
             {/* Top navigation bar and Menu bar */}
             <Navbar />
-            <Menubar />
+            <Menubar history={ props.history }/>
 
             {/* set container width to all content */}
             <div className="container content">

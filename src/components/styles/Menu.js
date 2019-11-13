@@ -32,8 +32,8 @@ const Menu = (props) => {
         <Fragment>
             { isSubmenu ? (
                 //submenu
-                <li className={customClassName}>
-                    <a href="#!" onClick={(e) => {
+                <li onBlurCapture={() => {setOpenSubmenu(false)}} className={customClassName}>
+                    <a className="clickable" onClick={(e) => {
                         setOpenSubmenu(!openSubmenu)
                     }}>
                         {/* show label */}

@@ -81,7 +81,7 @@ const App = (props) => {
                 ? 
                     // authenticated render using admin layout
                     (
-                        <Adminlayout>
+                        <Adminlayout {...componentProps}>
                             <Component {...componentProps} />
                         </Adminlayout>
                     )

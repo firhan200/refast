@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 //libs
 import { Link } from 'react-router-dom';
 import { Menu, MenuLink } from '../styles';
 
-const HorizontalMenubar = () => {
+const HorizontalMenubar = (props) => {
+    //hooks
+    const [rootNavigationOpen, setRootnavigationOpen] = useState(false);
+
+    //listen route changes
+    useEffect(() => {
+        const listen = props.history.listen(() => {
+            setRootnavigationOpen(false);
+        });
+
+        return listen
+    }, [props.history]);
+
     return(
         <nav id="menu">
-            <label htmlFor="tm" id="toggle-menu">Navigation <span className="drop-icon"><i className="fa fa-chevron-down"></i></span></label>
-            <input type="checkbox" id="tm" />
+            <label onClick={() => setRootnavigationOpen(!rootNavigationOpen)} htmlFor="tm" id="toggle-menu">Navigation <span className="drop-icon"><i className="fa fa-chevron-down"></i></span></label>
+            <input onChange={(e) => e.preventDefault()} type="checkbox" id="tm" checked={rootNavigationOpen}/>
             <ul className="main-menu clearfix">
                 <Menu isSubmenu={true} label="Dashboard">
                     <MenuLink>
