@@ -62,6 +62,7 @@ import CollapsePage from './components/pages/components/CollapsePage';
 import DropdownsPage from './components/pages/components/DropdownsPage';
 import TablePage from './components/pages/components/TablePage';
 import ProgressBarPage from './components/pages/components/ProgressBarPage';
+import ModalPage from './components/pages/components/ModalPage';
 /* pages components */
 
 /* documentation */
@@ -155,6 +156,7 @@ const App = (props) => {
                     <PrivateRoute path="/components/dropdowns" component={DropdownsPage} />
                     <PrivateRoute path="/components/tables" component={TablePage} />
                     <PrivateRoute path="/components/progressbar" component={ProgressBarPage} />
+                    <PrivateRoute path="/components/modal" component={ModalPage} />
 
                     {/* Documentation */}
                     <PrivateRoute path="/documentation" component={Documentation} />
