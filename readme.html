@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <title>REFAST - Readme</title>
+    </head>
+    <style>
+        body{
+            padding-top:50px;
+            font-family: Arial, Helvetica, sans-serif;
+            width:600px;
+            margin:0 auto;
+            margin-bottom:100px;
+        }
+        pre{
+            background-color:#1c1c1c;
+            color:#fff;
+            padding:20px;
+        }
+        h1{
+            font-size:20pt;
+        }
+        .important{
+            margin-top:5px;
+            padding: 10px;
+            font-size: 10pt;
+            color: #737527;
+            background-color: #f9fad8;
+            border:1px solid #e9ebc9;
+        }
+        .comment{
+            color:#7b7474;
+        }
+    </style>
+    <body>
+        <h1>
+            Environment Setup
+        </h1>
+        <p align="justify">
+            <b>REFAST</b> is using 16.10.2 of react version, using full hooks and functional components and Redux, 
+            it requires <b>NodeJS</b> and <b>NPM (Node Package Manager)</b> to start developing.
+            <ul>
+                <li>
+                    NodeJS - install node js from its official website here <a href="https://nodejs.org/en/" target="_blank">https://nodejs.org/en/</a>.
+                </li>
+                <li>
+                    NPM - npm will automaticly installed with NodeJS.
+                </li>
+            </ul>
+        </p>
+        <p>
+            after installation finish you can check version of NodeJS by typing in your terminal or cmd
+        </p>
+        <pre>node -v</pre>
+        result:
+        <pre>v12.13.0</pre>
+        <p>and check NPM version by typing</p>
+        <pre>npm -v</pre>
+        result:
+        <pre>v6.12.0</pre>
+
+        <h1>Run Demo</h1>
+        <p>to run demo simply install serve and run serve on your machine:</p>
+        <pre>npm install -g serve
+serve -s build</pre>
+        <p>it will show information of your server running host and port:</p>
+        <pre>Serving!
+
+- Local:            http://localhost:5000
+- On Your Network:  http://192.168.1.15:5000
+
+Copied local address to clipboard!</pre>
+        <p>then you can run demo by simply run http://localhost:5000 in your browser.</p>
+
+        <h1>Folder Structures</h1>
+        <p>below is template folder structure that will make you easy to find components or files.</p>
+        <div class="important">
+            All main components (ProgressBar, Box, Charts, etc) in <b>src/components/styles</b>.
+        </li>
+        <pre>src/
+    components/
+        /apps <span class="comment">/* example applications */</span>
+        /layout <span class="comment">/* Navbar, Menubar, Notification & Message Panel here */</span>
+        /pages <span class="comment">/* Authorization, Misc, Error pages, Docs and etc. */</span>
+        /styles <span class="comment">/* this folder contains all main components template style */</span>
+    helpers/
+        <span class="comment">/* all helpers file */</span>
+    redux/
+        actions/ <span class="comment">/* all redux actions */</span>
+        reducers/ <span class="comment">/* all reducers */</span>
+        store.js <span class="comment">/* redux create store */</span>
+    sass/
+        _calendar.scss <span class="comment">/* big calendar and datetime picker styles */</span>
+        _colors.scss <span class="comment">/* all colors in 1 file make it easy to change */</span>
+        _components.scss <span class="comment">/* all styles use in components */</span>
+        _desktop.scss <span class="comment">/* desktop resolution styles */</span>
+        _menu.scss <span class="comment">/* menu styles */</span>
+        _mobile.scss <span class="comment">/* mobile resolution styles */</span>
+        _tablet.scss <span class="comment">/* tablet resolution styles */</span>
+        _variables.scss <span class="comment">/* global variables */</span>
+        index.scss <span class="comment">/* put all scss together */</pre>
+        
+        <h1>Documentation</h1>
+        you can read components docs here <a href="https://refast.netlify.com/documentation" target="_blank">https://refast.netlify.com/documentation</a>.
+        <div class="important">
+            You must login first (empty email and password accepted) only for demo purpose.
+        </li>
+    </body>
+</html>
