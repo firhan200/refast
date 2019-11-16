@@ -125,6 +125,9 @@ const HorizontalMenubar = (props) => {
                         <MenuLink>
                             <Link to="/components/progressbar">Progress Bar</Link>
                         </MenuLink>
+                        <MenuLink>
+                            <Link to="/components/modal">Modal</Link>
+                        </MenuLink>
                     </Menu>
                 </Menu>
                 <Menu>
